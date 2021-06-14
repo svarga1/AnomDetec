@@ -9,7 +9,7 @@ from tensorflow.keras import layers
 from matplotlib import pyplot as plt
 
 #Load data
-url='https://raw.githubusercontent.com/numenta/NAB/master/data'
+url='https://raw.githubusercontent.com/numenta/NAB/master/data/'
 df_small_noise_url=url+'artificialNoAnomaly/art_daily_small_noise.csv'
 df_small_noise=pd.read_csv(df_small_noise_url, parse_dates=True, index_col='timestamp') #Normal data
 df_daily_jumpsup_url=url+'artificialWithAnomaly/art_daily_jumpsup.csv'
@@ -30,6 +30,9 @@ training_std=df_small_noise.std()
 df_training_value=(df_small_noise-training_mean)/training_std
 
 #Create sequences
+
+TIME_STEPS=288
+
 def create_sequences(values, time_steps=TIME_STEPS):
   output=[]
   for i in range(len(values)-time_steps+1):
@@ -44,8 +47,8 @@ model=keras.Sequential(
     layers.Conv1D(
       filters=32, kernel_size=7, padding='same', strides=2, activation='relu'),
     layers.Dropout(rate=0.2),
-    layers.Conv1d(filters=16, kernel_size=7, padding ='same', strides=2, activation='relu'),
-    layers.Convid1DTranspose(
+    layers.Conv1D(filters=16, kernel_size=7, padding ='same', strides=2, activation='relu'),
+    layers.Conv1DTranspose(
       filters=16, kernel_size=7, padding='same', strides=2, activation='relu'),
     layers.Dropout(rate=0.2),
     layers.Conv1DTranspose(
@@ -87,7 +90,7 @@ plt.savefig('test')
 #Test data
 df_test_value=(df_daily_jumpsup-training_mean) / training_std
 fig, ax = plt.subplots()
-df_test_vallue.plot(legend=False, ax=ax)
+df_test_value.plot(legend=False, ax=ax)
 plt.savefig('testdata')
 
 #create sequence from test values.
@@ -95,7 +98,7 @@ x_test = create_sequences(df_test_value.values)
 
 #Get test MAE loss
 x_test_pred=model.predict(x_test)
-test_mae_loss=np.mmean(np.abs(x_test_pred-x_test),axis=1)
+test_mae_loss=np.mean(np.abs(x_test_pred-x_test),axis=1)
 test_mae_loss=test_mae_loss.reshape((-1))
 
 plt.hist(test_mae_loss, bins=50)

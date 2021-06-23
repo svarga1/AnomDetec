@@ -12,14 +12,14 @@ import matplotlib
 
 matplotlib.use('agg')
 #Sufffix
-suff='onewave'
+suff=''
 
 
 
 #Load custom data- make this a function later
 training=np.array([])
 firstIt=True
-for filepath in Path('toyData').glob('train/*.csv'):
+for filepath in Path('toyData').glob('train2/*.csv'):
   if firstIt:
      data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
      data=data[data[:,0].argsort()]
@@ -38,10 +38,10 @@ print(training.shape)
 
 #Prepare training data
 #Normalize and save the mean and std for normalizing test data
-training_mean=training[0,:,1].mean()
-training_std=training[0,:,1].std()
-training[0,:,1]=(training[0,:,1]-training_mean)/(training_std)
-x_train=training[0,:,1]
+training_mean=training[:,:,1].mean()
+training_std=training[:,:,1].std()
+training[:,:,1]=(training[:,:,1]-training_mean)/(training_std)
+x_train=training[:,:,1]
 
 #Create sequences
 
@@ -66,9 +66,10 @@ def create_sequences(values, time_steps=TIME_STEPS):
 
 
 print(x_train.shape)
+x_train=np.reshape(x_train, [40,100,1])
 #exit()
 
-x_train=x_train.reshape([1,100,1])
+#x_train=x_train[:,:,1]
 
 #build a model
 #x_train=training 		#Change sigmoid to relu
@@ -93,12 +94,12 @@ model.summary()
 
 #Train the model
 history=model.fit(
-  x_train, x_train, epochs=100, batch_size=128, validation_split=0, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')],)
+  x_train, x_train, epochs=100, batch_size=128, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')],)
 
 #Plot training and validation loss
 fig=plt.figure()
 plt.plot(history.history['loss'], label='Training loss')
-#plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
 plt.legend()
 plt.savefig('loss{}'.format(suff))
 plt.close()
@@ -120,21 +121,55 @@ x_train_pred=model.predict(x_train)
 
 
 
-#print(x_train[0].shape)
-#print(x_train_pred[0].shape)
+print(x_train[0].shape)
+print(x_train_pred[0].shape)
 
 
 #Compare reconstruction
 fig=plt.figure()
-plt.plot(x_train[0,:])
-plt.plot(x_train_pred[0,:], color='r')
+plt.plot(x_train[0,:,0] ) #Put x-train to plot normalized data, training to plot original data
+plt.plot(x_train_pred[0,:,0], color='r')
 plt.savefig('reconstruction{}'.format(suff))
 
 #Test data
-#df_test_value=(df_daily_jumpsup-training_mean) / training_std
-#fig, ax = plt.subplots()
-#df_test_value.plot(legend=False, ax=ax)
-#plt.savefig('testdata{}'.format(suff))
+
+test=np.array([])
+firstIt=True
+for filepath in Path('toyData').glob('test/*.csv'):
+  if firstIt:
+     data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
+     data=data[data[:,0].argsort()]
+     test=np.reshape(data, [1,100,2]) #Not a good fix, won't work for  data where i don't know the size
+     firstIt=False
+  else:
+    data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
+    data=data[data[:,0].argsort()]
+    test=np.insert(test, -1, data, axis=0)
+
+
+print(test.shape)
+
+#Process test data
+
+test[:,:,1]=(test[:,:,1]-training_mean)/(training_std)
+x_test=test[:,:,1]
+x_test=np.reshape(x_test, [6,100,1])
+
+
+#Predictions
+x_test_pred=model.predict(x_test)
+
+#Plot predictions
+i=0
+while i<6:
+	fig=plt.figure()
+	plt.plot(x_test[i,:,0])
+	plt.plot(x_test_pred[i,:,0], color='r')
+	plt.savefig('test{}'.format(i))
+	plt.close()
+	i+=1
+
+
 
 #create sequence from test values.
 #x_test = create_sequences(df_test_value.values)

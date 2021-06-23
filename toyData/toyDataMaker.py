@@ -13,7 +13,7 @@ while i<40:
 	while s<100:
 		x=np.append(x,random.uniform(0,4*np.pi))
 		s+=1
-	y=random.uniform(1,4)*np.sin(x)
+	y=np.sin(x)
 	np.savetxt('toyData{}.csv'.format(i),np.transpose([x,y]), delimiter=',')
 	if i==0 or i%5==0:
 		fig=plt.figure()

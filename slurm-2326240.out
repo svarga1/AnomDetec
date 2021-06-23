@@ -1,0 +1,70 @@
+2021-06-23 11:53:52.947997: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-23 11:53:52.948028: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-06-23 11:53:52.948020: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-23 11:53:52.948099: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-06-23 11:54:35.320481: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-23 11:54:35.320527: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-23 11:54:35.320555: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-13-05.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-06-23 11:54:35.320828: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-23 11:54:35.320874: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-23 11:54:35.320907: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-13-05.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-06-23 11:54:35.320972: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-06-23 11:54:35.321321: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+(40, 100, 2)
+(100,)
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecCustom/AnomDetec.py", line 73, in <module>
+(40, 100, 2)
+(100,)
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecCustom/AnomDetec.py", line 73, in <module>
+    model=keras.Sequential(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 522, in _method_wrapper
+    model=keras.Sequential(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 522, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/sequential.py", line 141, in __init__
+    result = method(self, *args, **kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/sequential.py", line 141, in __init__
+    self.add(layer)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 522, in _method_wrapper
+    self.add(layer)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 522, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/sequential.py", line 228, in add
+    result = method(self, *args, **kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/sequential.py", line 228, in add
+    output_tensor = layer(self.outputs[0])
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 969, in __call__
+    output_tensor = layer(self.outputs[0])
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 969, in __call__
+    return self._functional_construction_call(inputs, args, kwargs,
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 1107, in _functional_construction_call
+    return self._functional_construction_call(inputs, args, kwargs,
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 1107, in _functional_construction_call
+    outputs = self._keras_tensor_symbolic_call(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 840, in _keras_tensor_symbolic_call
+    outputs = self._keras_tensor_symbolic_call(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 840, in _keras_tensor_symbolic_call
+    return self._infer_output_signature(inputs, args, kwargs, input_masks)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 878, in _infer_output_signature
+    return self._infer_output_signature(inputs, args, kwargs, input_masks)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 878, in _infer_output_signature
+    self._maybe_build(inputs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 2599, in _maybe_build
+    self._maybe_build(inputs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/base_layer.py", line 2599, in _maybe_build
+    input_spec.assert_input_compatibility(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/input_spec.py", line 230, in assert_input_compatibility
+    input_spec.assert_input_compatibility(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/input_spec.py", line 230, in assert_input_compatibility
+    raise ValueError('Input ' + str(input_index) + ' of layer ' +
+ValueError: Input 0 of layer conv1d is incompatible with the layer: : expected min_ndim=3, found ndim=2. Full shape received: (None, 100)
+    raise ValueError('Input ' + str(input_index) + ' of layer ' +
+ValueError: Input 0 of layer conv1d is incompatible with the layer: : expected min_ndim=3, found ndim=2. Full shape received: (None, 100)
+srun: error: Orion-13-05: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2326240.0

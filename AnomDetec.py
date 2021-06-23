@@ -8,10 +8,12 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from matplotlib import pyplot as plt
 from pathlib import Path
+import matplotlib
 
-
+matplotlib.use('agg')
 #Sufffix
-suff='nonnorm'
+suff='onewave'
+
 
 
 #Load custom data- make this a function later
@@ -20,10 +22,12 @@ firstIt=True
 for filepath in Path('toyData').glob('train/*.csv'):
   if firstIt:
      data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
+     data=data[data[:,0].argsort()]
      training=np.reshape(data, [1,100,2]) #Not a good fix, won't work for  data where i don't know the size
      firstIt=False
   else:
     data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
+    data=data[data[:,0].argsort()]
     training=np.insert(training, -1, data, axis=0)
 
 
@@ -34,51 +38,67 @@ print(training.shape)
 
 #Prepare training data
 #Normalize and save the mean and std for normalizing test data
-#training_mean=df_small_noise.mean()
-#training_std=df_small_noise.std()
-#df_training_value=(df_small_noise-training_mean)/training_std
+training_mean=training[0,:,1].mean()
+training_std=training[0,:,1].std()
+training[0,:,1]=(training[0,:,1]-training_mean)/(training_std)
+x_train=training[0,:,1]
 
 #Create sequences
 
-#TIME_STEPS=288
+TIME_STEPS=50
 
-#def create_sequences(values, time_steps=TIME_STEPS):
-#  output=[]
-#  for i in range(len(values)-time_steps+1):
-#    output.append(values[i:(i+time_steps)])
-#  return np.stack(output)
-#x_train=create_sequences(df_training_value.values)
 
-x_train=training
 
+def create_sequences(values, time_steps=TIME_STEPS):
+  output=[]
+  for i in range(len(values)-time_steps+1):
+    output.append(values[i:(i+time_steps)])
+  return np.stack(output)
+#i=0
+#while i<training.shape[0]:
+#	if i!=0:	
+#		x_train=np.append(x_train, create_sequences(training[i,:,1]))
+#	else:
+#		x_train=[create_sequences(training[i,:,1])]
+#	i+=1
+#
+#x_train=create_sequences(training[0,:,1])     #df_training_value.values)
+
+
+print(x_train.shape)
+#exit()
+
+x_train=x_train.reshape([1,100,1])
 
 #build a model
+#x_train=training 		#Change sigmoid to relu
+
 model=keras.Sequential(
   [
-    layers.Input(shape=(x_train.shape[1],x_train.shape[2])),
+    layers.Input(shape=(100,1)),
     layers.Conv1D(
-      filters=32, kernel_size=7, padding='same', strides=2, activation='relu'),
+      filters=32, kernel_size=7, padding='same', strides=2, activation='sigmoid'),
     layers.Dropout(rate=0.2),
-    layers.Conv1D(filters=16, kernel_size=7, padding ='same', strides=2, activation='relu'), 
+    layers.Conv1D(filters=16, kernel_size=7, padding ='same', strides=2, activation='sigmoid'), 
     layers.Conv1DTranspose( 
-      filters=16, kernel_size=7, padding='same', strides=2, activation='relu'),
+      filters=16, kernel_size=7, padding='same', strides=2, activation='sigmoid'),
     layers.Dropout(rate=0.2),
     layers.Conv1DTranspose( 
-     filters=32, kernel_size=7, padding='same', strides=2, activation ='relu'), 
+     filters=32, kernel_size=7, padding='same', strides=2, activation ='sigmoid'), 
     layers.Conv1DTranspose(filters=1,kernel_size=7,padding='same'),
   ]
 )
-model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.001), loss='mse')
+model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.01), loss='mse') #0.001 and mse
 model.summary()
 
 #Train the model
 history=model.fit(
-  x_train, x_train, epochs=50, batch_size=128, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, mode='min')],)
+  x_train, x_train, epochs=100, batch_size=128, validation_split=0, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')],)
 
 #Plot training and validation loss
 fig=plt.figure()
 plt.plot(history.history['loss'], label='Training loss')
-plt.plot(history.history['val_loss'], label='Validation Loss')
+#plt.plot(history.history['val_loss'], label='Validation Loss')
 plt.legend()
 plt.savefig('loss{}'.format(suff))
 plt.close()
@@ -100,14 +120,14 @@ x_train_pred=model.predict(x_train)
 
 
 
-print(x_train[0].shape)
-print(x_train_pred[0].shape)
+#print(x_train[0].shape)
+#print(x_train_pred[0].shape)
 
 
 #Compare reconstruction
 fig=plt.figure()
-plt.scatter(x_train[0,:,0],x_train[0,:,1])
-plt.scatter(x_train[0,:,0],x_train_pred[0])
+plt.plot(x_train[0,:])
+plt.plot(x_train_pred[0,:])
 plt.savefig('reconstruction{}'.format(suff))
 
 #Test data

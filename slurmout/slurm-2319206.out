@@ -1,0 +1,146 @@
+2021-06-22 12:29:45.677360: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-22 12:29:45.677393: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-06-22 12:29:45.677371: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-22 12:29:45.677473: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-06-22 12:30:29.959893: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-22 12:30:29.959940: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-22 12:30:29.959973: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-01-33.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-06-22 12:30:29.960044: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-22 12:30:29.960093: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-22 12:30:29.960125: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-01-33.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-06-22 12:30:29.960403: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-06-22 12:30:29.960498: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+2021-06-22 12:30:30.850389: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-06-22 12:30:30.850408: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-06-22 12:30:30.936857: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+2021-06-22 12:30:30.936857: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+(40, 100, 2)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv1d (Conv1D)              (None, 50, 32)            480       
+_________________________________________________________________
+dropout (Dropout)            (None, 50, 32)            0         
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 25, 16)            3600      
+_________________________________________________________________
+conv1d_transpose (Conv1DTran (None, 50, 16)            1808      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 50, 16)            0         
+_________________________________________________________________
+conv1d_transpose_1 (Conv1DTr (None, 100, 32)           3616      
+_________________________________________________________________
+conv1d_transpose_2 (Conv1DTr (None, 100, 1)            225       
+=================================================================
+Total params: 9,729
+Trainable params: 9,729
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1/50
+(40, 100, 2)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv1d (Conv1D)              (None, 50, 32)            480       
+_________________________________________________________________
+dropout (Dropout)            (None, 50, 32)            0         
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 25, 16)            3600      
+_________________________________________________________________
+conv1d_transpose (Conv1DTran (None, 50, 16)            1808      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 50, 16)            0         
+_________________________________________________________________
+conv1d_transpose_1 (Conv1DTr (None, 100, 32)           3616      
+_________________________________________________________________
+conv1d_transpose_2 (Conv1DTr (None, 100, 1)            225       
+=================================================================
+Total params: 9,729
+Trainable params: 9,729
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1/50
+1/1 [==============================] - ETA: 0s - loss: 27.17791/1 [==============================] - 4s 4s/step - loss: 27.1779 - val_loss: 25.1389
+1/1 [==============================] - ETA: 0s - loss: 31.46181/1 [==============================] - 4s 4s/step - loss: 31.4618 - val_loss: 27.9537
+Epoch 2/50
+Epoch 2/50
+1/1 [==============================] - ETA: 0s - loss: 26.22851/1 [==============================] - 0s 19ms/step - loss: 26.2285 - val_loss: 24.1700
+1/1 [==============================] - ETA: 0s - loss: 29.80711/1 [==============================] - 0s 21ms/step - loss: 29.8071 - val_loss: 26.8017
+Epoch 3/50
+Epoch 3/50
+1/1 [==============================] - ETA: 0s - loss: 25.13511/1 [==============================] - 0s 17ms/step - loss: 25.1351 - val_loss: 23.0463
+1/1 [==============================] - ETA: 0s - loss: 28.48071/1 [==============================] - 0s 18ms/step - loss: 28.4807 - val_loss: 25.7499
+Epoch 4/50
+Epoch 4/50
+1/1 [==============================] - ETA: 0s - loss: 23.79521/1 [==============================] - 0s 17ms/step - loss: 23.7952 - val_loss: 21.7678
+1/1 [==============================] - ETA: 0s - loss: 27.22371/1 [==============================] - 0s 18ms/step - loss: 27.2237 - val_loss: 24.7789
+Epoch 5/50
+Epoch 5/50
+1/1 [==============================] - ETA: 0s - loss: 22.53721/1 [==============================] - 0s 17ms/step - loss: 22.5372 - val_loss: 20.4082
+1/1 [==============================] - ETA: 0s - loss: 26.18241/1 [==============================] - 0s 18ms/step - loss: 26.1824 - val_loss: 23.7306
+Epoch 6/50
+Epoch 6/50
+1/1 [==============================] - ETA: 0s - loss: 21.04061/1 [==============================] - 0s 17ms/step - loss: 21.0406 - val_loss: 19.0669
+Epoch 7/50
+1/1 [==============================] - ETA: 0s - loss: 25.02611/1 [==============================] - 0s 18ms/step - loss: 25.0261 - val_loss: 22.5836
+Epoch 7/50
+1/1 [==============================] - ETA: 0s - loss: 19.72771/1 [==============================] - 0s 17ms/step - loss: 19.7277 - val_loss: 17.8733
+Epoch 8/50
+1/1 [==============================] - ETA: 0s - loss: 23.86771/1 [==============================] - 0s 18ms/step - loss: 23.8677 - val_loss: 21.3911
+Epoch 8/50
+1/1 [==============================] - ETA: 0s - loss: 18.58291/1 [==============================] - 0s 17ms/step - loss: 18.5829 - val_loss: 17.0511
+Epoch 9/50
+1/1 [==============================] - ETA: 0s - loss: 22.55171/1 [==============================] - 0s 19ms/step - loss: 22.5517 - val_loss: 20.1566
+Epoch 9/50
+1/1 [==============================] - ETA: 0s - loss: 17.91091/1 [==============================] - 0s 17ms/step - loss: 17.9109 - val_loss: 16.8346
+Epoch 10/50
+1/1 [==============================] - ETA: 0s - loss: 21.15831/1 [==============================] - 0s 18ms/step - loss: 21.1583 - val_loss: 18.9062
+1/1 [==============================] - ETA: 0s - loss: 18.28501/1 [==============================] - 0s 17ms/step - loss: 18.2850 - val_loss: 17.0065
+Epoch 10/50
+Epoch 11/50
+1/1 [==============================] - ETA: 0s - loss: 19.86381/1 [==============================] - 0s 18ms/step - loss: 19.8638 - val_loss: 17.7041
+1/1 [==============================] - ETA: 0s - loss: 18.79741/1 [==============================] - 0s 17ms/step - loss: 18.7974 - val_loss: 17.0032
+Epoch 11/50
+Epoch 12/50
+1/1 [==============================] - ETA: 0s - loss: 18.69391/1 [==============================] - 0s 18ms/step - loss: 18.6939 - val_loss: 16.6740
+1/1 [==============================] - ETA: 0s - loss: 18.80641/1 [==============================] - 0s 17ms/step - loss: 18.8064 - val_loss: 16.7228
+Epoch 12/50
+Epoch 13/50
+1/1 [==============================] - ETA: 0s - loss: 17.69251/1 [==============================] - 0s 18ms/step - loss: 17.6925 - val_loss: 16.0058
+1/1 [==============================] - ETA: 0s - loss: 18.43681/1 [==============================] - 0s 17ms/step - loss: 18.4368 - val_loss: 16.3626
+Epoch 13/50
+Epoch 14/50
+1/1 [==============================] - ETA: 0s - loss: 17.95751/1 [==============================] - 0s 17ms/step - loss: 17.9575 - val_loss: 16.1029
+1/1 [==============================] - ETA: 0s - loss: 17.12211/1 [==============================] - 0s 18ms/step - loss: 17.1221 - val_loss: 15.9033
+Epoch 15/50
+Epoch 14/50
+1/1 [==============================] - ETA: 0s - loss: 17.36631/1 [==============================] - 0s 17ms/step - loss: 17.3663 - val_loss: 16.0165
+1/1 [==============================] - ETA: 0s - loss: 17.22661/1 [==============================] - 0s 18ms/step - loss: 17.2266 - val_loss: 16.3150
+Epoch 16/50
+Epoch 15/50
+1/1 [==============================] - ETA: 0s - loss: 17.12111/1 [==============================] - 0s 16ms/step - loss: 17.1211 - val_loss: 16.0692
+1/1 [==============================] - ETA: 0s - loss: 18.03821/1 [==============================] - 0s 18ms/step - loss: 18.0382 - val_loss: 16.7035
+Epoch 17/50
+Epoch 16/50
+1/1 [==============================] - ETA: 0s - loss: 17.10391/1 [==============================] - 0s 17ms/step - loss: 17.1039 - val_loss: 16.1879
+1/1 [==============================] - ETA: 0s - loss: 18.52121/1 [==============================] - 0s 18ms/step - loss: 18.5212 - val_loss: 16.6879
+Epoch 18/50
+Epoch 17/50
+1/1 [==============================] - ETA: 0s - loss: 17.09881/1 [==============================] - 0s 16ms/step - loss: 17.0988 - val_loss: 16.3099
+1/1 [==============================] - ETA: 0s - loss: 18.70021/1 [==============================] - 0s 18ms/step - loss: 18.7002 - val_loss: 16.3568
+Epoch 19/50
+Epoch 18/50
+1/1 [==============================] - ETA: 0s - loss: 17.19751/1 [==============================] - 0s 17ms/step - loss: 17.1975 - val_loss: 16.3849
+Epoch 20/50
+1/1 [==============================] - ETA: 0s - loss: 18.02791/1 [==============================] - 0s 18ms/step - loss: 18.0279 - val_loss: 15.9769
+1/1 [==============================] - ETA: 0s - loss: 17.12771/1 [==============================] - 0s 17ms/step - loss: 17.1277 - val_loss: 16.3932
+(100, 2)
+(100, 1)
+(100, 2)
+(100, 1)

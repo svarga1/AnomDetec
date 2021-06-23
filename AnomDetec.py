@@ -127,7 +127,7 @@ x_train_pred=model.predict(x_train)
 #Compare reconstruction
 fig=plt.figure()
 plt.plot(x_train[0,:])
-plt.plot(x_train_pred[0,:])
+plt.plot(x_train_pred[0,:], color='r')
 plt.savefig('reconstruction{}'.format(suff))
 
 #Test data

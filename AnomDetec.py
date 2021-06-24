@@ -132,25 +132,26 @@ plt.plot(x_train_pred[0,:,0], color='r')
 plt.savefig('reconstruction{}'.format(suff))
 
 #Test data
-
 test=np.array([])
 firstIt=True
 for filepath in Path('toyData').glob('test/*.csv'):
-  if firstIt:
-     data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
-     data=data[data[:,0].argsort()]
-     test=np.reshape(data, [1,100,2]) #Not a good fix, won't work for  data where i don't know the size
-     firstIt=False
-  else:
-    data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
-    data=data[data[:,0].argsort()]
-    test=np.insert(test, -1, data, axis=0)
+	if firstIt:
+		data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
+		data=data[data[:,0].argsort()]
+		test=np.reshape(data, [1,100,2]) #Not a good fix, won't work for  data where i don't know the size
+		firstIt=False
+		paths=[filepath]
+	else:
+		data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
+		data=data[data[:,0].argsort()]
+		test=np.insert(test, -1, data, axis=0)
+		paths=np.insert(paths,-1, filepath, axis=0)
 
 
 print(test.shape)
 
 #Process test data
-
+print(test[0,:,1])
 test[:,:,1]=(test[:,:,1]-training_mean)/(training_std)
 x_test=test[:,:,1]
 x_test=np.reshape(x_test, [6,100,1])
@@ -165,9 +166,17 @@ while i<6:
 	fig=plt.figure()
 	plt.plot(x_test[i,:,0])
 	plt.plot(x_test_pred[i,:,0], color='r')
+	plt.title(paths[i])
 	plt.savefig('test{}'.format(i))
 	plt.close()
 	i+=1
+
+
+
+
+
+
+
 
 
 

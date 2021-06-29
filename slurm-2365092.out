@@ -1,0 +1,10 @@
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecEnsem/AnomDetec.py", line 50
+    pres=nc_fid.variables['pfull'][]
+                                   ^
+SyntaxError: invalid syntax
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecEnsem/AnomDetec.py", line 50
+    pres=nc_fid.variables['pfull'][]
+                                   ^
+SyntaxError: invalid syntax
+srun: error: Orion-01-38: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2365092.0

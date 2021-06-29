@@ -1,0 +1,700 @@
+2021-06-25 13:44:51.867207: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/apps/netcdf-4.7.4/lib:/apps/hdf5-1.10.6/contrib/lib:/apps/hdf5-1.10.6/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-25 13:44:51.867242: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-06-25 13:44:51.867214: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/apps/netcdf-4.7.4/lib:/apps/hdf5-1.10.6/contrib/lib:/apps/hdf5-1.10.6/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-25 13:44:51.867276: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-06-25 14:09:27.851865: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/apps/netcdf-4.7.4/lib:/apps/hdf5-1.10.6/contrib/lib:/apps/hdf5-1.10.6/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-25 14:09:27.851909: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/apps/netcdf-4.7.4/lib:/apps/hdf5-1.10.6/contrib/lib:/apps/hdf5-1.10.6/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-25 14:09:27.867812: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-25 14:09:27.867821: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-25 14:09:27.875193: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-01-18.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-06-25 14:09:27.875259: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-01-18.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-06-25 14:09:27.875676: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-06-25 14:09:27.875805: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+2021-06-25 14:09:29.228315: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-06-25 14:09:29.228400: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-06-25 14:09:29.375586: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+2021-06-25 14:09:29.375702: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+(560, 112, 1)
+(560, 112, 1)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv1d (Conv1D)              (None, 56, 64)            512       
+_________________________________________________________________
+dropout (Dropout)            (None, 56, 64)            0         
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 28, 32)            14368     
+_________________________________________________________________
+conv1d_transpose (Conv1DTran (None, 56, 32)            7200      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 56, 32)            0         
+_________________________________________________________________
+conv1d_transpose_1 (Conv1DTr (None, 112, 64)           14400     
+_________________________________________________________________
+conv1d_transpose_2 (Conv1DTr (None, 112, 1)            449       
+=================================================================
+Total params: 36,929
+Trainable params: 36,929
+Non-trainable params: 0
+_________________________________________________________________
+(560, 112, 1)
+Epoch 1/100
+(560, 112, 1)
+(560, 112, 1)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv1d (Conv1D)              (None, 56, 64)            512       
+_________________________________________________________________
+dropout (Dropout)            (None, 56, 64)            0         
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 28, 32)            14368     
+_________________________________________________________________
+conv1d_transpose (Conv1DTran (None, 56, 32)            7200      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 56, 32)            0         
+_________________________________________________________________
+conv1d_transpose_1 (Conv1DTr (None, 112, 64)           14400     
+_________________________________________________________________
+conv1d_transpose_2 (Conv1DTr (None, 112, 1)            449       
+=================================================================
+Total params: 36,929
+Trainable params: 36,929
+Non-trainable params: 0
+_________________________________________________________________
+(560, 112, 1)
+Epoch 1/100
+1/5 [=====>........................] - ETA: 9s - loss: 1.01873/5 [=================>............] - ETA: 0s - loss: 0.74435/5 [==============================] - ETA: 0s - loss: 1.00825/5 [==============================] - 3s 37ms/step - loss: 1.0082
+1/5 [=====>........................] - ETA: 9s - loss: 1.00173/5 [=================>............] - ETA: 0s - loss: 0.82195/5 [==============================] - ETA: 0s - loss: 0.65565/5 [==============================] - 3s 37ms/step - loss: 0.6556
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 2/100
+Epoch 2/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.55523/5 [=================>............] - ETA: 0s - loss: 0.62055/5 [==============================] - 0s 29ms/step - loss: 0.6084
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.48563/5 [=================>............] - ETA: 0s - loss: 0.48325/5 [==============================] - 0s 29ms/step - loss: 0.4639
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 3/100
+Epoch 3/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.49743/5 [=================>............] - ETA: 0s - loss: 0.50895/5 [==============================] - 0s 29ms/step - loss: 0.4801
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.29893/5 [=================>............] - ETA: 0s - loss: 0.18995/5 [==============================] - 0s 29ms/step - loss: 0.1667
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 4/100
+Epoch 4/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.36733/5 [=================>............] - ETA: 0s - loss: 0.25135/5 [==============================] - 0s 28ms/step - loss: 0.2103
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.11313/5 [=================>............] - ETA: 0s - loss: 0.06835/5 [==============================] - 0s 29ms/step - loss: 0.0708
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 5/100
+Epoch 5/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.11313/5 [=================>............] - ETA: 0s - loss: 0.08015/5 [==============================] - 0s 28ms/step - loss: 0.0881
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.08523/5 [=================>............] - ETA: 0s - loss: 0.06795/5 [==============================] - 0s 29ms/step - loss: 0.0549
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 6/100
+Epoch 6/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.10013/5 [=================>............] - ETA: 0s - loss: 0.07935/5 [==============================] - 0s 28ms/step - loss: 0.0655
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.04243/5 [=================>............] - ETA: 0s - loss: 0.04625/5 [==============================] - 0s 28ms/step - loss: 0.0397
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 7/100
+Epoch 7/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.06353/5 [=================>............] - ETA: 0s - loss: 0.04635/5 [==============================] - 0s 28ms/step - loss: 0.0421
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.03283/5 [=================>............] - ETA: 0s - loss: 0.02765/5 [==============================] - 0s 29ms/step - loss: 0.0250
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 8/100
+Epoch 8/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.03363/5 [=================>............] - ETA: 0s - loss: 0.03445/5 [==============================] - 0s 29ms/step - loss: 0.0315
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.01873/5 [=================>............] - ETA: 0s - loss: 0.01975/5 [==============================] - 0s 29ms/step - loss: 0.0194
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 9/100
+Epoch 9/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.02553/5 [=================>............] - ETA: 0s - loss: 0.02625/5 [==============================] - 0s 29ms/step - loss: 0.0253
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.01713/5 [=================>............] - ETA: 0s - loss: 0.01735/5 [==============================] - 0s 28ms/step - loss: 0.0174
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 10/100
+Epoch 10/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.02083/5 [=================>............] - ETA: 0s - loss: 0.02195/5 [==============================] - 0s 29ms/step - loss: 0.0207
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.01523/5 [=================>............] - ETA: 0s - loss: 0.01485/5 [==============================] - 0s 29ms/step - loss: 0.0146
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 11/100
+Epoch 11/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01803/5 [=================>............] - ETA: 0s - loss: 0.01765/5 [==============================] - 0s 28ms/step - loss: 0.0174
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.01333/5 [=================>............] - ETA: 0s - loss: 0.01355/5 [==============================] - 0s 28ms/step - loss: 0.0134
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 12/100
+Epoch 12/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01513/5 [=================>............] - ETA: 0s - loss: 0.01595/5 [==============================] - 0s 28ms/step - loss: 0.0154
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.01263/5 [=================>............] - ETA: 0s - loss: 0.01245/5 [==============================] - 0s 29ms/step - loss: 0.0124
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 13/100
+Epoch 13/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01343/5 [=================>............] - ETA: 0s - loss: 0.01405/5 [==============================] - 0s 28ms/step - loss: 0.0140
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.01183/5 [=================>............] - ETA: 0s - loss: 0.01205/5 [==============================] - 0s 29ms/step - loss: 0.0117
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 14/100
+Epoch 14/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01343/5 [=================>............] - ETA: 0s - loss: 0.01345/5 [==============================] - 0s 28ms/step - loss: 0.0131
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.01183/5 [=================>............] - ETA: 0s - loss: 0.01115/5 [==============================] - 0s 28ms/step - loss: 0.0108
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 15/100
+Epoch 15/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01173/5 [=================>............] - ETA: 0s - loss: 0.01215/5 [==============================] - 0s 28ms/step - loss: 0.0121
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.01003/5 [=================>............] - ETA: 0s - loss: 0.01025/5 [==============================] - 0s 29ms/step - loss: 0.0101
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 16/100
+Epoch 16/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01223/5 [=================>............] - ETA: 0s - loss: 0.01195/5 [==============================] - 0s 29ms/step - loss: 0.0117
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00983/5 [=================>............] - ETA: 0s - loss: 0.00935/5 [==============================] - 0s 29ms/step - loss: 0.0093
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 17/100
+Epoch 17/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01133/5 [=================>............] - ETA: 0s - loss: 0.01095/5 [==============================] - 0s 28ms/step - loss: 0.0109
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00963/5 [=================>............] - ETA: 0s - loss: 0.00925/5 [==============================] - 0s 28ms/step - loss: 0.0090
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 18/100
+Epoch 18/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01013/5 [=================>............] - ETA: 0s - loss: 0.01025/5 [==============================] - 0s 29ms/step - loss: 0.0102
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00863/5 [=================>............] - ETA: 0s - loss: 0.00855/5 [==============================] - 0s 28ms/step - loss: 0.0084
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 19/100
+Epoch 19/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.01033/5 [=================>............] - ETA: 0s - loss: 0.01005/5 [==============================] - 0s 28ms/step - loss: 0.0100
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00803/5 [=================>............] - ETA: 0s - loss: 0.00785/5 [==============================] - 0s 29ms/step - loss: 0.0079
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 20/100
+Epoch 20/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00933/5 [=================>............] - ETA: 0s - loss: 0.00925/5 [==============================] - 0s 28ms/step - loss: 0.0091
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00803/5 [=================>............] - ETA: 0s - loss: 0.00795/5 [==============================] - 0s 28ms/step - loss: 0.0079
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 21/100
+Epoch 21/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00883/5 [=================>............] - ETA: 0s - loss: 0.00895/5 [==============================] - 0s 28ms/step - loss: 0.0088
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00783/5 [=================>............] - ETA: 0s - loss: 0.00815/5 [==============================] - 0s 29ms/step - loss: 0.0080
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 22/100
+Epoch 22/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00923/5 [=================>............] - ETA: 0s - loss: 0.00915/5 [==============================] - 0s 28ms/step - loss: 0.0090
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00703/5 [=================>............] - ETA: 0s - loss: 0.00725/5 [==============================] - 0s 28ms/step - loss: 0.0074
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 23/100
+Epoch 23/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00883/5 [=================>............] - ETA: 0s - loss: 0.00855/5 [==============================] - 0s 28ms/step - loss: 0.0084
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00963/5 [=================>............] - ETA: 0s - loss: 0.00925/5 [==============================] - 0s 30ms/step - loss: 0.0090
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 24/100
+Epoch 24/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00823/5 [=================>............] - ETA: 0s - loss: 0.00815/5 [==============================] - 0s 29ms/step - loss: 0.0079
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00743/5 [=================>............] - ETA: 0s - loss: 0.00905/5 [==============================] - 0s 28ms/step - loss: 0.0086
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 25/100
+Epoch 25/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00773/5 [=================>............] - ETA: 0s - loss: 0.00765/5 [==============================] - 0s 28ms/step - loss: 0.0075
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00993/5 [=================>............] - ETA: 0s - loss: 0.00815/5 [==============================] - 0s 29ms/step - loss: 0.0082
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 26/100
+Epoch 26/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00723/5 [=================>............] - ETA: 0s - loss: 0.00735/5 [==============================] - 0s 28ms/step - loss: 0.0073
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00653/5 [=================>............] - ETA: 0s - loss: 0.00685/5 [==============================] - 0s 29ms/step - loss: 0.0067
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 27/100
+Epoch 27/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00733/5 [=================>............] - ETA: 0s - loss: 0.00735/5 [==============================] - 0s 29ms/step - loss: 0.0072
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00973/5 [=================>............] - ETA: 0s - loss: 0.00855/5 [==============================] - 0s 29ms/step - loss: 0.0087
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 28/100
+Epoch 28/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00713/5 [=================>............] - ETA: 0s - loss: 0.00695/5 [==============================] - 0s 29ms/step - loss: 0.0068
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00693/5 [=================>............] - ETA: 0s - loss: 0.01015/5 [==============================] - 0s 28ms/step - loss: 0.0097
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 29/100
+Epoch 29/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00653/5 [=================>............] - ETA: 0s - loss: 0.00675/5 [==============================] - 0s 29ms/step - loss: 0.0066
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00773/5 [=================>............] - ETA: 0s - loss: 0.00805/5 [==============================] - 0s 28ms/step - loss: 0.0074
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 30/100
+Epoch 30/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00673/5 [=================>............] - ETA: 0s - loss: 0.00645/5 [==============================] - 0s 28ms/step - loss: 0.0063
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00573/5 [=================>............] - ETA: 0s - loss: 0.00625/5 [==============================] - 0s 29ms/step - loss: 0.0059
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 31/100
+Epoch 31/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00613/5 [=================>............] - ETA: 0s - loss: 0.00615/5 [==============================] - 0s 28ms/step - loss: 0.0062
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00553/5 [=================>............] - ETA: 0s - loss: 0.00585/5 [==============================] - 0s 29ms/step - loss: 0.0056
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 32/100
+Epoch 32/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00623/5 [=================>............] - ETA: 0s - loss: 0.00605/5 [==============================] - 0s 29ms/step - loss: 0.0060
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00503/5 [=================>............] - ETA: 0s - loss: 0.00505/5 [==============================] - 0s 28ms/step - loss: 0.0051
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 33/100
+Epoch 33/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00553/5 [=================>............] - ETA: 0s - loss: 0.00565/5 [==============================] - 0s 28ms/step - loss: 0.0055
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00493/5 [=================>............] - ETA: 0s - loss: 0.00485/5 [==============================] - 0s 29ms/step - loss: 0.0049
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 34/100
+Epoch 34/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00553/5 [=================>............] - ETA: 0s - loss: 0.00585/5 [==============================] - 0s 28ms/step - loss: 0.0057
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00463/5 [=================>............] - ETA: 0s - loss: 0.00495/5 [==============================] - 0s 29ms/step - loss: 0.0048
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 35/100
+Epoch 35/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00533/5 [=================>............] - ETA: 0s - loss: 0.00535/5 [==============================] - 0s 28ms/step - loss: 0.0053
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00673/5 [=================>............] - ETA: 0s - loss: 0.00545/5 [==============================] - ETA: 0s - loss: 0.00555/5 [==============================] - 0s 30ms/step - loss: 0.0055
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 36/100
+Epoch 36/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00533/5 [=================>............] - ETA: 0s - loss: 0.00525/5 [==============================] - 0s 29ms/step - loss: 0.0052
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 37/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00583/5 [=================>............] - ETA: 0s - loss: 0.00555/5 [==============================] - 0s 29ms/step - loss: 0.0053
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 37/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00503/5 [=================>............] - ETA: 0s - loss: 0.00495/5 [==============================] - 0s 28ms/step - loss: 0.0049
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 38/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00423/5 [=================>............] - ETA: 0s - loss: 0.00505/5 [==============================] - 0s 29ms/step - loss: 0.0048
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 38/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00493/5 [=================>............] - ETA: 0s - loss: 0.00495/5 [==============================] - 0s 29ms/step - loss: 0.0048
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 39/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00493/5 [=================>............] - ETA: 0s - loss: 0.00455/5 [==============================] - 0s 28ms/step - loss: 0.0044
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 39/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00473/5 [=================>............] - ETA: 0s - loss: 0.00465/5 [==============================] - 0s 29ms/step - loss: 0.0046
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00533/5 [=================>............] - ETA: 0s - loss: 0.00465/5 [==============================] - 0s 28ms/step - loss: 0.0047
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 40/100
+Epoch 40/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00463/5 [=================>............] - ETA: 0s - loss: 0.00455/5 [==============================] - 0s 28ms/step - loss: 0.0045
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 41/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00413/5 [=================>............] - ETA: 0s - loss: 0.00405/5 [==============================] - 0s 29ms/step - loss: 0.0040
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 41/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00443/5 [=================>............] - ETA: 0s - loss: 0.00435/5 [==============================] - 0s 28ms/step - loss: 0.0043
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 42/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00353/5 [=================>............] - ETA: 0s - loss: 0.00375/5 [==============================] - 0s 28ms/step - loss: 0.0037
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 42/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00453/5 [=================>............] - ETA: 0s - loss: 0.00435/5 [==============================] - 0s 28ms/step - loss: 0.0042
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 43/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00393/5 [=================>............] - ETA: 0s - loss: 0.00355/5 [==============================] - 0s 29ms/step - loss: 0.0035
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 43/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00453/5 [=================>............] - ETA: 0s - loss: 0.00425/5 [==============================] - 0s 29ms/step - loss: 0.0042
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 44/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00353/5 [=================>............] - ETA: 0s - loss: 0.00355/5 [==============================] - 0s 28ms/step - loss: 0.0034
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 44/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00403/5 [=================>............] - ETA: 0s - loss: 0.00415/5 [==============================] - ETA: 0s - loss: 0.00405/5 [==============================] - 0s 30ms/step - loss: 0.0040
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00373/5 [=================>............] - ETA: 0s - loss: 0.00355/5 [==============================] - 0s 28ms/step - loss: 0.0035
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 45/100
+Epoch 45/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00403/5 [=================>............] - ETA: 0s - loss: 0.00385/5 [==============================] - 0s 29ms/step - loss: 0.0039
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00313/5 [=================>............] - ETA: 0s - loss: 0.00325/5 [==============================] - 0s 28ms/step - loss: 0.0032
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 46/100
+Epoch 46/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00453/5 [=================>............] - ETA: 0s - loss: 0.00415/5 [==============================] - 0s 28ms/step - loss: 0.0041
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00323/5 [=================>............] - ETA: 0s - loss: 0.00315/5 [==============================] - 0s 28ms/step - loss: 0.0031
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 47/100
+Epoch 47/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00403/5 [=================>............] - ETA: 0s - loss: 0.00395/5 [==============================] - 0s 28ms/step - loss: 0.0039
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00343/5 [=================>............] - ETA: 0s - loss: 0.00365/5 [==============================] - 0s 28ms/step - loss: 0.0036
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 48/100
+Epoch 48/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00373/5 [=================>............] - ETA: 0s - loss: 0.00355/5 [==============================] - 0s 28ms/step - loss: 0.0035
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00293/5 [=================>............] - ETA: 0s - loss: 0.00325/5 [==============================] - 0s 28ms/step - loss: 0.0032
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 49/100
+Epoch 49/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00363/5 [=================>............] - ETA: 0s - loss: 0.00345/5 [==============================] - 0s 29ms/step - loss: 0.0034
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00303/5 [=================>............] - ETA: 0s - loss: 0.00315/5 [==============================] - 0s 29ms/step - loss: 0.0030
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 50/100
+Epoch 50/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00323/5 [=================>............] - ETA: 0s - loss: 0.00325/5 [==============================] - 0s 28ms/step - loss: 0.0032
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00293/5 [=================>............] - ETA: 0s - loss: 0.00335/5 [==============================] - 0s 28ms/step - loss: 0.0032
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 51/100
+Epoch 51/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00343/5 [=================>............] - ETA: 0s - loss: 0.00325/5 [==============================] - 0s 29ms/step - loss: 0.0032
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00313/5 [=================>............] - ETA: 0s - loss: 0.00325/5 [==============================] - 0s 29ms/step - loss: 0.0031
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 52/100
+Epoch 52/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00333/5 [=================>............] - ETA: 0s - loss: 0.00325/5 [==============================] - 0s 29ms/step - loss: 0.0032
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00315/5 [==============================] - 0s 28ms/step - loss: 0.0031
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 53/100
+Epoch 53/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00313/5 [=================>............] - ETA: 0s - loss: 0.00305/5 [==============================] - 0s 28ms/step - loss: 0.0030
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00303/5 [=================>............] - ETA: 0s - loss: 0.00365/5 [==============================] - 0s 29ms/step - loss: 0.0034
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 54/100
+Epoch 54/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00283/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 29ms/step - loss: 0.0029
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00383/5 [=================>............] - ETA: 0s - loss: 0.00475/5 [==============================] - 0s 28ms/step - loss: 0.0042
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 55/100
+Epoch 55/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00303/5 [=================>............] - ETA: 0s - loss: 0.00305/5 [==============================] - 0s 28ms/step - loss: 0.0029
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00413/5 [=================>............] - ETA: 0s - loss: 0.00325/5 [==============================] - 0s 28ms/step - loss: 0.0034
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 56/100
+Epoch 56/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00303/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 28ms/step - loss: 0.0028
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00325/5 [==============================] - 0s 28ms/step - loss: 0.0031
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 57/100
+Epoch 57/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00275/5 [==============================] - 0s 29ms/step - loss: 0.0027
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00305/5 [==============================] - 0s 28ms/step - loss: 0.0029
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 58/100
+Epoch 58/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00283/5 [=================>............] - ETA: 0s - loss: 0.00275/5 [==============================] - 0s 28ms/step - loss: 0.0027
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00313/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 28ms/step - loss: 0.0029
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 59/100
+Epoch 59/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00293/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 29ms/step - loss: 0.0028
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00265/5 [==============================] - 0s 29ms/step - loss: 0.0026
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 60/100
+Epoch 60/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00313/5 [=================>............] - ETA: 0s - loss: 0.00315/5 [==============================] - 0s 29ms/step - loss: 0.0030
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00263/5 [=================>............] - ETA: 0s - loss: 0.00255/5 [==============================] - 0s 28ms/step - loss: 0.0025
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 61/100
+Epoch 61/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00303/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 28ms/step - loss: 0.0028
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00265/5 [==============================] - 0s 28ms/step - loss: 0.0025
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 62/100
+Epoch 62/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 28ms/step - loss: 0.0028
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00253/5 [=================>............] - ETA: 0s - loss: 0.00245/5 [==============================] - 0s 29ms/step - loss: 0.0024
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 63/100
+Epoch 63/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00243/5 [=================>............] - ETA: 0s - loss: 0.00255/5 [==============================] - 0s 29ms/step - loss: 0.0025
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00243/5 [=================>............] - ETA: 0s - loss: 0.00245/5 [==============================] - 0s 28ms/step - loss: 0.0023
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 64/100
+Epoch 64/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00263/5 [=================>............] - ETA: 0s - loss: 0.00255/5 [==============================] - 0s 28ms/step - loss: 0.0025
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00303/5 [=================>............] - ETA: 0s - loss: 0.00305/5 [==============================] - 0s 29ms/step - loss: 0.0029
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 65/100
+Epoch 65/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00253/5 [=================>............] - ETA: 0s - loss: 0.00255/5 [==============================] - 0s 28ms/step - loss: 0.0025
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00283/5 [=================>............] - ETA: 0s - loss: 0.00255/5 [==============================] - 0s 28ms/step - loss: 0.0026
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 66/100
+Epoch 66/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00245/5 [==============================] - 0s 28ms/step - loss: 0.0024
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00223/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 28ms/step - loss: 0.0027
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 67/100
+Epoch 67/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00233/5 [=================>............] - ETA: 0s - loss: 0.00235/5 [==============================] - 0s 28ms/step - loss: 0.0023
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00273/5 [=================>............] - ETA: 0s - loss: 0.00255/5 [==============================] - 0s 28ms/step - loss: 0.0024
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 68/100
+Epoch 68/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00243/5 [=================>............] - ETA: 0s - loss: 0.00245/5 [==============================] - 0s 28ms/step - loss: 0.0023
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00253/5 [=================>............] - ETA: 0s - loss: 0.00235/5 [==============================] - 0s 28ms/step - loss: 0.0023
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 69/100
+Epoch 69/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00223/5 [=================>............] - ETA: 0s - loss: 0.00225/5 [==============================] - 0s 28ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00215/5 [==============================] - 0s 28ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 70/100
+Epoch 70/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00215/5 [==============================] - 0s 29ms/step - loss: 0.0021
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00223/5 [=================>............] - ETA: 0s - loss: 0.00235/5 [==============================] - 0s 28ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 71/100
+Epoch 71/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00225/5 [==============================] - 0s 30ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00253/5 [=================>............] - ETA: 0s - loss: 0.00235/5 [==============================] - 0s 28ms/step - loss: 0.0023
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 72/100
+Epoch 72/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00243/5 [=================>............] - ETA: 0s - loss: 0.00235/5 [==============================] - 0s 28ms/step - loss: 0.0023
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00253/5 [=================>............] - ETA: 0s - loss: 0.00245/5 [==============================] - 0s 29ms/step - loss: 0.0023
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 73/100
+Epoch 73/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00223/5 [=================>............] - ETA: 0s - loss: 0.00215/5 [==============================] - 0s 29ms/step - loss: 0.0021
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00243/5 [=================>............] - ETA: 0s - loss: 0.00235/5 [==============================] - 0s 28ms/step - loss: 0.0026
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 74/100
+Epoch 74/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00215/5 [==============================] - 0s 28ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 28ms/step - loss: 0.0026
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 75/100
+Epoch 75/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00223/5 [=================>............] - ETA: 0s - loss: 0.00225/5 [==============================] - 0s 28ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00343/5 [=================>............] - ETA: 0s - loss: 0.00285/5 [==============================] - 0s 28ms/step - loss: 0.0026
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 76/100
+Epoch 76/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00215/5 [==============================] - 0s 28ms/step - loss: 0.0021
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00293/5 [=================>............] - ETA: 0s - loss: 0.00245/5 [==============================] - 0s 28ms/step - loss: 0.0025
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 77/100
+Epoch 77/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00235/5 [==============================] - 0s 29ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 78/100
+Epoch 78/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00195/5 [==============================] - 0s 28ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00195/5 [==============================] - 0s 29ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 79/100
+Epoch 79/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 29ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 80/100
+Epoch 80/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00243/5 [=================>............] - ETA: 0s - loss: 0.00225/5 [==============================] - 0s 29ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 81/100
+Epoch 81/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00195/5 [==============================] - 0s 28ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00233/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 82/100
+Epoch 82/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00195/5 [==============================] - 0s 28ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 29ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 83/100
+Epoch 83/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00183/5 [=================>............] - ETA: 0s - loss: 0.00185/5 [==============================] - 0s 28ms/step - loss: 0.0018
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00183/5 [=================>............] - ETA: 0s - loss: 0.00215/5 [==============================] - 0s 29ms/step - loss: 0.0021
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 84/100
+Epoch 84/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00185/5 [==============================] - 0s 29ms/step - loss: 0.0018
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00245/5 [==============================] - 0s 28ms/step - loss: 0.0022
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 85/100
+Epoch 85/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00183/5 [=================>............] - ETA: 0s - loss: 0.00185/5 [==============================] - 0s 29ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00223/5 [=================>............] - ETA: 0s - loss: 0.00225/5 [==============================] - 0s 28ms/step - loss: 0.0021
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 86/100
+Epoch 86/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00195/5 [==============================] - 0s 29ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00173/5 [=================>............] - ETA: 0s - loss: 0.00195/5 [==============================] - 0s 29ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 87/100
+Epoch 87/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00173/5 [=================>............] - ETA: 0s - loss: 0.00195/5 [==============================] - 0s 28ms/step - loss: 0.0018
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 88/100
+Epoch 88/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00195/5 [==============================] - 0s 28ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00233/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 89/100
+Epoch 89/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 90/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00173/5 [=================>............] - ETA: 0s - loss: 0.00175/5 [==============================] - 0s 28ms/step - loss: 0.0017
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 90/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 91/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00143/5 [=================>............] - ETA: 0s - loss: 0.00165/5 [==============================] - 0s 28ms/step - loss: 0.0016
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 91/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 92/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00183/5 [=================>............] - ETA: 0s - loss: 0.00185/5 [==============================] - 0s 28ms/step - loss: 0.0018
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 92/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00183/5 [=================>............] - ETA: 0s - loss: 0.00185/5 [==============================] - 0s 28ms/step - loss: 0.0018
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 93/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00183/5 [=================>............] - ETA: 0s - loss: 0.00175/5 [==============================] - 0s 30ms/step - loss: 0.0016
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 93/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00183/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 94/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00173/5 [=================>............] - ETA: 0s - loss: 0.00165/5 [==============================] - 0s 29ms/step - loss: 0.0016
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 94/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 95/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00213/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0019
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 95/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00233/5 [=================>............] - ETA: 0s - loss: 0.00215/5 [==============================] - 0s 28ms/step - loss: 0.0021
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 96/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00233/5 [=================>............] - ETA: 0s - loss: 0.00205/5 [==============================] - 0s 28ms/step - loss: 0.0020
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 96/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00153/5 [=================>............] - ETA: 0s - loss: 0.00165/5 [==============================] - 0s 28ms/step - loss: 0.0017
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 97/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00203/5 [=================>............] - ETA: 0s - loss: 0.00175/5 [==============================] - 0s 29ms/step - loss: 0.0017
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 97/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00153/5 [=================>............] - ETA: 0s - loss: 0.00185/5 [==============================] - 0s 28ms/step - loss: 0.0017
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 98/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00183/5 [=================>............] - ETA: 0s - loss: 0.00165/5 [==============================] - 0s 29ms/step - loss: 0.0015
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 98/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00193/5 [=================>............] - ETA: 0s - loss: 0.00185/5 [==============================] - 0s 29ms/step - loss: 0.0018
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 99/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00143/5 [=================>............] - ETA: 0s - loss: 0.00145/5 [==============================] - 0s 29ms/step - loss: 0.0015
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 99/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00163/5 [=================>............] - ETA: 0s - loss: 0.00175/5 [==============================] - 0s 28ms/step - loss: 0.0017
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 100/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00173/5 [=================>............] - ETA: 0s - loss: 0.00155/5 [==============================] - 0s 28ms/step - loss: 0.0015
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+Epoch 100/100
+1/5 [=====>........................] - ETA: 0s - loss: 0.00163/5 [=================>............] - ETA: 0s - loss: 0.00175/5 [==============================] - 0s 28ms/step - loss: 0.0017
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+1/5 [=====>........................] - ETA: 0s - loss: 0.00153/5 [=================>............] - ETA: 0s - loss: 0.00145/5 [==============================] - 0s 28ms/step - loss: 0.0015
+WARNING:tensorflow:Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss
+(112, 1)
+(112, 1)
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecEnsem/AnomDetec.py", line 177, in <module>
+    plt.plot(x_train[0,:,0], pres[15:] ) #Put x-train to plot normalized data, training to plot original data
+  File "/apps/python-3.9.2/lib/python3.9/site-packages/matplotlib/pyplot.py", line 2840, in plot
+(112, 1)
+(112, 1)
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecEnsem/AnomDetec.py", line 177, in <module>
+    plt.plot(x_train[0,:,0], pres[15:] ) #Put x-train to plot normalized data, training to plot original data
+  File "/apps/python-3.9.2/lib/python3.9/site-packages/matplotlib/pyplot.py", line 2840, in plot
+    return gca().plot(
+  File "/apps/python-3.9.2/lib/python3.9/site-packages/matplotlib/axes/_axes.py", line 1743, in plot
+    return gca().plot(
+  File "/apps/python-3.9.2/lib/python3.9/site-packages/matplotlib/axes/_axes.py", line 1743, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File "/apps/python-3.9.2/lib/python3.9/site-packages/matplotlib/axes/_base.py", line 273, in __call__
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File "/apps/python-3.9.2/lib/python3.9/site-packages/matplotlib/axes/_base.py", line 273, in __call__
+    yield from self._plot_args(this, kwargs)
+  File "/apps/python-3.9.2/lib/python3.9/site-packages/matplotlib/axes/_base.py", line 399, in _plot_args
+    yield from self._plot_args(this, kwargs)
+  File "/apps/python-3.9.2/lib/python3.9/site-packages/matplotlib/axes/_base.py", line 399, in _plot_args
+    raise ValueError(f"x and y must have same first dimension, but "
+ValueError: x and y must have same first dimension, but have shapes (112,) and (97,)
+    raise ValueError(f"x and y must have same first dimension, but "
+ValueError: x and y must have same first dimension, but have shapes (112,) and (97,)
+srun: error: Orion-01-18: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2343642.0

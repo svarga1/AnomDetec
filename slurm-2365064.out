@@ -1,0 +1,368 @@
+2021-06-29 12:58:45.166617: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-29 12:58:45.166712: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-06-29 12:58:45.166619: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-29 12:58:45.166730: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-06-29 13:01:41.010483: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-29 13:01:41.010539: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-29 13:01:41.010582: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-06-29 13:01:41.010578: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-07-60.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-06-29 13:01:41.010622: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-29 13:01:41.010656: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-07-60.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-06-29 13:01:41.011116: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-06-29 13:01:41.011120: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+2021-06-29 13:01:42.393683: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-06-29 13:01:42.394003: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-06-29 13:01:42.455685: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+2021-06-29 13:01:42.455879: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+starting readin
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+(80, 112, 1)
+Normalizing training data
+(80, 112, 1)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv1d (Conv1D)              (None, 56, 64)            512       
+_________________________________________________________________
+dropout (Dropout)            (None, 56, 64)            0         
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 28, 32)            14368     
+_________________________________________________________________
+conv1d_transpose (Conv1DTran (None, 56, 32)            7200      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 56, 32)            0         
+_________________________________________________________________
+conv1d_transpose_1 (Conv1DTr (None, 112, 64)           14400     
+_________________________________________________________________
+conv1d_transpose_2 (Conv1DTr (None, 112, 1)            449       
+_________________________________________________________________
+cropping1d (Cropping1D)      (None, 111, 1)            0         
+=================================================================
+Total params: 36,929
+Trainable params: 36,929
+Non-trainable params: 0
+_________________________________________________________________
+(80, 112, 1)
+Epoch 1/100
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecEnsem/AnomDetec.py", line 146, in <module>
+    history=model.fit(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py", line 1183, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 889, in __call__
+starting readin
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+(80, 112, 1)
+Normalizing training data
+(80, 112, 1)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv1d (Conv1D)              (None, 56, 64)            512       
+_________________________________________________________________
+dropout (Dropout)            (None, 56, 64)            0         
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 28, 32)            14368     
+_________________________________________________________________
+conv1d_transpose (Conv1DTran (None, 56, 32)            7200      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 56, 32)            0         
+_________________________________________________________________
+conv1d_transpose_1 (Conv1DTr (None, 112, 64)           14400     
+_________________________________________________________________
+conv1d_transpose_2 (Conv1DTr (None, 112, 1)            449       
+_________________________________________________________________
+cropping1d (Cropping1D)      (None, 111, 1)            0         
+=================================================================
+Total params: 36,929
+Trainable params: 36,929
+Non-trainable params: 0
+_________________________________________________________________
+(80, 112, 1)
+Epoch 1/100
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecEnsem/AnomDetec.py", line 146, in <module>
+    history=model.fit(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py", line 1183, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 889, in __call__
+    result = self._call(*args, **kwds)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 933, in _call
+    result = self._call(*args, **kwds)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 933, in _call
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 763, in _initialize
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 763, in _initialize
+    self._stateful_fn._get_concrete_function_internal_garbage_collected(  # pylint: disable=protected-access
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3050, in _get_concrete_function_internal_garbage_collected
+    self._stateful_fn._get_concrete_function_internal_garbage_collected(  # pylint: disable=protected-access
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3050, in _get_concrete_function_internal_garbage_collected
+    graph_function, _ = self._maybe_define_function(args, kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3444, in _maybe_define_function
+    graph_function, _ = self._maybe_define_function(args, kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3444, in _maybe_define_function
+    graph_function = self._create_graph_function(args, kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3279, in _create_graph_function
+    graph_function = self._create_graph_function(args, kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3279, in _create_graph_function
+    func_graph_module.func_graph_from_py_func(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 999, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 672, in wrapped_fn
+    func_graph_module.func_graph_from_py_func(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 999, in func_graph_from_py_func
+    out = weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 986, in wrapper
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 672, in wrapped_fn
+    raise e.ag_error_metadata.to_exception(e)
+ValueError: in user code:
+
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:855 train_function  *
+        return step_function(self, iterator)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:845 step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:1285 run
+        return self._extended.call_for_each_replica(fn, args=args, kwargs=kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:2833 call_for_each_replica
+        return self._call_for_each_replica(fn, args, kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:3608 _call_for_each_replica
+        return fn(*args, **kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:838 run_step  **
+        outputs = model.train_step(data)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:796 train_step
+        loss = self.compiled_loss(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/compile_utils.py:204 __call__
+        loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:155 __call__
+        losses = call_fn(y_true, y_pred)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:259 call  **
+        return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/util/dispatch.py:206 wrapper
+        return target(*args, **kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:1215 mean_squared_error
+        return backend.mean(math_ops.squared_difference(y_pred, y_true), axis=-1)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/ops/gen_math_ops.py:10422 squared_difference
+        _, _, _op, _outputs = _op_def_library._apply_op_helper(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/op_def_library.py:748 _apply_op_helper
+        op = g._create_op_internal(op_type_name, inputs, dtypes=None,
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py:599 _create_op_internal
+        return super(FuncGraph, self)._create_op_internal(  # pylint: disable=protected-access
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:3557 _create_op_internal
+        ret = Operation(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:2041 __init__
+        self._c_op = _create_c_op(self._graph, node_def, inputs,
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:1883 _create_c_op
+        raise ValueError(str(e))
+
+    ValueError: Dimensions must be equal, but are 111 and 112 for '{{node mean_squared_error/SquaredDifference}} = SquaredDifference[T=DT_FLOAT](sequential/cropping1d/strided_slice, IteratorGetNext:1)' with input shapes: [?,111,1], [?,112,1].
+
+    out = weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 986, in wrapper
+    raise e.ag_error_metadata.to_exception(e)
+ValueError: in user code:
+
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:855 train_function  *
+        return step_function(self, iterator)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:845 step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:1285 run
+        return self._extended.call_for_each_replica(fn, args=args, kwargs=kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:2833 call_for_each_replica
+        return self._call_for_each_replica(fn, args, kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:3608 _call_for_each_replica
+        return fn(*args, **kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:838 run_step  **
+        outputs = model.train_step(data)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:796 train_step
+        loss = self.compiled_loss(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/compile_utils.py:204 __call__
+        loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:155 __call__
+        losses = call_fn(y_true, y_pred)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:259 call  **
+        return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/util/dispatch.py:206 wrapper
+        return target(*args, **kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:1215 mean_squared_error
+        return backend.mean(math_ops.squared_difference(y_pred, y_true), axis=-1)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/ops/gen_math_ops.py:10422 squared_difference
+        _, _, _op, _outputs = _op_def_library._apply_op_helper(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/op_def_library.py:748 _apply_op_helper
+        op = g._create_op_internal(op_type_name, inputs, dtypes=None,
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py:599 _create_op_internal
+        return super(FuncGraph, self)._create_op_internal(  # pylint: disable=protected-access
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:3557 _create_op_internal
+        ret = Operation(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:2041 __init__
+        self._c_op = _create_c_op(self._graph, node_def, inputs,
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:1883 _create_c_op
+        raise ValueError(str(e))
+
+    ValueError: Dimensions must be equal, but are 111 and 112 for '{{node mean_squared_error/SquaredDifference}} = SquaredDifference[T=DT_FLOAT](sequential/cropping1d/strided_slice, IteratorGetNext:1)' with input shapes: [?,111,1], [?,112,1].
+
+srun: error: Orion-07-60: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2365064.0

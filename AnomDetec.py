@@ -12,37 +12,56 @@ import matplotlib
 import netCDF4
 from netCDF4 import Dataset
 
+
+
 matplotlib.use('agg')
 #Sufffix
-suff=''
+suff='crop'
 
 
 
 path='/work/noaa/da/cthomas/ens/2020090500/001/gdas.t00z.atmf003.nc'
 
 
-
 #Open file
-nc_fid=Dataset(path, 'r')
+#nc_fid=Dataset(path, 'r')
 #nc_attrs, nc_dims, nc_vars = ncdump(nc_fid)
 
 
 #Get data
-pres=nc_fid.variables['pfull'][:]
-temp=nc_fid.variables['tmp'][:]
-training=np.reshape(temp[0,:,107,605], [1,127,1])
+#pres=nc_fid.variables['pfull'][:]
+#temp=nc_fid.variables['tmp'][:]
+#training=np.reshape(temp[0,:,107,605], [1,127,1])
 
-print(temp.shape)
+#print(temp.shape)
 
 
 
 
 
 #Load custom data- make this a function later
-#training=np.array([])
-#firstIt=True
-#for filepath in Path('toyData').glob('train2/*.csv'):
-#  if firstIt:
+training=np.array([])
+firstIt=True
+z=1
+print('starting readin')
+for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('*/*003.nc'):
+	if firstIt:
+		nc_fid=Dataset(filepath, 'r')
+		pres=nc_fid.variables['pfull'][:]
+		temp=nc_fid.variables['tmp'][:]
+		training=np.reshape(temp[0,:,107,605], [1,127,1])
+		firstIt=False
+		nc_fid.close()
+	else:
+		nc_fid=Dataset(filepath, 'r')
+		temp=nc_fid.variables['tmp'][:]
+		temp=np.reshape(temp[0,:,107,605], [1,127,1])
+		training=np.insert(training, -1, temp, axis=0)
+		nc_fid.close()
+		print(z)
+		z+=1
+
+
 #     data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
 #     data=data[data[:,0].argsort()]
 #     training=np.reshape(data, [1,100,2]) #Not a good fix, won't work for  data where i don't know the size
@@ -53,9 +72,9 @@ print(temp.shape)
 #    training=np.insert(training, -1, data, axis=0)
 #
 #
-#print(training.shape)
+print(training.shape)
 	
-
+print('Normalizing training data')
 
 
 #Prepare training data
@@ -97,12 +116,12 @@ def create_sequences(values, time_steps=TIME_STEPS):
 #x_train=training 		#Change sigmoid to relu
 
 
-x_train=np.reshape(x_train[:,15:,0], [1,112,1])
+x_train=np.reshape(x_train, [z,127,1])
 print(x_train.shape)
 
 model=keras.Sequential(
   [
-    layers.Input(shape=(112,1)),
+    layers.Input(shape=(127,1)),
     layers.Conv1D(
       filters=64, kernel_size=7, padding='same', strides=2, activation='relu'),
     layers.Dropout(rate=0.2),
@@ -112,7 +131,8 @@ model=keras.Sequential(
     layers.Dropout(rate=0.2),
     layers.Conv1DTranspose( 
      filters=64, kernel_size=7, padding='same', strides=2, activation ='relu'), 
-    layers.Conv1DTranspose(filters=1,kernel_size=7,padding='same'),
+    layers.Conv1DTranspose(filters=1,kernel_size=7,padding='same'), 
+layers.Cropping1D(cropping=(1,0))
   ]
 )
 model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.01), loss='mse') #0.001 and mse
@@ -124,12 +144,12 @@ print(x_train.shape)
 
 #Train the model
 history=model.fit(
-  x_train, x_train, epochs=100, batch_size=127, validation_split=0, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')],)
+  x_train, x_train, epochs=100, batch_size=127, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')],)
 
 #Plot training and validation loss
 fig=plt.figure()
 plt.plot(history.history['loss'], label='Training loss')
-#plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
 plt.legend()
 plt.savefig('loss{}'.format(suff))
 plt.close()
@@ -157,8 +177,8 @@ print(x_train_pred[0].shape)
 
 #Compare reconstruction
 fig=plt.figure()
-plt.plot(x_train[0,:,0], pres[15:] ) #Put x-train to plot normalized data, training to plot original data
-plt.plot( x_train_pred[0,:,0], pres[15:],  color='r')
+plt.plot(x_train[0,:,0], pres) #Put x-train to plot normalized data, training to plot original data
+plt.plot( x_train_pred[0,:,0], pres,  color='r')
 ax=plt.gca()
 ax.set_ylim(ax.get_ylim()[::-1])
 plt.xlabel('Normalized Temperature ')

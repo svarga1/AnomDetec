@@ -10,7 +10,7 @@ i=0
 while i<40:
 	s=0
 	x=[]
-	while s<100:
+	while s<127:
 		x=np.append(x,random.uniform(0,4*np.pi))
 		s+=1
 	y=np.sin(x)

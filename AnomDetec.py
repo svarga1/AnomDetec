@@ -11,13 +11,15 @@ from pathlib import Path
 import matplotlib
 import netCDF4
 from netCDF4 import Dataset
+import time
+
 
 
 
 matplotlib.use('agg')
 #Sufffix
 suff='full'
-
+start_time= time.time()
 #Load custom data- make this a function later
 
 
@@ -45,51 +47,35 @@ for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('*/*.nc'):
 
 
 
-#
-#
 print(training.shape)
-	
+steptime=time.time()
+print('The Amount of time since starting is: {}'.format(time.time()-start_time))
+
 print('Normalizing training data')
 
 
 #Prepare training data
 #Normalize and save the mean and std for normalizing test data
 training_mean=training[:,:,0].mean()
+exit()
+
 training_std=training[:,:,0].std()
 training=(training-training_mean)/(training_std)
 x_train=training
 
-#Create sequences
-
-TIME_STEPS=50
 
 
-
-def create_sequences(values, time_steps=TIME_STEPS):
-  output=[]
-  for i in range(len(values)-time_steps+1):
-    output.append(values[i:(i+time_steps)])
-  return np.stack(output)
-#i=0
-#while i<training.shape[0]:
-#	if i!=0:	
-#		x_train=np.append(x_train, create_sequences(training[i,:,1]))
-#	else:
-#		x_train=[create_sequences(training[i,:,1])]
-#	i+=1
-#
-#x_train=create_sequences(training[0,:,1])     #df_training_value.values)
+print('The Amount of time since starting is: {}'.format(time.time()-start_time))
+print('The amount of time on this step is: {}'.format(time.time()-steptime))
+steptime=time.time()
 
 
-#print(x_train.shape)
-#x_train=np.reshape(x_train, [40,100,1])
-#exit()
 
-#x_train=x_train[:,:,1]
+
 
 #build a model
-#x_train=training 		#Change sigmoid to relu
 
+print('Building model')
 
 x_train=np.reshape(x_train, [z,127,1])
 print(x_train.shape)
@@ -120,6 +106,12 @@ print(x_train.shape)
 #Train the model
 history=model.fit(
   x_train, x_train, epochs=100, batch_size=127, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')],)
+
+#Save the model
+history.save('fullmodel')
+print(time.time()-start_time)
+
+
 
 #Plot training and validation loss
 fig=plt.figure()

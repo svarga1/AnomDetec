@@ -124,14 +124,14 @@ print(x_train_pred[0].shape)
 
 
 #Compare reconstruction
-fig=plt.figure()
-plt.plot(x_train[0,:,0], pres) #Put x-train to plot normalized data, training to plot original data
-plt.plot( x_train_pred[0,:,0], pres,  color='r')
-ax=plt.gca()
-ax.set_ylim(ax.get_ylim()[::-1])
-plt.xlabel('Normalized Temperature ')
-plt.ylabel('Pressure (mb)')
-plt.savefig('reconstruction{}'.format(suff))
+#fig=plt.figure()
+#plt.plot(x_train[0,:,0], pres) #Put x-train to plot normalized data, training to plot original data
+#plt.plot( x_train_pred[0,:,0], pres,  color='r')
+#ax=plt.gca()
+#ax.set_ylim(ax.get_ylim()[::-1])
+#plt.xlabel('Normalized Temperature ')
+#plt.ylabel('Pressure (mb)')
+#plt.savefig('reconstruction{}'.format(suff))
 
 
 
@@ -164,15 +164,15 @@ x_test=np.reshape(x_test, [1,127,1])
 x_test_pred=model.predict(x_test)
 
 #Plot predictions
-i=0
-while i<1:
-	fig=plt.figure()
-	plt.plot(x_test[i,:,0])
-	plt.plot(x_test_pred[i,:,0], color='r')
-	#plt.title(paths[i])
-	plt.savefig('test{}'.format(i))
-	plt.close()
-	i+=1
+#i=0
+#while i<1:
+#	fig=plt.figure()
+#	plt.plot(x_test[i,:,0])
+#	plt.plot(x_test_pred[i,:,0], color='r')
+#	#plt.title(paths[i])
+#	plt.savefig('test{}'.format(i))
+#	plt.close()
+#	i+=1
 
 
 
@@ -201,25 +201,28 @@ print(anomalies.shape)
 
 #subset=
 #Model Reconstruction vs Test data
-fig=plt.figure()
-plt.plot(x_test_pred[0,:,0],pres, color='r')
-plt.plot(x_test[0,:,0], pres, color= 'blue')
-ax=plt.gca()
-ax.set_ylim(ax.get_ylim()[::-1])
-plt.xlabel('Normalized Temperature ')
-plt.ylabel('Pressure (mb)')
-plt.savefig('modelvtest')
-plt.close()
+#plt.figure()
+fig, ax=plt.subplots(1,2,sharex='row',sharey='row')
+ax[0].plot(x_test_pred[0,:,0],pres, color='r')
+ax[0].plot(x_test[0,:,0], pres, color= 'blue')
+#axi=plt.gca()
+#axi.set_ylim(ax.get_ylim()[::-1])
+ax[0].invert_yaxis()
+ax[0].set_xlabel('Normalized Temperature ')
+ax[0].set_ylabel('Pressure (mb)')
+#plt.savefig('modelvtest')
+#plt.close()
 
 
 #Outlier Id plot
-fig=plt.figure()
-plt.scatter(x_test[0,:,0],pres, color='b')
-plt.scatter(x_test[anomalies],pres[np.reshape(anomalies,[127])], color='r')
-ax=plt.gca()
-ax.set_ylim(ax.get_ylim()[::-1])
-plt.xlabel('Normalized Temperature ')
-plt.ylabel('Pressure (mb)')
+#fig=plt.figure()
+ax[1].scatter(x_test[0,:,0],pres, color='b')
+ax[1].scatter(x_test[anomalies],pres[np.reshape(anomalies,[127])], color='r')
+#ax=plt.gca()
+#ax.set_ylim(ax.get_ylim()[::-1])
+
+#ax.set_xlabel('Normalized Temperature ')
+#ax.set_ylabel('Pressure (mb)')
 plt.savefig('overlay')
 plt.close()
 

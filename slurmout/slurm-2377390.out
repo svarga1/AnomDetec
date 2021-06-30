@@ -1,0 +1,10 @@
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecEnsem/AnomDetec.py", line 78
+    x_train=np.reshape(x_train, [z,127,1])
+    ^
+SyntaxError: invalid syntax
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecEnsem/AnomDetec.py", line 78
+    x_train=np.reshape(x_train, [z,127,1])
+    ^
+SyntaxError: invalid syntax
+srun: error: Orion-09-45: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2377390.0

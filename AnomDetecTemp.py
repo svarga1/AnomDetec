@@ -16,7 +16,7 @@ from netCDF4 import Dataset
 
 matplotlib.use('agg')
 #Sufffix
-suff='full'
+suff='crop03split'
 
 #Load custom data- make this a function later
 
@@ -25,7 +25,7 @@ training=np.array([])
 firstIt=True
 z=1
 print('starting readin')
-for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('*/*.nc'):
+for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('*/*003.nc'):
 	if firstIt:
 		nc_fid=Dataset(filepath, 'r')
 		pres=nc_fid.variables['pfull'][:]
@@ -43,13 +43,12 @@ for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('*/*.nc'):
 		z+=1
 
 
-
-
-#
-#
 print(training.shape)
 	
 print('Normalizing training data')
+test=np.reshape(training[-1,:,:], [1,127,1])
+
+training=training[0:-1,:,:]
 
 
 #Prepare training data
@@ -59,39 +58,13 @@ training_std=training[:,:,0].std()
 training=(training-training_mean)/(training_std)
 x_train=training
 
-#Create sequences
 
-TIME_STEPS=50
-
-
-
-def create_sequences(values, time_steps=TIME_STEPS):
-  output=[]
-  for i in range(len(values)-time_steps+1):
-    output.append(values[i:(i+time_steps)])
-  return np.stack(output)
-#i=0
-#while i<training.shape[0]:
-#	if i!=0:	
-#		x_train=np.append(x_train, create_sequences(training[i,:,1]))
-#	else:
-#		x_train=[create_sequences(training[i,:,1])]
-#	i+=1
-#
-#x_train=create_sequences(training[0,:,1])     #df_training_value.values)
-
-
-#print(x_train.shape)
-#x_train=np.reshape(x_train, [40,100,1])
-#exit()
-
-#x_train=x_train[:,:,1]
 
 #build a model
-#x_train=training 		#Change sigmoid to relu
 
 
-x_train=np.reshape(x_train, [z,127,1])
+
+x_train=np.reshape(x_train, [z-1,127,1])
 print(x_train.shape)
 
 model=keras.Sequential(
@@ -162,33 +135,29 @@ plt.savefig('reconstruction{}'.format(suff))
 
 
 
-exit()
-
-
 #Test data
-test=np.array([])
-firstIt=True
-for filepath in Path('toyData').glob('test/*.csv'):
-	if firstIt:
-		data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
-		data=data[data[:,0].argsort()]
-		test=np.reshape(data, [1,100,2]) #Not a good fix, won't work for  data where i don't know the size
-		firstIt=False
-		paths=[filepath]
-	else:
-		data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
-		data=data[data[:,0].argsort()]
-		test=np.insert(test, -1, data, axis=0)
-		paths=np.insert(paths,-1, filepath, axis=0)
+#test=np.array([])
+#firstIt=True
+#for filepath in Path('toyData').glob('test/*.csv'):
+#	if firstIt:
+#		data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
+#		data=data[data[:,0].argsort()]
+#		test=np.reshape(data, [1,100,2]) #Not a good fix, won't work for  data where i don't know the size
+#		firstIt=False
+#		paths=[filepath]
+#	else:
+#		data=np.asarray(pd.read_csv(filepath, names=['x','y']).values)
+#		data=data[data[:,0].argsort()]
+#		test=np.insert(test, -1, data, axis=0)
+#		paths=np.insert(paths,-1, filepath, axis=0)
 
 
 print(test.shape)
 
 #Process test data
-print(test[0,:,1])
-test[:,:,1]=(test[:,:,1]-training_mean)/(training_std)
-x_test=test[:,:,1]
-x_test=np.reshape(x_test, [6,100,1])
+test=(test-training_mean)/(training_std)
+x_test=test
+x_test=np.reshape(x_test, [1,127,1])
 
 
 #Predictions
@@ -196,11 +165,11 @@ x_test_pred=model.predict(x_test)
 
 #Plot predictions
 i=0
-while i<6:
+while i<1:
 	fig=plt.figure()
 	plt.plot(x_test[i,:,0])
 	plt.plot(x_test_pred[i,:,0], color='r')
-	plt.title(paths[i])
+	#plt.title(paths[i])
 	plt.savefig('test{}'.format(i))
 	plt.close()
 	i+=1
@@ -212,11 +181,6 @@ while i<6:
 
 
 
-
-
-#create sequence from test values.
-#x_test = create_sequences(df_test_value.values)
-
 #Get test MAE loss
 test_mae_loss=np.mean(np.abs(x_test_pred-x_test),axis=1)
 test_mae_loss=test_mae_loss.reshape((-1))
@@ -224,26 +188,60 @@ plt.hist(test_mae_loss, bins=50)
 plt.xlabel('test MAE loss')
 plt.ylabel('Number of samples')
 plt.savefig('testmae{}'.format(suff))
-
+plt.close()
 #Detect all samples that are anomalies
-anomalies=test_mae_loss>threshold
+anomalies=np.abs(x_test_pred-x_test)>threshold  #Used 0.5 by threshold
+print(np.count_nonzero(anomalies))
+print(anomalies.shape)
 
 #Plot anomalies
-#Data i is an anomaly if samples [(i-timestamps+1) to (i)] are anomalies
-anomalous_data_indices=[]
-for data_idx in range(TIME_STEPS-1, len(x_test)-TIME_STEPS+1):
-  if np.all(anomalies[data_idx-TIME_STEPS+1 : data_idx]):
-    anomalous_data_indices.append(data_idx)
-    
+
+
 #Overlay anomalies
-#df_subset=df_daily_jumpsup.iloc[anomalous_data_indices]
-print(len(anomalous_data_indices))
+
 #subset=
-#fig, ax = plt.subplots()
-#df_daily_jumpsup.plot(legend=False, ax=ax)
-#df_subset.plot(legend=False, ax=ax, color='r')
-#plt.savefig('overlay{}'.format(suff))
+#Model Reconstruction vs Test data
+fig=plt.figure()
+plt.plot(x_test_pred[0,:,0],pres, color='r')
+plt.plot(x_test[0,:,0], pres, color= 'blue')
+ax=plt.gca()
+ax.set_ylim(ax.get_ylim()[::-1])
+plt.xlabel('Normalized Temperature ')
+plt.ylabel('Pressure (mb)')
+plt.savefig('modelvtest')
+plt.close()
 
 
+#Outlier Id plot
+fig=plt.figure()
+plt.scatter(x_test[0,:,0],pres, color='b')
+plt.scatter(x_test[anomalies],pres[np.reshape(anomalies,[127])], color='r')
+ax=plt.gca()
+ax.set_ylim(ax.get_ylim()[::-1])
+plt.xlabel('Normalized Temperature ')
+plt.ylabel('Pressure (mb)')
+plt.savefig('overlay')
+plt.close()
 
+#Test data 
+fig=plt.figure()
+plt.plot(x_test[0,:,0],pres)
+plt.title('Test Data') 
+ax=plt.gca()
+ax.set_ylim(ax.get_ylim()[::-1])
+plt.xlabel('Normalized Temperature ')
+plt.ylabel('Pressure (mb)')
+plt.savefig('testdata')
+plt.close()
+
+#Anomaly data
+fig=plt.figure()
+plt.plot(x_test[anomalies], pres[np.reshape(anomalies,[127])])
+plt.title('Profile of Anomalous Data')
+ax=plt.gca()
+ax.set_ylim(ax.get_ylim()[::-1])
+plt.xlabel('Normalized Temperature ')
+plt.ylabel('Pressure (mb)')
+plt.savefig('anomaly')
+plt.close()
 

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#SBATCH --account=da-cpu
+#SBATCH --nodes=1
+#SBATCH --ntasks=2
+#SBATCH -q debug  
+#SBATCH -p debug
+#SBATCH -t 30 
+
+module load python
+source ../../pyvenv/firstEnv/bin/activate
+
+srun python BufHis.py

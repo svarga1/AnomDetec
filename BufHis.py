@@ -21,5 +21,12 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/
 print(test.shape)
 
 fig=plt.figure()
+plt.hist(test)
+plt.xlabel('Number of points per profile')
+plt.savefig('pointDistribution')
+plt.close()
+
+fig=plt.figure()
 plt.hist(test[test>500])
+plt.xlabel('Number of points per profile')
 plt.savefig('pointDistribution500')

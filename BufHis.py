@@ -16,7 +16,7 @@ test=np.array([])
 
 
 for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
-	test=np.append(test,VB.numBufrFile(filepath, 'PRLC')) #Also try tmdb, try compressing masked to get rid of missing?
+	test=np.append(test,VB.lenBufrFile(filepath, 'PRLC')) #Also try tmdb, try compressing masked to get rid of missing?
 
 print(test.shape)
 
@@ -30,3 +30,27 @@ fig=plt.figure()
 plt.hist(test[test>500])
 plt.xlabel('Number of points per profile')
 plt.savefig('pointDistribution500')
+
+
+
+
+
+test=np.array([])
+for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
+        test=np.append(test,VB.lenBufrFile(filepath, 'TMDB')) #Also try tmdb, try compressing masked to get rid of missing?
+
+print(test.shape)
+
+fig=plt.figure()
+plt.hist(test)
+plt.xlabel('Number of points per profile')
+plt.savefig('TMDBpointDistribution')
+plt.close()
+
+fig=plt.figure()
+plt.hist(test[test>500])
+plt.xlabel('Number of points per profile')
+plt.savefig('TMDBpointDistribution500')
+plt.close()
+
+

@@ -35,7 +35,7 @@ def descBufrFile(FILE):
 
 #Function that returns a 1d array of the number of data points in each subset and message in a file
 
-def numBufrFile(FILEPATH,KEY):
+def lenBufrFile(FILEPATH,KEY):
 	bufr=ready(FILEPATH)
 	
 	numData=np.array([len(bufr.read_subset(KEY).squeeze())])
@@ -55,3 +55,25 @@ def numBufrFile(FILEPATH,KEY):
 				pass
 	bufr.close()
 	return numData
+
+def numBufrFile(FILEPATH,KEY):
+        bufr=ready(FILEPATH)
+
+        numData=np.array([bufr.read_subset(KEY).squeeze()])
+
+
+        while bufr.load_subset()==0:
+                try:
+                        numData=np.append(numData, bufr.read_subset(KEY).squeeze())
+                except:
+                        pass
+
+        while bufr.advance() ==0:
+                while bufr.load_subset()==0:
+                        try:
+                                numData=np.append(numData, bufr.read_subset(KEY).squeeze())
+                        except:
+                                pass
+        bufr.close()
+        return numData
+

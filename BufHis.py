@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 import glob
 from pathlib import Path
 import matplotlib
+from numpy import diff
+
+
 
 matplotlib.use('agg')
 
@@ -15,10 +18,92 @@ matplotlib.use('agg')
 test=np.array([])
 
 
+
+numData=np.array([])
+counter=0
+
+for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
+	bufr=ncepbufr.open(filepath)
+	while bufr.load_subset()==-1:
+		bufr.advance()
+
+	pres= bufr.read_subset('PRLC').squeeze()
+	t=bufr.read_subset('LTDS').squeeze()
+	dpdt=diff(pres)/diff(t)
+	if any(x>0 for x in dpdt):
+		counter+=1
+		numData=np.append(numData, len(dpdt[dpdt>0]))
+		numData=np.append(numData, len(dpdt[dpdt<=0]))
+	else:
+		numData=np.append(numData, len(dpdt))
+	while bufr.load_subset()==0:
+		try:
+			pres= bufr.read_subset('PRLC').squeeze()
+			t=bufr.read_subset('LTDS').squeeze()
+			dpdt=diff(pres)/diff(t)
+		
+			if any(x>0 for x in dpdt):
+				counter+=1
+				numData=np.append(numData, len(dpdt[dpdt>0]))
+				numData=np.append(numData, len(dpdt[dpdt<=0]))
+			else:
+				numData=np.append(numData, len(dpdt))
+		except:
+			pass
+	
+	while bufr.advance() ==0:
+		while bufr.load_subset()==0:
+			try:
+				pres=bufr.read_subset('PRLC').squeeze()
+				t=bufr.read_subset('LTDS').squeeze()
+				dpdt=diff(pres)/diff(t)
+				if any(x>0 for x in dpdt):
+					counter+=1
+					numData=np.append(numData, len(dpdt[dpdt>0]))
+					numData=np.append(numData, len(dpdt[dpdt<=0]))
+				else:	
+					numData=np.append(numData, len(dpdt))
+			except:
+				pass
+
+	bufr.close()
+for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
+        test=np.append(test,VB.lenBufrFile(filepath, 'PRLC')) #Also try tmdb, try compressing masked to get rid of missing?
+
+print(counter)
+print(numData.shape)
+
+fig,ax=plt.subplots(1,2,sharex='row',sharey='row')
+ax[0].hist(test)
+ax[1].hist(numData)
+
+ax[0].set_title('No separation')
+ax[1].set_title('Ascent and descent separated (no dyn. all.)')
+ax[0].set_xlabel('Points per profile')
+ax[0].set_ylabel('frequency')
+plt.savefig('histascentdescent')
+plt.close()
+
+
+
+
+exit()
+
+
+
+
+
+
+
 for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
 	test=np.append(test,VB.lenBufrFile(filepath, 'PRLC')) #Also try tmdb, try compressing masked to get rid of missing?
 
 print(test.shape)
+
+
+exit()
+
+
 
 fig=plt.figure()
 plt.hist(test)

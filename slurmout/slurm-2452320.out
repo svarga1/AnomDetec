@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/writenc.py", line 15, in <module>
+    ncfile=Dataset('test.nc', mode='w', format='NETCDF4')
+  File "src/netCDF4/_netCDF4.pyx", line 2330, in netCDF4._netCDF4.Dataset.__init__
+  File "src/netCDF4/_netCDF4.pyx", line 1948, in netCDF4._netCDF4._ensure_nc_success
+PermissionError: [Errno 13] Permission denied: b'test.nc'
+srun: error: Orion-19-21: task 0: Exited with exit code 1
+srun: Terminating job step 2452320.0
+slurmstepd: error: *** STEP 2452320.0 ON Orion-19-21 CANCELLED AT 2021-07-06T14:29:36 ***
+srun: error: Orion-19-21: task 1: Terminated
+srun: Force Terminated job step 2452320.0

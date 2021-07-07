@@ -1,0 +1,10 @@
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/PresHis.py", line 71
+    plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{}short.png'.format(str(filepath).rstrip('.bufr	plt.close()
+                                                                                                                              ^
+SyntaxError: EOL while scanning string literal
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/PresHis.py", line 71
+    plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{}short.png'.format(str(filepath).rstrip('.bufr	plt.close()
+                                                                                                                              ^
+SyntaxError: EOL while scanning string literal
+srun: error: Orion-18-04: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2461500.0

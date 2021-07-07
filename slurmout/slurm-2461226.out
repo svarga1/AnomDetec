@@ -1,0 +1,10 @@
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/PresHis.py", line 64
+    ax[0].hist(shortPres)
+    ^
+SyntaxError: positional argument follows keyword argument
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/PresHis.py", line 64
+    ax[0].hist(shortPres)
+    ^
+SyntaxError: positional argument follows keyword argument
+srun: error: Orion-07-47: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2461226.0

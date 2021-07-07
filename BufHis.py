@@ -21,7 +21,7 @@ test=np.array([])
 
 numData=np.array([])
 counter=0
-
+x=np.array([])
 for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
 	bufr=ncepbufr.open(filepath)
 	while bufr.load_subset()==-1:
@@ -30,24 +30,28 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/
 	pres= bufr.read_subset('PRLC').squeeze()
 	t=bufr.read_subset('LTDS').squeeze()
 	dpdt=diff(pres)/diff(t)
-	if any(x>0 for x in dpdt):
-		counter+=1
-		numData=np.append(numData, len(dpdt[dpdt>0]))
-		numData=np.append(numData, len(dpdt[dpdt<=0]))
-	else:
-		numData=np.append(numData, len(dpdt))
+	numData=np.append(numData, np.mean(dpdt))
+	x=np.append(x,len(dpdt))
+	#if any(x>0 for x in dpdt):
+	#	counter+=1
+#		numData=np.append(numData, len(dpdt[dpdt>0]))
+#		numData=np.append(numData, len(dpdt[dpdt<=0]))
+#	else:
+#		numData=np.append(numData, len(dpdt))
 	while bufr.load_subset()==0:
 		try:
 			pres= bufr.read_subset('PRLC').squeeze()
 			t=bufr.read_subset('LTDS').squeeze()
 			dpdt=diff(pres)/diff(t)
-		
-			if any(x>0 for x in dpdt):
-				counter+=1
-				numData=np.append(numData, len(dpdt[dpdt>0]))
-				numData=np.append(numData, len(dpdt[dpdt<=0]))
-			else:
-				numData=np.append(numData, len(dpdt))
+			numData=np.append(numData, np.mean(dpdt))
+			x=np.append(x, len(dpdt))
+
+#			if any(x>0 for x in dpdt):
+#				counter+=1
+#				numData=np.append(numData, len(dpdt[dpdt>0]))
+#				numData=np.append(numData, len(dpdt[dpdt<=0]))
+#			else:
+#				numData=np.append(numData, len(dpdt))
 		except:
 			pass
 	
@@ -57,16 +61,25 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/
 				pres=bufr.read_subset('PRLC').squeeze()
 				t=bufr.read_subset('LTDS').squeeze()
 				dpdt=diff(pres)/diff(t)
-				if any(x>0 for x in dpdt):
-					counter+=1
-					numData=np.append(numData, len(dpdt[dpdt>0]))
-					numData=np.append(numData, len(dpdt[dpdt<=0]))
-				else:	
-					numData=np.append(numData, len(dpdt))
+				numData=np.append(numData, np.mean(dpdt))
+				x=np.append(x, len(dpdt))
+#				if any(x>0 for x in dpdt):
+#					counter+=1
+#					numData=np.append(numData, len(dpdt[dpdt>0]))
+#					numData=np.append(numData, len(dpdt[dpdt<=0]))
+#				else:	
+#					numData=np.append(numData, len(dpdt))
 			except:
 				pass
 
 	bufr.close()
+
+fig=plt.figure()
+plt.scatter(x, numData)
+plt.savefig('dpdtscatter.png')
+plt.close()
+exit()
+
 for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
         test=np.append(test,VB.lenBufrFile(filepath, 'PRLC')) #Also try tmdb, try compressing masked to get rid of missing?
 

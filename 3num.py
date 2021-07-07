@@ -21,59 +21,88 @@ shortPres=np.array([])
 numData=np.array([])
 counter=0
 
-for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
+shortPresMax=np.array([])
+shortPresMin=np.array([])
+shortPresMed=np.array([])
+
+lonPresMax=np.array([])
+lonPresMin=np.array([])
+lonPresMed=np.array([])
+
+
+
+for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/gdas.20210601/').glob('gdas.t00z.uprair.tm00.bufr_d'):
 	bufr=ncepbufr.open(filepath)
 	while bufr.load_subset()==-1:
 		bufr.advance()
-	lonPres=np.array([])
-	shortPres=np.array([])
-	pres= bufr.read_subset('PRLC').squeeze()
+
+
+	pres= bufr.read_subset('PRLC').squeeze()/100
 	if len(pres)<=500:
-		shortPres=np.append(shortPres, pres)
+		shortPresMax=np.append(shortPresMax,np.amax(pres))
+		shortPresMin=np.append(shortPresMin, np.amin(pres))
+		shortPresMed=np.append(shortPresMed, np.median(pres))
 	else:
-		pass	#lonPres=np.append(lonPres, pres)
+		lonPresMax=np.append(lonPresMax,np.amax( pres))
+		lonPresMin=np.append(lonPresMin, np.amin(pres))
+		lonPresMed=np.append(lonPresMed, np.median(pres))
+
 	while bufr.load_subset()==0:
 		try:
-			pres= bufr.read_subset('PRLC').squeeze()
+			pres= bufr.read_subset('PRLC').squeeze()/100
 				
 			if len(pres)<=500:
-				shortPres=np.append(shortPres,pres)
+                		shortPresMax=np.append(shortPresMax,np.amax(pres))
+		                shortPresMin=np.append(shortPresMin, np.amin(pres))
+		                shortPresMed=np.append(shortPresMed, np.median(pres))
 			else:
-				pass#				lonPres=np.append(lonPres, pres)
+		                lonPresMax=np.append(lonPresMax,np.amax( pres))
+		                lonPresMin=np.append(lonPresMin, np.amin(pres))
+		                lonPresMed=np.append(lonPresMed, np.median(pres))
+
 		except:
 			pass
 	
 	while bufr.advance() ==0:
 		while bufr.load_subset()==0:
 			try:
-				pres=bufr.read_subset('PRLC').squeeze()
+				pres=bufr.read_subset('PRLC').squeeze()/100
 				
 				if len(pres)<=500:
-					shortPres=np.append(shortPres, pres)
-				else:	
-					pass #lonPres=np.append(lonPres, pres)
+			                shortPresMax=np.append(shortPresMax,np.amax(pres))
+			                shortPresMin=np.append(shortPresMin, np.amin(pres))
+			                shortPresMed=np.append(shortPresMed, np.median(pres))
+				else:
+			                lonPresMax=np.append(lonPresMax,np.amax( pres))
+			                lonPresMin=np.append(lonPresMin, np.amin(pres))
+			                lonPresMed=np.append(lonPresMed, np.median(pres))
+
 			except:
 				pass
 
 	bufr.close()
-	shortPres=shortPres/100
-	print(shortPres)
-	#lonPres=lonPres/100 #Convers to hPa
-	#Plot for each file
-	fig, ax = plt.subplots()
-	ax.hist(shortPres)
-	#ax[0].hist(lonPres)
-	#ax.set_xscale('log')
-	ax.set_title('HD: {} points'.format(len(shortPres)))
-	ax.set_xlabel('Pressure (hPa)')
-	#ax[1].set_title('Hd: {} points'.format(len(lonPres)))
-	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{}short.png'.format(str(filepath).rstrip('.bufr').split('/')[7:]))
-	plt.close()
 
 
-
+#Plot for each file
+fig, ax = plt.subplots(1,2,  sharey='row')
+shortX=np.arange(1, len(shortPresMax)+1)
+longX=np.arange(1,len(lonPresMax)+1)
+ax[0].scatter(shortX, shortPresMax)
+ax[0].scatter(shortX, shortPresMin)
+ax[0].scatter(shortX, shortPresMed)
+ax[1].scatter(longX, lonPresMax)
+ax[1].scatter(longX, lonPresMin)
+ax[1].scatter(longX, lonPresMed)
+#ax[0].set_yscale('log')
+ax[0].invert_yaxis()
+ax[0].set_title('Non-HD')
+ax[1].set_title('HD')
+ax[0].set_ylabel('Pressure (hPa)')
+plt.savefig('3num3.png')
+plt.close()
 
 exit()
+
 for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
         test=np.append(test,VB.lenBufrFile(filepath, 'PRLC')) #Also try tmdb, try compressing masked to get rid of missing?
 

@@ -41,9 +41,12 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 
 
 	if any(x>0 for x in dpdt):
-		x=np.count_nonzero(dpdt>0)
-		plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x],3, color='blue')
-		plt.scatter(temp[-1:-1-x], pres[-1:-1-x], 3,color='red')				
+#		x=np.count_nonzero(dpdt>0)
+#		plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x],3, color='blue')
+#		plt.scatter(temp[len(temp)-x:], pres[len(temp)-x:], 3,color='red')				
+		plt.scatter(temp[np.insert(dpdt, 0, -1)<0],pres[np.insert(dpdt,0,-1)<0], 3, color='blue')
+		plt.scatter(temp[np.insert(dpdt, 0, -1)>0],pres[np.insert(dpdt,0,-1)>0], 3, color='red')
+
 	else:
 		plt.scatter(temp, pres, 3,color='blue')
 
@@ -71,9 +74,12 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 			ax.invert_yaxis()
 			ax.set_yscale('log')
 			if any(x>0 for x in dpdt):
-				x=np.count_nonzero(dpdt>0)
-				plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x], 3,color='blue')
-				plt.scatter(temp[-1:-1-x], pres[-1:-1-x],3, color='red')
+				#x=np.count_nonzero(dpdt>0)
+				#plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x], 3,color='blue')
+				#plt.scatter(temp[len(temp)-x:], pres[len(temp)-x:],3, color='red')
+				plt.scatter(temp[np.insert(dpdt, 0, -1)<0],pres[np.insert(dpdt,0,-1)<0], 3, color='blue')
+				plt.scatter(temp[np.insert(dpdt, 0, -1)>0],pres[np.insert(dpdt,0,-1)>0], 3, color='red')
+
 			else:
 				plt.scatter(temp, pres, 3, color='blue')
 			if len(temp)>500:
@@ -103,9 +109,12 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 				ax.invert_yaxis()
 				ax.set_yscale('log')
 				if any(x>0 for x in dpdt):
-					x=np.count_nonzero(dpdt>0)
-					plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x],3, color='blue')
-					plt.scatter(temp[-1:-1-x], pres[-1:-1-x],3, color='red')
+#					x=np.count_nonzero(dpdt>0)
+#					plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x],3, color='blue')
+#					plt.scatter(temp[len(temp)-x:], pres[len(temp)-x:],3, color='red')
+					plt.scatter(temp[np.insert(dpdt, 0, -1)<0],pres[np.insert(dpdt,0,-1)<0], 3, color='blue')
+					plt.scatter(temp[np.insert(dpdt, 0, -1)>0],pres[np.insert(dpdt,0,-1)>0], 3, color='red')
+
 				else:
 					plt.scatter(temp, pres,3, color='blue')
 				if len(temp)>500:

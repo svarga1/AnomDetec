@@ -1,0 +1,1278 @@
+
+ MESSAGE TYPE NC002101  
+
+001125  WGOSIDS                  MISSING  NUMERIC                       WIGOS IDENTIFIER SERIES                         
+001126  WGOSISID                 MISSING  NUMERIC                       WIGOS ISSUER OF IDENTIFIER                      
+001127  WGOSISNM                 MISSING  NUMERIC                       WIGOS ISSUE NUMBER                              
+001128  WGOSLID                  MISSING  (16)CCITT IA5                 WIGOS LOCAL IDENTIFIER (CHARACTER)              
+008021  TSIG                        18.0  CODE TABLE                    TIME SIGNIFICANCE                               
+004001  YEAR                      2021.0  YEAR                          YEAR                                            
+004002  MNTH                         5.0  MONTH                         MONTH                                           
+004003  DAYS                        31.0  DAY                           DAY                                             
+004004  HOUR                        23.0  HOUR                          HOUR                                            
+004005  MINU                        15.0  MINUTE                        MINUTE                                          
+004006  SECO                         0.0  SECOND                        SECOND                                          
+001198  RPID                       71815  ( 8)CCITT IA5                 REPORT IDENTIFIER                               
+           {IDLSIPTM}     1 REPLICATIONS
+001001  WMOB                        71.0  NUMERIC                       WMO BLOCK NUMBER                                
+001002  WMOS                       815.0  NUMERIC                       WMO STATION NUMBER                              
+001011  SMID                              ( 9)CCITT IA5                 SHIP OR MOBILE LAND STATION IDENTIFIER          
+002011  RATP                        17.0  CODE TABLE                    RADIOSONDE TYPE                                 
+002013  SIRC                         4.0  CODE TABLE                    SOLAR AND INFRARED RADIATION CORRECTION         
+002014  TTSS                         8.0  CODE TABLE                    TRACKING TECHNIQUE/STATUS OF SYSTEM USED        
+002003  A4ME                         7.0  CODE TABLE                    TYPE OF MEASURING EQUIPMENT USED                
+005001  CLATH                   48.56153  DEGREE(N+,S-)                 LATITUDE (HIGH ACCURACY)                        
+006001  CLONH                  -58.56580  DEGREE(E+,W-)                 LONGITUDE (HIGH ACCURACY)                       
+007030  HSMSL                       57.0  M                             HEIGHT OF STATION GROUND ABOVE MEAN SEA LEVEL   
+007031  HBMSL                    MISSING  M                             HEIGHT OF BAROMETER ABOVE MEAN SEA LEVEL        
+007007  HEIT                        57.0  METERS                        HEIGHT                                          
+033024  QCEVR                    MISSING  CODE TABLE                    STATION ELEVATION QUALITY MARK (FOR MOBIL STATIO
+001081  RSERL                   20044946  (20)CCITT IA5                 RADIOSONDE SERIAL NUMBER                        
+001082  RASCN                    MISSING  NUMERIC                       RADIOSONDE ASCENSION NUMBER                     
+001083  RRLSE                    MISSING  NUMERIC                       Radiosonde release number                       
+001095  OBSVR                    MISSING  ( 4)CCITT IA5                 Observer identification                         
+002015  RACP                     MISSING  CODE TABLE                    Radiosonde completeness                         
+002016  RCONF                    MISSING  FLAG TABLE                    Radiosonde configuration                        
+002017  CAHM                         3.0  CODE TABLE                    Correction algorithms for humidity measurements 
+002066  RGRSY                    MISSING  CODE TABLE                    Radiosonde ground receiving system              
+002067  RFREQ                403000000.0  HZ                            RADIOSONDE OPERATING FREQUENCY                  
+002080  BMFGR                    MISSING  CODE TABLE                    Balloon manufacturer                            
+002081  BTYPE                    MISSING  CODE TABLE                    Type of balloon                                 
+002082  BWGHT                    MISSING  KG                            Weight of balloon                               
+002083  BSHEL                    MISSING  CODE TABLE                    Type of balloon shelter                         
+002084  BGTYP                    MISSING  CODE TABLE                    Type of gas used in balloon                     
+002085  BGAMT                    MISSING  KG                            Amount of gas used in balloon                   
+002086  BFTLN                    MISSING  M                             Balloon flight train length                     
+002095  PSENS                        1.0  CODE TABLE                    TYPE OF PRESSURE SENSOR                         
+002096  TSENS                        5.0  CODE TABLE                    TYPE OF TEMPERATURE SENSOR                      
+002097  RHSENS                       4.0  CODE TABLE                    TYPE OF HUMIDITY SENSOR                         
+002103  RADO                     MISSING  FLAG TABLE                    Radome                                          
+002191  GHTC                         1.0  CODE TABLE                    Geopotential height calculation                 
+025061  SOFTV                  5.14.10.8  (12)CCITT IA5                 Software identification and version number      
+035035  RTERM                    MISSING  CODE TABLE                    Reason for termination                          
+002088  BGVOL                    MISSING  M**3                          Volume of gas used in balloon                   
+           (UARLVB)    57 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     1  ++++++
+008042  VSIGX                   145408.0  FLAG TABLE(1,5,6,7)           EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                         0.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.00000  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.00000  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                    101660.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                       558.6  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      284.95  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      281.98  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                        80.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                         4.6  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     2  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                        16.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.00032  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                   -0.00185  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                    100400.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                      1528.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      285.06  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      281.14  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                        89.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                         6.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     3  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                        22.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.00040  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                   -0.00242  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                    100000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                      1871.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      285.11  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      281.83  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                        91.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                         6.8  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     4  ++++++
+008042  VSIGX                     8192.0  FLAG TABLE(5)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                        49.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.00089  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                   -0.00453  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     98420.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                      3194.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      285.30  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      282.73  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       111.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                         6.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     5  ++++++
+008042  VSIGX                     8192.0  FLAG TABLE(5)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       110.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.00575  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                   -0.00522  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     94820.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                      6272.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      283.55  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      282.33  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       178.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        11.2  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     6  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       144.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.01002  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                   -0.00278  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     92660.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                      8085.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      286.26  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      286.26  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       207.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        17.3  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     7  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       147.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.01038  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                   -0.00235  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     92500.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                      8232.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      286.50  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      286.50  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       209.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        17.8  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     8  ++++++
+008042  VSIGX                     8192.0  FLAG TABLE(5)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       150.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.01091  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                   -0.00173  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     92280.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                      8437.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      286.85  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      286.84  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       212.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.9  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #     9  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       284.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.02844  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.02108  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     85000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     15327.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      283.84  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      282.88  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       219.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.8  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    10  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       335.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.03499  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.02919  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     82110.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     18130.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      282.02  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      280.52  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       220.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.2  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    11  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       349.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.03672  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.03140  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     81340.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     18874.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      281.72  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      280.38  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       220.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.9  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    12  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       362.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.03853  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.03381  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     80580.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     19639.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      281.52  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      280.00  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       221.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        19.5  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    13  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       376.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.04035  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.03624  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     79850.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     20393.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      281.43  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      280.07  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       222.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        20.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    14  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       403.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.04387  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.04152  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     78330.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     21903.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      280.72  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      279.09  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       225.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        20.5  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    15  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       430.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.04715  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.04691  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     76980.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     23343.6  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      280.15  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      278.83  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       226.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        21.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    16  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       574.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.06014  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.08063  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     70000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     30977.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      276.25  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      271.51  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       246.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        19.7  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    17  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       577.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.06034  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.08134  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     69860.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     31144.4  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      276.11  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      271.36  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       246.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        19.7  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    18  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       658.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.06622  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.09979  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     65740.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     35907.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      272.70  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      271.65  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       244.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.2  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    19  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       685.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.06804  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.10588  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     64590.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     37279.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      271.82  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      270.67  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       245.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.8  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    20  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       794.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.07693  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.13105  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     59870.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     43178.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      269.14  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      268.40  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       237.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        19.8  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    21  ++++++
+008042  VSIGX                     8192.0  FLAG TABLE(5)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       800.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.07755  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.13243  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     59620.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     43502.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      269.12  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      268.26  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       237.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        19.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    22  ++++++
+008042  VSIGX                     8192.0  FLAG TABLE(5)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       813.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.07883  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.13540  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     59110.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     44168.6  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      269.55  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      268.45  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       236.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.4  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    23  ++++++
+008042  VSIGX                     8192.0  FLAG TABLE(5)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       840.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.08145  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.14177  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     58140.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     45452.4  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      268.01  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      266.76  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       238.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        21.3  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    24  ++++++
+008042  VSIGX                     8192.0  FLAG TABLE(5)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       854.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.08278  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.14523  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     57620.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     46148.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      268.26  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      266.70  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       237.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.2  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    25  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       862.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.08358  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.14732  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     57300.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     46569.6  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      268.05  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      266.20  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       239.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.0  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    26  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                       902.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.08691  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.15751  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     55730.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     48706.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      265.91  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      264.61  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       245.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        20.6  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    27  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1025.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.09992  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.18924  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     51190.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     55144.6  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      260.38  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      253.81  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       242.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        23.6  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    28  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1039.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.10129  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.19305  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     50590.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     56016.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      260.20  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      254.50  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       242.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        23.3  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    29  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1053.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.10266  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.19689  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     50000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     56898.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      259.85  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      253.85  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       241.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        23.0  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    30  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1106.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.10718  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.21028  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     47780.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     60270.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      258.22  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      251.37  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       243.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        19.5  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    31  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1187.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.11456  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.23050  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     44680.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     65228.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      255.10  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      250.27  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       236.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.3  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    32  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1240.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.11904  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.24308  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     42800.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     68345.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      252.61  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      247.19  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       244.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.7  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    33  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1331.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.12730  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.26479  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     40000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     73225.6  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      248.55  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      245.21  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       241.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        19.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    34  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1375.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.13052  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.27452  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     38630.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     75705.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      246.26  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      243.71  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       244.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    35  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1415.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.13380  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.28305  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     37390.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     77988.4  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      244.17  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      240.79  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       237.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    36  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1429.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.13503  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.28580  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     37000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     78733.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      243.65  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      240.42  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       234.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    37  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1455.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.13755  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.29132  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     36250.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     80164.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      242.61  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      239.16  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       236.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.5  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    38  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1482.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.14005  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.29695  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     35510.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     81585.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      241.43  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      238.19  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       235.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        18.3  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    39  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1551.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.14812  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.31169  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     33600.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     85407.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      238.90  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      232.58  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       226.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.4  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    40  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1630.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.16051  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.32684  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     31530.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     89748.4  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      235.92  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      232.30  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       216.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.2  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    41  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1644.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.16272  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.32903  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     31180.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     90493.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      235.37  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      231.66  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       214.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    42  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1690.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.17097  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.33559  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     30000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     93090.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      233.46  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      230.47  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       204.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.8  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    43  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1711.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.17484  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.33785  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     29480.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                     94246.6  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      232.44  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      229.66  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       200.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.8  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    44  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1883.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.20755  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.35626  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     25000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    105036.4  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      223.97  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      218.51  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       202.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    45  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1898.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.21039  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.35768  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     24670.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    105889.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      223.35  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      217.77  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       199.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.4  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    46  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1911.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.21298  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.35897  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     24370.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    106663.2  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      222.82  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      217.43  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       197.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.8  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    47  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      1978.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.22598  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.36686  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     22960.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    110455.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      221.03  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      214.76  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       206.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        24.2  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    48  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2032.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.23602  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.37482  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     22040.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    113043.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      219.49  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      213.64  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       207.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.7  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    49  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2073.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.24296  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.38050  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     21430.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    114816.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      219.01  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      212.92  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       209.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        21.6  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    50  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2113.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.24955  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.38644  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     20820.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    116629.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      218.18  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      212.29  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       211.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        21.0  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    51  ++++++
+008042  VSIGX                    65536.0  FLAG TABLE(2)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2163.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.25786  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.39533  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     20000.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    119138.6  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      216.65  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      210.63  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       217.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        23.6  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    52  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2167.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.25839  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.39600  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     19940.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    119315.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      216.54  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      210.51  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       217.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        23.9  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    53  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2207.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.26456  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.40440  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     19240.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    121529.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      214.96  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      209.25  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       223.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.5  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    54  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2234.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.26836  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.41038  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     18700.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    123293.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      214.38  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      208.51  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       225.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.9  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    55  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2261.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.27178  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.41666  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     18130.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    125195.0  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      213.68  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      208.04  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       232.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        22.3  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    56  ++++++
+008042  VSIGX                     4096.0  FLAG TABLE(6)                 EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2288.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.27486  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.42302  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     17570.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    127115.8  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      212.52  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      206.79  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       233.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        21.1  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+    ++++++  UARLVB  REPLICATION #    57  ++++++
+008042  VSIGX                    14336.0  FLAG TABLE(5,6,7)             EXTENDED VERTICAL SOUNDING SIGNIFICANCE         
+004086  LTDS                      2337.0  SECOND                        LONG TIME PERIOD OR DISPLACEMENT                
+005015  LATDH                    0.28011  DEGREE                        LATITUDE DISPLACEMENT (HIGH ACCURACY)           
+006015  LONDH                    0.43469  DEGREE                        LONGITUDE DISPLACEMENT (HIGH ACCURACY)          
+033207  QMPR                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR PRESSURE               
+007004  PRLC                     17150.0  PASCALS                       PRESSURE                                        
+033192  QMGP                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR GEOPOTENTIAL           
+           <UAGP07>     0 REPLICATIONS
+           <UAGP10>     1 REPLICATIONS
+010008  GP10                    128948.4  (METERS/SECOND)**2            GEOPOTENTIAL                                    
+           <UATMP>     1 REPLICATIONS
+033193  QMAT                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR TEMPERATURE            
+012101  TMDB                      212.21  DEGREES KELVIN                TEMPERATURE/DRY BULB TEMPERATURE                
+033194  QMDD                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR MOISTURE               
+012103  TMDP                      207.00  DEGREES KELVIN                DEW POINT TEMPERATURE                           
+           <UAWND>     1 REPLICATIONS
+033195  QMWN                     MISSING  CODE TABLE                    SDMEDIT QUALITY MARK FOR WIND                   
+011001  WDIR                       236.0  DEGREES TRUE                  WIND DIRECTION                                  
+011002  WSPD                        20.9  METERS/SECOND                 WIND SPEED                                      
+           <UAWSH>     0 REPLICATIONS
+           {CLINRVSD}     1 REPLICATIONS
+008002  VSSO                     MISSING  CODE TABLE                    VERTICAL SIGNIFICANCE (SURFACE OBSERVATIONS)    
+020011  CLAM                         0.0  CODE TABLE                    CLOUD AMOUNT                                    
+020013  HOCB                         0.0  M                             HEIGHT OF BASE OF CLOUD                         
+020012  CLTP                     MISSING  CODE TABLE                    CLOUD TYPE                                      
+020012  CLTP                     MISSING  CODE TABLE                    CLOUD TYPE                                      
+020012  CLTP                     MISSING  CODE TABLE                    CLOUD TYPE                                      
+008002  VSSO                     MISSING  CODE TABLE                    VERTICAL SIGNIFICANCE (SURFACE OBSERVATIONS)    
+022043  SST1                     MISSING  DEGREES KELVIN                SEA/WATER TEMPERATURE                           
+           {BID}     1 REPLICATIONS
+035195  SEQNUM                       400  ( 4)CCITT IA5                 CHANNEL SEQUENCE NUMBER                         
+035021  BUHD                      IUSA01  ( 6)CCITT IA5                 BULLETIN BEING MONITORED (TTAAii)               
+035023  BORG                        CYJT  ( 4)CCITT IA5                 BULLETIN BEING MONITORED (CCCC)                 
+035022  BULTIM                    010000  ( 6)CCITT IA5                 BULLETIN BEING MONITORED (YYGGgg)               
+035194  BBB                      MISSING  ( 6)CCITT IA5                 BULLETIN BEING MONITORED (BBB)                  
+           {RCPTIM}     1 REPLICATIONS
+008202  RCTS                         0.0  CODE TABLE                    RECEIPT TIME SIGNIFICANCE                       
+004200  RCYR                      2021.0  YEAR                          YEAR   - TIME OF RECEIPT                        
+004201  RCMO                         5.0  MONTH                         MONTH  - TIME OF RECEIPT                        
+004202  RCDY                        31.0  DAY                           DAY    - TIME OF RECEIPT                        
+004203  RCHR                        23.0  HOUR                          HOUR   - TIME OF RECEIPT                        
+004204  RCMI                        59.0  MINUTE                        MINUTE - TIME OF RECEIPT                        
+           {CORNSQ}     1 REPLICATIONS
+033215  CORN                         0.0  CODE TABLE                    CORRECTED REPORT INDICATOR                      
+
+ >>> END OF SUBSET <<< 
+

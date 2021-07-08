@@ -16,49 +16,30 @@ matplotlib.use('agg')
 
 #path='/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/gdas.20210601/gdas.t00z.uprair.tm00.bufr_d'
 test=np.array([])
-
-
-
+lonPres=np.array([])
+shortPres=np.array([])
 numData=np.array([])
 counter=0
-x=np.array([])
-duration=np.array([])
+
 for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
 	bufr=ncepbufr.open(filepath)
 	while bufr.load_subset()==-1:
 		bufr.advance()
-
+	lonPres=np.array([])
+	shortPres=np.array([])
 	pres= bufr.read_subset('PRLC').squeeze()
-	t=bufr.read_subset('LTDS').squeeze()
-	dpdt=diff(pres)/diff(t)
-	
-
-	if any(x>0 for x in dpdt):
-#		numData=np.append(numData, len(dpdt[dpdt>0]))
-#		duration=np.append(duration, np.amax(t[dpdt>0])-np.amin(t[dpdt>0]))
-#		numData=np.append(numData, len(dpdt[dpdt<=0]))
-#		duration=np.append(duration, np.amax(t[dpdt<=0]))
-		duration=np.append(duration, np.amax(t))
+	if len(pres)<=500:
+		shortPres=np.append(shortPres, pres)
 	else:
-		numData=np.append(numData, len(dpdt))
-		duration=np.append(duration, np.amax(t))
+		pass	#lonPres=np.append(lonPres, pres)
 	while bufr.load_subset()==0:
 		try:
 			pres= bufr.read_subset('PRLC').squeeze()
-			t=bufr.read_subset('LTDS').squeeze()
-			dpdt=diff(pres)/diff(t)
-			
-			if any(x>0 for x in dpdt):
-				counter+=1
-#				numData=np.append(numData, len(dpdt[dpdt>0]))
-#				duration=np.append(duration, np.amax(t[dpdt>0])-np.amin(t[dpdt>0]))
-#				numData=np.append(numData, len(dpdt[dpdt<=0]))
-#				duration=np.append(duration, np.amax(t[dpdt<=0]))
-				numData=np.append(numData, len(dpdt))
-				duration=np.append(duration, np.amax(t))
+				
+			if len(pres)<=500:
+				shortPres=np.append(shortPres,pres)
 			else:
-				numData=np.append(numData, len(dpdt))
-				duration=np.append(duration, np.amax(t))
+				pass#				lonPres=np.append(lonPres, pres)
 		except:
 			pass
 	
@@ -66,67 +47,44 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/
 		while bufr.load_subset()==0:
 			try:
 				pres=bufr.read_subset('PRLC').squeeze()
-				t=bufr.read_subset('LTDS').squeeze()
-				dpdt=diff(pres)/diff(t)
 				
-				if any(x>0 for x in dpdt):
-					counter+=1
-#					numData=np.append(numData, len(dpdt[dpdt>0]))
-#					duration=np.append(duration, np.amax(t[dpdt>0])-np.amin(t[dpdt>0]))
-#					numData=np.append(numData, len(dpdt[dpdt<=0]))
-#					duration=np.append(duration, np.amax(t[dpdt<=0]))
-					numData=np.append(numData, len(dpdt))
-					duration=np.append(duration,np.amax( t))
+				if len(pres)<=500:
+					shortPres=np.append(shortPres, pres)
 				else:	
-					numData=np.append(numData, len(dpdt))
-					duration=np.append(duration, np.amax( t))
+					pass #lonPres=np.append(lonPres, pres)
 			except:
 				pass
 
 	bufr.close()
+	shortPres=shortPres/100
+	print(shortPres)
+	#lonPres=lonPres/100 #Convers to hPa
+	#Plot for each file
+	fig, ax = plt.subplots()
+	ax.hist(shortPres)
+	#ax[0].hist(lonPres)
+	#ax.set_xscale('log')
+	ax.set_title('HD: {} points'.format(len(shortPres)))
+	ax.set_xlabel('Pressure (hPa)')
+	#ax[1].set_title('Hd: {} points'.format(len(lonPres)))
+	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{}short.png'.format(str(filepath).rstrip('.bufr').split('/')[7:]))
+	plt.close()
 
-duration=duration/60 #convert from seconds to minutes
 
-print(numData.shape)
-print(duration.shape)
-print(np.amax(duration))
-print(np.amin(duration))
-print(np.mean(duration))
-print(np.median(duration))
-print(np.std(duration))
-
-
-
-#fig=plt.figure()
-#plt.scatter(numData,duration)
-#plt.title('Duration vs Number of Observations (Split Ascent/Descent)')
-#plt.xlabel('Number of Observations')
-#plt.ylabel('Time (Minutes)')
-#plt.savefig('durationscatter.png')
-#plt.close()
-
-fig=plt.figure()
-plt.hist(duration, bins=np.arange(0,315,15))
-plt.title('Duration of flight')
-plt.xlabel('Duration (Minutes)')
-plt.savefig('durationhist.png')
-plt.close()
 
 
 exit()
-
 for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
         test=np.append(test,VB.lenBufrFile(filepath, 'PRLC')) #Also try tmdb, try compressing masked to get rid of missing?
 
 print(counter)
 print(numData.shape)
 
-fig,ax=plt.subplots(1,2,sharex='row',sharey='row')
+fig=plt.subplots()
 ax[0].hist(test)
-ax[1].hist(numData)
-
+#ax[1].hist(numData)
 ax[0].set_title('No separation')
-ax[1].set_title('Ascent and descent separated (no dyn. all.)')
+#ax[1].set_title('Ascent and descent separated (no dyn. all.)')
 ax[0].set_xlabel('Points per profile')
 ax[0].set_ylabel('frequency')
 plt.savefig('histascentdescent')

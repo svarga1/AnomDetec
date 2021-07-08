@@ -23,22 +23,40 @@ numData=np.array([])
 counter=0
 x=np.array([])
 duration=np.array([])
-for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/*.bufr_d'):
+for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gdas.20210601/gdas.t00z.uprair.tm00.bufr_d'):
 	bufr=ncepbufr.open(filepath)
 	while bufr.load_subset()==-1:
 		bufr.advance()
 
-	pres= bufr.read_subset('PRLC').squeeze()
-	t=bufr.read_subset('LTDS').squeeze()
+	pres= bufr.read_subset('PRLC').squeeze()/100 #Converts to hPa
+	t=bufr.read_subset('LTDS').squeeze() 
 	dpdt=diff(pres)/diff(t)
-	
+	temp=bufr.read_subset('TMDB').squeeze()-273.15 #converts to celsius
+	stationId=str(bufr.read_subset('WMOS').squeeze())
+	receiptTime=str(bufr.read_subset('YEAR').squeeze() ) + str(bufr.read_subset('MNTH').squeeze()) + str(bufr.read_subset('DAYS').squeeze()) + str(bufr.read_subset('HOUR').squeeze())
+	out=stationId+'.'+receiptTime
+
+	fig,ax =plt.subplots()
+	plt.scatter(temp, pres)
+	plt.title('{} points'.format(len(temp)))
+	plt.xlabel('Dry Bulb Temperature (Celsius)')
+	plt.ylabel('Pressure (hPa)')
+	ax.invert_yaxis()
+	ax.set_yscale('log')
+
+
+	if len(temp)>500:
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/HD/'+out+'.png')
+		plt.close()
+	else:
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/SD/'+out+'.png')
+		plt.close()
+
+
+	exit()
 
 	if any(x>0 for x in dpdt):
-#		numData=np.append(numData, len(dpdt[dpdt>0]))
-#		duration=np.append(duration, np.amax(t[dpdt>0])-np.amin(t[dpdt>0]))
-#		numData=np.append(numData, len(dpdt[dpdt<=0]))
-#		duration=np.append(duration, np.amax(t[dpdt<=0]))
-		duration=np.append(duration, np.amax(t))
+		pass		
 	else:
 		numData=np.append(numData, len(dpdt))
 		duration=np.append(duration, np.amax(t))

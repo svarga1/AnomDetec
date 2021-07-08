@@ -38,10 +38,10 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/
 #		duration=np.append(duration, np.amax(t[dpdt>0])-np.amin(t[dpdt>0]))
 #		numData=np.append(numData, len(dpdt[dpdt<=0]))
 #		duration=np.append(duration, np.amax(t[dpdt<=0]))
-		duration=np.append(duration, np.amax(t))
+		duration=np.append(duration, t.max())
 	else:
 		numData=np.append(numData, len(dpdt))
-		duration=np.append(duration, np.amax(t))
+		duration=np.append(duration, t.max())
 	while bufr.load_subset()==0:
 		try:
 			pres= bufr.read_subset('PRLC').squeeze()
@@ -55,10 +55,10 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/
 #				numData=np.append(numData, len(dpdt[dpdt<=0]))
 #				duration=np.append(duration, np.amax(t[dpdt<=0]))
 				numData=np.append(numData, len(dpdt))
-				duration=np.append(duration, np.amax(t))
+				duration=np.append(duration, t.max())
 			else:
 				numData=np.append(numData, len(dpdt))
-				duration=np.append(duration, np.amax(t))
+				duration=np.append(duration, t.max())
 		except:
 			pass
 	
@@ -76,10 +76,10 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('*/
 #					numData=np.append(numData, len(dpdt[dpdt<=0]))
 #					duration=np.append(duration, np.amax(t[dpdt<=0]))
 					numData=np.append(numData, len(dpdt))
-					duration=np.append(duration,np.amax( t))
+					duration=np.append(duration, t.max())
 				else:	
 					numData=np.append(numData, len(dpdt))
-					duration=np.append(duration, np.amax( t))
+					duration=np.append(duration, t.max())
 			except:
 				pass
 
@@ -89,11 +89,11 @@ duration=duration/60 #convert from seconds to minutes
 
 print(numData.shape)
 print(duration.shape)
-print(np.amax(duration))
-print(np.amin(duration))
-print(np.mean(duration))
-print(np.median(duration))
-print(np.std(duration))
+print(np.amax(duration[duration>0]))
+print(np.amin(duration[duration>0]))
+print(np.mean(duration[duration>0]))
+print(np.median(duration[duration>0]))
+print(np.std(duration[duration>0]))
 
 
 
@@ -106,10 +106,10 @@ print(np.std(duration))
 #plt.close()
 
 fig=plt.figure()
-plt.hist(duration, bins=np.arange(0,315,15))
+plt.hist(duration[duration>0],  bins=np.arange(0,315,15))
 plt.title('Duration of flight')
 plt.xlabel('Duration (Minutes)')
-plt.savefig('durationhist.png')
+plt.savefig('0compresseddurationhist.png')
 plt.close()
 
 

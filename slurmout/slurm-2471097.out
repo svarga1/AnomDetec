@@ -1,0 +1,10 @@
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/BufHis.py", line 109
+    plt.hist(duration[duration>0] bins=np.arange(0,315,15))
+                                  ^
+SyntaxError: invalid syntax
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/BufHis.py", line 109
+    plt.hist(duration[duration>0] bins=np.arange(0,315,15))
+                                  ^
+SyntaxError: invalid syntax
+srun: error: Orion-25-49: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2471097.0

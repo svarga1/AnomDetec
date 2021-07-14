@@ -25,16 +25,18 @@ matplotlib.use('agg')
 #pres_dim=ncfile.createDimension('pressure',1)
 #wind_dim=ncfile.createDimension('wind',1)
 #dpt_dim=ncfile.createDimension('dewpoint',1)
-#Variables
+##Variables
 #temp=ncfile.createVariable('temp', np.float32, ('profile','data','temperature'))
 #temp.units='C'
 #pre=ncfile.createVariable('pres', np.float32, ('profile' ,'data','pressure'))
 #pre.units='hPa'
-#wind=ncfile.createVariable('wind', np.float32, ('profile', 'data', 'wind'))
-#wind.units='Degree heading'
+#wdir=ncfile.createVariable('wdir', np.float32, ('profile', 'data', 'wind'))
+#wdir.units='Degree heading'
 #dpt=ncfile.createVariable('dpt', np.float32, ('profile','data','dewpoint'))
 #dpt.units='C'
-i=0
+#wspd=ncfile.createVariable('wspd', np.float32, ('profile', 'data', 'wind'))
+#wspd.units='m/s'
+#i=0
 
 
 #path='/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/gdas.20210601/gdas.t00z.uprair.tm00.bufr_d'
@@ -47,13 +49,15 @@ i=0
 #	pres= bufr.read_subset('PRLC').squeeze()/100
 #	t=bufr.read_subset('TMDB').squeeze()-273.15
 #	d=bufr.read_subset('TMDP').squeeze()-273.15
-#	w=bufr.read_subset('WDIR').squeeze()
+#	wd=bufr.read_subset('WDIR').squeeze()
+#	ws=bufr.read_subset('WSPD').squeeze()
 #	if len(pres)>3000:
-#		#longPres=pres
-		#longtemp=t
+		#longPres=pres
+#		#longtemp=t
 #		temp[i,:,:]=np.reshape(t, [len(t),1])
 #		pre[i,:,:]=np.reshape(pres, [len(pres),1])
-#		wind[i,:,:]=np.reshape(w, [len(w),1])
+#		wdir[i,:,:]=np.reshape(wd, [len(wd),1])
+#		wspd[i,:,:]=np.reshape(ws, [len(ws),1])
 #		dpt[i,:,:]=np.reshape(d, [len(d), 1])
 #		i+=1
 #	while bufr.load_subset()==0:
@@ -61,18 +65,19 @@ i=0
 #			pres= bufr.read_subset('PRLC').squeeze()/100
 #			t=bufr.read_subset('TMDB').squeeze()-273.15
 #			d=bufr.read_subset('TMDP').squeeze()-273.15
-#			w=bufr.read_subset('WDIR').squeeze()
-#
+#			wd=bufr.read_subset('WDIR').squeeze()
+#			ws=bufr.read_subset('WSPD').squeeze()
 #			if len(pres)>3000:
 #				longPres=pres
-#				longtemp=t
+##				longtemp=t
 #				temp[i,:,:]=np.reshape(t, [len(t),1])
 #				pre[i,:,:]=np.reshape(pres, [len(pres),1])
-#				wind[i,:,:]=np.reshape(w, [len(w),1])
+#				wdir[i,:,:]=np.reshape(wd, [len(wd),1])
+#				wspd[i,:,:]=np.reshape(ws, [len(ws),1])
 #				dpt[i,:,:]=np.reshape(d, [len(d), 1])
 
 #				i+=1
-		
+#		
 #		except:
 #			pass
 	
@@ -82,21 +87,22 @@ i=0
 #				pres=bufr.read_subset('PRLC').squeeze()/100
 #				t=bufr.read_subset('TMDB').squeeze()-273.15
 #				d=bufr.read_subset('TMDP').squeeze()-273.15
-#				w=bufr.read_subset('WDIR').squeeze()
-
+#				wd=bufr.read_subset('WDIR').squeeze()
+#				ws=bufr.read_subset('WSPD').squeeze()
 #				if len(pres)>3000:
 #					longPres=pres
 #					longtemp=t
 #					temp[i,:,:]=np.reshape(t, [len(t),1])
 #					pre[i,:,:]=np.reshape(pres, [len(pres),1])
-#					wind[i,:,:]=np.reshape(w, [len(w),1])
+#					wdir[i,:,:]=np.reshape(wd, [len(wd),1])
+#					wspd[i,:,:]=np.reshape(ws, [len(ws),1])
 #					dpt[i,:,:]=np.reshape(d, [len(d), 1])
 
 #					i+=1
 
 #			except:
 #				pass
-
+#
 #	bufr.close()
 #ncfile.close()
 
@@ -104,20 +110,18 @@ i=0
 
 #exit()
 
-#print(longtemp.shape)
-#print(longPres.shape)
-#print(longtemp)
 
 fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
 pres=fid.variables['pres'][:]
-temp=fid.variables['dpt'][:]
+temp=fid.variables['wdir'][:]
+
 
 
 strides=[10,50,100,150,200]
 i=1
 while i<5:
 	longPres=pres[i,:,:].flatten()
-	longtemp=temp[i,:,:].flatten()
+	longtemp=np.cos(temp[i,:,:].flatten()*np.pi/180)
 	for npoints in strides:
 
 		#Subset points by striding
@@ -168,8 +172,8 @@ while i<5:
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel('Dewpoint (C)')
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/qterp/{0}subset{1}.png'.format(npoints,i))
+		ax[0].set_xlabel('Cosine of Wind Heading)')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}subset{1}.png'.format(npoints,i))
 		plt.close()
 
 
@@ -183,8 +187,8 @@ while i<5:
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel('Dewpoint (C)')
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/qterp/{0}profile{1}.png'.format(npoints,i))
+		ax[0].set_xlabel('Cosine of Wind Heading')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}profile{1}.png'.format(npoints,i))
 		plt.close()
 	
 	#Plot OMI
@@ -195,8 +199,8 @@ while i<5:
 		ax[0].set_title('Stride OMI: {} points'.format(len(shorttemp)))
 		ax[1].set_title('Sampled OMI: {} points'.format(len(normtemp)))
 		ax[0].set_ylabel('Frequency')
-		ax[0].set_xlabel('OMI (C)')
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/qterp/{0}hist{1}.png'.format(npoints,i))
+		ax[0].set_xlabel('OMI)')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}hist{1}.png'.format(npoints,i))
 		plt.close()
 
 	#OMI Profile 
@@ -208,8 +212,8 @@ while i<5:
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa')
-		ax[0].set_xlabel('OMI (C)')
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/qterp/{0}OMIprofile{1}.png'.format(npoints,i))
+		ax[0].set_xlabel('OMI ')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}OMIprofile{1}.png'.format(npoints,i))
 		plt.close()
 
 	#Linear Regression
@@ -218,11 +222,11 @@ while i<5:
 		ax[0].scatter(longtemp, (shortLR[0]*longtemp)+shortLR[1],4,color='r')
 		ax[1].scatter(longtemp[:len(longPres.compressed())], normnew,4)
 		ax[1].scatter(longtemp, (normLR[0]*longtemp)+normLR[1],4, color='r')
-		ax[0].set_xlabel('Original Dewpoint (C)')
-		ax[0].set_ylabel('Interpolated Dewpoint (C)')
+		ax[0].set_xlabel('Cosine of Wind Heading')
+		ax[0].set_ylabel('Interpolated Cosine of Wind Heading)')
 		ax[0].set_title('Stride Sample:m={0:.4f},b={1:.4f}, R^2={2:.4f}'.format(shortLR[0],shortLR[1],shortLR[2]**2))
 		ax[1].set_title('Normal Sample:m={0:.4f},b={1:.4f}, R^2={2:.4f}'.format(normLR[0], normLR[1], normLR[2]**2))
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/qterp/{0}reg{1}.png'.format(npoints, i))
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}reg{1}.png'.format(npoints, i))
 		plt.close()
 	
 	i+=1

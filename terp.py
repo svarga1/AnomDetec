@@ -110,18 +110,25 @@ matplotlib.use('agg')
 
 #exit()
 
-
+suff='terp'
 fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
 pres=fid.variables['pres'][:]
-temp=fid.variables['wdir'][:]
+temp=fid.variables['temp'][:]
 
 
 
 strides=[10,50,100,150,200]
 i=1
 while i<5:
-	longPres=pres[i,:,:].flatten()
-	longtemp=np.cos(temp[i,:,:].flatten()*np.pi/180)
+	longPres=pres[i,:,:].flatten()			#Need to change how missing data is handled- generate y for all x points, then mask y based on original array? Would require no missing pressure data?
+	#longtemp=np.cos(temp[i,:,:].flatten()*np.pi/180)
+	longtemp=temp[i,:,:].flatten()
+#Data masking
+	mas=np.ma.mask_or(np.ma.getmask(longPres),np.ma.getmask(longtemp)) #This returns a mask the same length as longPres and longtemp, evaluated to True where there is missing data in either.
+	longPres.mask=mas
+	longtemp.mask=mas
+	longPres=longPres.compressed()
+	longtemp=longtemp.compressed()
 	for npoints in strides:
 
 		#Subset points by striding
@@ -143,18 +150,22 @@ while i<5:
 		shortf=interpolate.interp1d(shortPres, shorttemp, fill_value='extrapolate')
 	
 	
-		normnew=normf(longPres.compressed())
-		shortnew=shortf(longPres.compressed())
+		normnew=normf(longPres)
+		shortnew=shortf(longPres)
 	
 		#Observation minus interpolation
-		normIMO=longtemp[:len(longPres.compressed())]-normnew
-		shortIMO=longtemp[:len(longPres.compressed())]-shortnew
+#		normIMO=longtemp[:len(longPres.compressed())]-normnew
+#		shortIMO=longtemp[:len(longPres.compressed())]-shortnew
+		normIMO=longtemp-normnew
+		shortIMO=longtemp-shortnew
 		print('Stats for normIMO: {0}, {1}, {2}, {3}'.format(np.amin(normIMO), np.amax(normIMO), np.mean(normIMO), np.std(normIMO)))
 		print('Stats for shortIMO: {0}. {1}, {2}, {3}'.format(np.amin(shortIMO), np.amax(shortIMO), np.mean(shortIMO), np.std(shortIMO)))
 
 	#Liner Regression
-		normLR=scipy.stats.linregress(longtemp[:len(longPres.compressed())], normnew)
-		shortLR=scipy.stats.linregress(longtemp[:len(longPres.compressed())], shortnew)
+#		normLR=scipy.stats.linregress(longtemp[:len(longPres.compressed())], normnew)
+#		shortLR=scipy.stats.linregress(longtemp[:len(longPres.compressed())], shortnew)
+		normLR=scipy.stats.linregress(longtemp, normnew)
+		shortLR=scipy.stats.linregress(longtemp, shortnew)
 		print('For Sampled Data: m={0}, b={1}, r={2},r^2={4}, Se={3}'.format(normLR[0], normLR[1], normLR[2], normLR[4], normLR[2]**2))
 		print('For Stride Data: m={0}, b={1}, r={2},r^2={4}, Se={3}'.format(shortLR[0], shortLR[1], shortLR[2], shortLR[4], shortLR[2]**2))
 
@@ -172,23 +183,23 @@ while i<5:
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel('Cosine of Wind Heading)')
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}subset{1}.png'.format(npoints,i))
+		ax[0].set_xlabel('Temperature (C)')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}subset{1}.png'.format(npoints,i,suff))
 		plt.close()
 
 
 		fig, ax= plt.subplots(1,3, sharex='row', sharey='row', figsize=(10,10))
 		ax[0].scatter(longtemp, longPres, 4)
 		ax[0].set_title('Original Data: {} points'.format(len(longPres)))
-		ax[1].scatter(shortnew,longPres.compressed(),4 )
+		ax[1].scatter(shortnew,longPres,4 )
 		ax[1].set_title('Stride Data: {} points'.format(len(shortnew)))
-		ax[2].scatter(normnew, longPres.compressed(),4 )
+		ax[2].scatter(normnew,longPres, 4 )
 		ax[2].set_title('Sampled Data: {} points'.format(len(normnew)))
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel('Cosine of Wind Heading')
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}profile{1}.png'.format(npoints,i))
+		ax[0].set_xlabel('Temperature (C)')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}profile{1}.png'.format(npoints,i,suff))
 		plt.close()
 	
 	#Plot OMI
@@ -199,34 +210,34 @@ while i<5:
 		ax[0].set_title('Stride OMI: {} points'.format(len(shorttemp)))
 		ax[1].set_title('Sampled OMI: {} points'.format(len(normtemp)))
 		ax[0].set_ylabel('Frequency')
-		ax[0].set_xlabel('OMI)')
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}hist{1}.png'.format(npoints,i))
+		ax[0].set_xlabel('OMI (C)')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}hist{1}.png'.format(npoints,i, suff))
 		plt.close()
 
 	#OMI Profile 
 		fig, ax =plt.subplots(1,2, sharex='row', sharey='row', figsize=(10,10))
-		ax[0].scatter(shortIMO, longPres.compressed(), 4)
-		ax[1].scatter(normIMO, longPres.compressed(), 4)
-		ax[0].set_title('Stride OMI: {} points'.format(len(shortIMO)))
-		ax[1].set_title('Sampled OMI: {} points'.format(len(normIMO)))
+		ax[0].scatter(shortIMO, longPres,4)
+		ax[1].scatter(normIMO, longPres,4)
+		ax[0].set_title('Stride OMI: {} Points'.format(len(shortIMO)))
+		ax[1].set_title('SAmpled OMI: {} Points'.format(len(shortIMO)))
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
-		ax[0].set_ylabel('Pressure (hPa')
-		ax[0].set_xlabel('OMI ')
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}OMIprofile{1}.png'.format(npoints,i))
+		ax[0].set_ylabel('Pressure (hPa)')
+		ax[0].set_xlabel(' OMI (C)')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}OMIprofile{1}.png'.format(npoints,i,suff))
 		plt.close()
 
-	#Linear Regression
-		fig, ax =plt.subplots(1,2, sharex='row', sharey='row', figsize=(10,10))
-		ax[0].scatter(longtemp[:len(longPres.compressed())], shortnew,4)
-		ax[0].scatter(longtemp, (shortLR[0]*longtemp)+shortLR[1],4,color='r')
-		ax[1].scatter(longtemp[:len(longPres.compressed())], normnew,4)
-		ax[1].scatter(longtemp, (normLR[0]*longtemp)+normLR[1],4, color='r')
-		ax[0].set_xlabel('Cosine of Wind Heading')
-		ax[0].set_ylabel('Interpolated Cosine of Wind Heading)')
-		ax[0].set_title('Stride Sample:m={0:.4f},b={1:.4f}, R^2={2:.4f}'.format(shortLR[0],shortLR[1],shortLR[2]**2))
-		ax[1].set_title('Normal Sample:m={0:.4f},b={1:.4f}, R^2={2:.4f}'.format(normLR[0], normLR[1], normLR[2]**2))
-		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/wdterp/{0}reg{1}.png'.format(npoints, i))
+	#Linear regression
+		fig, ax =plt.subplots(1,2, sharex='row', figsize=(10,10))
+		ax[0].scatter(longtemp, shortnew, 4)
+		ax[0].scatter(longtemp, longtemp, 4, color='r')
+		ax[1].scatter(longtemp, normnew, 4)
+		ax[1].scatter(longtemp, longtemp, 4, color='r')
+		ax[0].set_xlabel('Temperature (C)')
+		ax[0].set_ylabel('Interpolated Temperature (C)')		
+		ax[0].set_title('Stride sample: m={0:.4f}, b={1:.4f}, R^2={2:.4f}'.format(shortLR[0], shortLR[1], shortLR[2]**2))
+		ax[1].set_title('Normal sample: m={0:.4f}, b={1:.4f}, R^2={2:.4f}'.format(normLR[0], normLR[1], normLR[2]**2))
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}reg{1}.png'.format(npoints,i,suff))
 		plt.close()
-	
+
 	i+=1

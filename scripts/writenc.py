@@ -12,7 +12,7 @@ import ncepbufr
 
 
 #Create NC skeleton
-ncfile=Dataset('test.nc', mode='w', format='NETCDF4')
+ncfile=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/test.nc', mode='w', format='NETCDF4')
 
 #Create dimensions
 
@@ -23,10 +23,9 @@ time_dim=ncfile.createDimension('time', 1)
 pres_dim=ncfile.createDimension('pressure',1)
 #Define variables
 
-temp=ncfile.createVariable('Temp', np.float32, ('profile','data','temperature'))
+temp=ncfile.createVariable('Temp', np.float32, ('profile','data','temperature'), fill_value=-999)
 temp.units='C'
 temp.standard_name='dry_bulb_temperature'
-
 pres=ncfile.createVariable('Pres', np.float32, ('profile','data','pressure'))
 pres.units='hPa'
 

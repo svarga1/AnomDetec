@@ -110,10 +110,10 @@ matplotlib.use('agg')
 
 #exit()
 
-suff='terp'
+suff='wdterp'
 fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
 pres=fid.variables['pres'][:]
-temp=fid.variables['temp'][:]
+temp=fid.variables['wdir'][:]
 
 
 
@@ -121,8 +121,8 @@ strides=[10,50,100,150,200]
 i=1
 while i<5:
 	longPres=pres[i,:,:].flatten()			#Need to change how missing data is handled- generate y for all x points, then mask y based on original array? Would require no missing pressure data?
-	#longtemp=np.cos(temp[i,:,:].flatten()*np.pi/180)
-	longtemp=temp[i,:,:].flatten()
+	longtemp=np.cos(temp[i,:,:].flatten()*np.pi/180)
+	#longtemp=temp[i,:,:].flatten()
 #Data masking
 	mas=np.ma.mask_or(np.ma.getmask(longPres),np.ma.getmask(longtemp)) #This returns a mask the same length as longPres and longtemp, evaluated to True where there is missing data in either.
 	longPres.mask=mas
@@ -183,7 +183,7 @@ while i<5:
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel('Temperature (C)')
+		ax[0].set_xlabel('Cosine of Wind Heading')
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}subset{1}.png'.format(npoints,i,suff))
 		plt.close()
 
@@ -198,7 +198,7 @@ while i<5:
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel('Temperature (C)')
+		ax[0].set_xlabel('Cosine of Wind Heading')
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}profile{1}.png'.format(npoints,i,suff))
 		plt.close()
 	
@@ -210,7 +210,7 @@ while i<5:
 		ax[0].set_title('Stride OMI: {} points'.format(len(shorttemp)))
 		ax[1].set_title('Sampled OMI: {} points'.format(len(normtemp)))
 		ax[0].set_ylabel('Frequency')
-		ax[0].set_xlabel('OMI (C)')
+		ax[0].set_xlabel('OMI')
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}hist{1}.png'.format(npoints,i, suff))
 		plt.close()
 
@@ -219,11 +219,11 @@ while i<5:
 		ax[0].scatter(shortIMO, longPres,4)
 		ax[1].scatter(normIMO, longPres,4)
 		ax[0].set_title('Stride OMI: {} Points'.format(len(shortIMO)))
-		ax[1].set_title('SAmpled OMI: {} Points'.format(len(shortIMO)))
+		ax[1].set_title('Sampled OMI: {} Points'.format(len(shortIMO)))
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel(' OMI (C)')
+		ax[0].set_xlabel(' OMI')
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}OMIprofile{1}.png'.format(npoints,i,suff))
 		plt.close()
 
@@ -233,8 +233,8 @@ while i<5:
 		ax[0].scatter(longtemp, longtemp, 4, color='r')
 		ax[1].scatter(longtemp, normnew, 4)
 		ax[1].scatter(longtemp, longtemp, 4, color='r')
-		ax[0].set_xlabel('Temperature (C)')
-		ax[0].set_ylabel('Interpolated Temperature (C)')		
+		ax[0].set_xlabel('Cosine of Wind Heading')
+		ax[0].set_ylabel('Interpolated Cosine of Wind Heading')		
 		ax[0].set_title('Stride sample: m={0:.4f}, b={1:.4f}, R^2={2:.4f}'.format(shortLR[0], shortLR[1], shortLR[2]**2))
 		ax[1].set_title('Normal sample: m={0:.4f}, b={1:.4f}, R^2={2:.4f}'.format(normLR[0], normLR[1], normLR[2]**2))
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}reg{1}.png'.format(npoints,i,suff))

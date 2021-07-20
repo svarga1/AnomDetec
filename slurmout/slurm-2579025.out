@@ -1,0 +1,346 @@
+2021-07-20 12:52:54.280728: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-07-20 12:52:54.280815: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-07-20 12:52:54.280733: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-07-20 12:52:54.280814: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-07-20 12:54:11.040953: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-07-20 12:54:11.041005: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-07-20 12:54:11.041039: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-05-29.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-07-20 12:54:11.041124: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-07-20 12:54:11.041174: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-07-20 12:54:11.041207: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-05-29.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-07-20 12:54:11.041433: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-07-20 12:54:11.041543: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+2021-07-20 12:54:12.236071: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-07-20 12:54:12.236147: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-07-20 12:54:12.273822: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+2021-07-20 12:54:12.273967: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+Epoch 1/100
+Epoch 1/100
+1/1 [==============================] - ETA: 0s - loss: 1.00871/1 [==============================] - 5s 5s/step - loss: 1.0087 - val_loss: 0.4061
+1/1 [==============================] - ETA: 0s - loss: 1.06121/1 [==============================] - 5s 5s/step - loss: 1.0612 - val_loss: 0.7778
+Epoch 2/100
+Epoch 2/100
+1/1 [==============================] - ETA: 0s - loss: 0.43031/1 [==============================] - 0s 90ms/step - loss: 0.4303 - val_loss: 0.9560
+1/1 [==============================] - ETA: 0s - loss: 0.77361/1 [==============================] - 0s 97ms/step - loss: 0.7736 - val_loss: 0.5165
+Epoch 3/100
+1/1 [==============================] - ETA: 0s - loss: 0.93421/1 [==============================] - 0s 85ms/step - loss: 0.9342 - val_loss: 0.8728
+Epoch 3/100
+1/1 [==============================] - ETA: 0s - loss: 0.57551/1 [==============================] - 0s 99ms/step - loss: 0.5755 - val_loss: 0.2905
+Epoch 4/100
+1/1 [==============================] - ETA: 0s - loss: 0.86721/1 [==============================] - 0s 87ms/step - loss: 0.8672 - val_loss: 0.7213
+Epoch 4/100
+1/1 [==============================] - ETA: 0s - loss: 0.28641/1 [==============================] - 0s 85ms/step - loss: 0.2864 - val_loss: 0.5276
+Epoch 5/100
+1/1 [==============================] - ETA: 0s - loss: 0.70681/1 [==============================] - 0s 84ms/step - loss: 0.7068 - val_loss: 0.2893
+Epoch 5/100
+1/1 [==============================] - ETA: 0s - loss: 0.52161/1 [==============================] - 0s 92ms/step - loss: 0.5216 - val_loss: 0.5621
+Epoch 6/100
+1/1 [==============================] - ETA: 0s - loss: 0.27761/1 [==============================] - 0s 84ms/step - loss: 0.2776 - val_loss: 0.8122
+Epoch 6/100
+1/1 [==============================] - ETA: 0s - loss: 0.55981/1 [==============================] - 0s 97ms/step - loss: 0.5598 - val_loss: 0.5091
+Epoch 7/100
+1/1 [==============================] - ETA: 0s - loss: 0.91721/1 [==============================] - 0s 84ms/step - loss: 0.9172 - val_loss: 0.0740
+Epoch 7/100
+1/1 [==============================] - ETA: 0s - loss: 0.50661/1 [==============================] - 0s 91ms/step - loss: 0.5066 - val_loss: 0.3677
+Epoch 8/100
+1/1 [==============================] - ETA: 0s - loss: 0.07851/1 [==============================] - 0s 85ms/step - loss: 0.0785 - val_loss: 0.2962
+Epoch 8/100
+1/1 [==============================] - ETA: 0s - loss: 0.36741/1 [==============================] - 0s 95ms/step - loss: 0.3674 - val_loss: 0.1828
+Epoch 9/100
+1/1 [==============================] - ETA: 0s - loss: 0.28621/1 [==============================] - 0s 85ms/step - loss: 0.2862 - val_loss: 0.4886
+Epoch 9/100
+1/1 [==============================] - ETA: 0s - loss: 0.18451/1 [==============================] - 0s 89ms/step - loss: 0.1845 - val_loss: 0.0199
+Epoch 10/100
+1/1 [==============================] - ETA: 0s - loss: 0.48301/1 [==============================] - 0s 86ms/step - loss: 0.4830 - val_loss: 0.5017
+Epoch 10/100
+1/1 [==============================] - ETA: 0s - loss: 0.02911/1 [==============================] - 0s 92ms/step - loss: 0.0291 - val_loss: 0.2176
+Epoch 11/100
+1/1 [==============================] - ETA: 0s - loss: 0.49471/1 [==============================] - 0s 85ms/step - loss: 0.4947 - val_loss: 0.4212
+Epoch 11/100
+Epoch 12/100
+1/1 [==============================] - ETA: 0s - loss: 0.26491/1 [==============================] - 0s 107ms/step - loss: 0.2649 - val_loss: 0.1679
+1/1 [==============================] - ETA: 0s - loss: 0.41221/1 [==============================] - 0s 89ms/step - loss: 0.4122 - val_loss: 0.2814
+Epoch 13/100
+Epoch 12/100
+1/1 [==============================] - ETA: 0s - loss: 0.27501/1 [==============================] - 0s 92ms/step - loss: 0.2750 - val_loss: 0.1097
+1/1 [==============================] - ETA: 0s - loss: 0.19591/1 [==============================] - 0s 95ms/step - loss: 0.1959 - val_loss: 0.0283
+Epoch 14/100
+Epoch 13/100
+1/1 [==============================] - ETA: 0s - loss: 0.11091/1 [==============================] - 0s 85ms/step - loss: 0.1109 - val_loss: 0.0996
+1/1 [==============================] - ETA: 0s - loss: 0.04461/1 [==============================] - 0s 86ms/step - loss: 0.0446 - val_loss: 0.0579
+Epoch 15/100
+Epoch 14/100
+1/1 [==============================] - ETA: 0s - loss: 0.12601/1 [==============================] - 0s 84ms/step - loss: 0.1260 - val_loss: 0.2128
+1/1 [==============================] - ETA: 0s - loss: 0.05741/1 [==============================] - 0s 85ms/step - loss: 0.0574 - val_loss: 0.1380
+Epoch 16/100
+Epoch 15/100
+1/1 [==============================] - ETA: 0s - loss: 0.24611/1 [==============================] - 0s 87ms/step - loss: 0.2461 - val_loss: 0.0705
+1/1 [==============================] - ETA: 0s - loss: 0.13751/1 [==============================] - 0s 86ms/step - loss: 0.1375 - val_loss: 0.1733
+Epoch 17/100
+Epoch 16/100
+1/1 [==============================] - ETA: 0s - loss: 0.16891/1 [==============================] - 0s 86ms/step - loss: 0.1689 - val_loss: 0.1529
+1/1 [==============================] - ETA: 0s - loss: 0.09421/1 [==============================] - 0s 89ms/step - loss: 0.0942 - val_loss: 0.0304
+Epoch 17/100
+Epoch 18/100
+1/1 [==============================] - ETA: 0s - loss: 0.03771/1 [==============================] - 0s 87ms/step - loss: 0.0377 - val_loss: 0.1034
+1/1 [==============================] - ETA: 0s - loss: 0.15311/1 [==============================] - 0s 88ms/step - loss: 0.1531 - val_loss: 0.1005
+Epoch 19/100
+Epoch 18/100
+1/1 [==============================] - ETA: 0s - loss: 0.10781/1 [==============================] - 0s 85ms/step - loss: 0.1078 - val_loss: 0.1496
+1/1 [==============================] - ETA: 0s - loss: 0.10861/1 [==============================] - 0s 90ms/step - loss: 0.1086 - val_loss: 0.0340
+Epoch 20/100
+Epoch 19/100
+1/1 [==============================] - ETA: 0s - loss: 0.15301/1 [==============================] - 0s 96ms/step - loss: 0.1530 - val_loss: 0.1290
+1/1 [==============================] - ETA: 0s - loss: 0.04051/1 [==============================] - 0s 112ms/step - loss: 0.0405 - val_loss: 0.0256
+Epoch 21/100
+1/1 [==============================] - ETA: 0s - loss: 0.13041/1 [==============================] - 0s 87ms/step - loss: 0.1304 - val_loss: 0.0724
+Epoch 22/100
+1/1 [==============================] - ETA: 0s - loss: 0.07271/1 [==============================] - 0s 85ms/step - loss: 0.0727 - val_loss: 0.0269
+Epoch 23/100
+1/1 [==============================] - ETA: 0s - loss: 0.03751/1 [==============================] - 0s 85ms/step - loss: 0.0375 - val_loss: 0.0335
+Epoch 24/100
+1/1 [==============================] - ETA: 0s - loss: 0.04891/1 [==============================] - 0s 84ms/step - loss: 0.0489 - val_loss: 0.0679
+Epoch 25/100
+1/1 [==============================] - ETA: 0s - loss: 0.08941/1 [==============================] - 0s 90ms/step - loss: 0.0894 - val_loss: 0.0465
+Epoch 26/100
+1/1 [==============================] - ETA: 0s - loss: 0.06611/1 [==============================] - 0s 85ms/step - loss: 0.0661 - val_loss: 0.0146
+Epoch 27/100
+1/1 [==============================] - ETA: 0s - loss: 0.02681/1 [==============================] - 0s 89ms/step - loss: 0.0268 - val_loss: 0.0304
+Epoch 28/100
+1/1 [==============================] - ETA: 0s - loss: 0.03931/1 [==============================] - 0s 91ms/step - loss: 0.0393 - val_loss: 0.0561
+Epoch 29/100
+1/1 [==============================] - ETA: 0s - loss: 0.05981/1 [==============================] - 0s 88ms/step - loss: 0.0598 - val_loss: 0.0578
+Epoch 30/100
+1/1 [==============================] - ETA: 0s - loss: 0.06531/1 [==============================] - 0s 84ms/step - loss: 0.0653 - val_loss: 0.0415
+Epoch 31/100
+1/1 [==============================] - ETA: 0s - loss: 0.04941/1 [==============================] - 0s 87ms/step - loss: 0.0494 - val_loss: 0.0214
+Epoch 32/100
+1/1 [==============================] - ETA: 0s - loss: 0.02791/1 [==============================] - 0s 85ms/step - loss: 0.0279 - val_loss: 0.0168
+Epoch 33/100
+1/1 [==============================] - ETA: 0s - loss: 0.03081/1 [==============================] - 0s 84ms/step - loss: 0.0308 - val_loss: 0.0256
+Epoch 34/100
+1/1 [==============================] - ETA: 0s - loss: 0.04021/1 [==============================] - 0s 85ms/step - loss: 0.0402 - val_loss: 0.0229
+Epoch 35/100
+1/1 [==============================] - ETA: 0s - loss: 0.04441/1 [==============================] - 0s 90ms/step - loss: 0.0444 - val_loss: 0.0118
+Epoch 36/100
+1/1 [==============================] - ETA: 0s - loss: 0.02471/1 [==============================] - 0s 93ms/step - loss: 0.0247 - val_loss: 0.0154
+Epoch 37/100
+1/1 [==============================] - ETA: 0s - loss: 0.02461/1 [==============================] - 0s 84ms/step - loss: 0.0246 - val_loss: 0.0259
+Epoch 38/100
+1/1 [==============================] - ETA: 0s - loss: 0.03491/1 [==============================] - 0s 84ms/step - loss: 0.0349 - val_loss: 0.0289
+Epoch 39/100
+1/1 [==============================] - ETA: 0s - loss: 0.03851/1 [==============================] - 0s 84ms/step - loss: 0.0385 - val_loss: 0.0222
+Epoch 40/100
+1/1 [==============================] - ETA: 0s - loss: 0.02791/1 [==============================] - 0s 84ms/step - loss: 0.0279 - val_loss: 0.0139
+Epoch 41/100
+1/1 [==============================] - ETA: 0s - loss: 0.02251/1 [==============================] - 0s 84ms/step - loss: 0.0225 - val_loss: 0.0130
+Epoch 42/100
+1/1 [==============================] - ETA: 0s - loss: 0.02401/1 [==============================] - 0s 84ms/step - loss: 0.0240 - val_loss: 0.0152
+Epoch 43/100
+1/1 [==============================] - ETA: 0s - loss: 0.03081/1 [==============================] - 0s 83ms/step - loss: 0.0308 - val_loss: 0.0115
+Epoch 44/100
+1/1 [==============================] - ETA: 0s - loss: 0.02391/1 [==============================] - 0s 88ms/step - loss: 0.0239 - val_loss: 0.0099
+Epoch 45/100
+1/1 [==============================] - ETA: 0s - loss: 0.02201/1 [==============================] - 0s 89ms/step - loss: 0.0220 - val_loss: 0.0132
+Epoch 46/100
+1/1 [==============================] - ETA: 0s - loss: 0.02181/1 [==============================] - 0s 92ms/step - loss: 0.0218 - val_loss: 0.0162
+Epoch 47/100
+1/1 [==============================] - ETA: 0s - loss: 0.02341/1 [==============================] - 0s 84ms/step - loss: 0.0234 - val_loss: 0.0157
+Epoch 48/100
+1/1 [==============================] - ETA: 0s - loss: 0.02181/1 [==============================] - 0s 84ms/step - loss: 0.0218 - val_loss: 0.0126
+Epoch 49/100
+1/1 [==============================] - ETA: 0s - loss: 0.02031/1 [==============================] - 0s 84ms/step - loss: 0.0203 - val_loss: 0.0104
+Epoch 50/100
+1/1 [==============================] - ETA: 0s - loss: 0.01851/1 [==============================] - 0s 84ms/step - loss: 0.0185 - val_loss: 0.0101
+Epoch 51/100
+1/1 [==============================] - ETA: 0s - loss: 0.02141/1 [==============================] - 0s 84ms/step - loss: 0.0214 - val_loss: 0.0098
+Epoch 52/100
+1/1 [==============================] - ETA: 0s - loss: 0.01991/1 [==============================] - 0s 84ms/step - loss: 0.0199 - val_loss: 0.0092
+Epoch 53/100
+1/1 [==============================] - ETA: 0s - loss: 0.01881/1 [==============================] - 0s 83ms/step - loss: 0.0188 - val_loss: 0.0097
+Epoch 54/100
+1/1 [==============================] - ETA: 0s - loss: 0.01881/1 [==============================] - 0s 84ms/step - loss: 0.0188 - val_loss: 0.0115
+Epoch 55/100
+1/1 [==============================] - ETA: 0s - loss: 0.01891/1 [==============================] - 0s 83ms/step - loss: 0.0189 - val_loss: 0.0119
+Epoch 56/100
+1/1 [==============================] - ETA: 0s - loss: 0.02101/1 [==============================] - 0s 91ms/step - loss: 0.0210 - val_loss: 0.0108
+Epoch 57/100
+1/1 [==============================] - ETA: 0s - loss: 0.01871/1 [==============================] - 0s 87ms/step - loss: 0.0187 - val_loss: 0.0097
+Epoch 58/100
+1/1 [==============================] - ETA: 0s - loss: 0.01761/1 [==============================] - 0s 85ms/step - loss: 0.0176 - val_loss: 0.0091
+Epoch 59/100
+1/1 [==============================] - ETA: 0s - loss: 0.01881/1 [==============================] - 0s 84ms/step - loss: 0.0188 - val_loss: 0.0088
+Epoch 60/100
+1/1 [==============================] - ETA: 0s - loss: 0.01921/1 [==============================] - 0s 84ms/step - loss: 0.0192 - val_loss: 0.0086
+Epoch 61/100
+1/1 [==============================] - ETA: 0s - loss: 0.01721/1 [==============================] - 0s 84ms/step - loss: 0.0172 - val_loss: 0.0090
+Epoch 62/100
+1/1 [==============================] - ETA: 0s - loss: 0.01711/1 [==============================] - 0s 84ms/step - loss: 0.0171 - val_loss: 0.0096
+Epoch 63/100
+1/1 [==============================] - ETA: 0s - loss: 0.01651/1 [==============================] - 0s 83ms/step - loss: 0.0165 - val_loss: 0.0095
+Epoch 64/100
+1/1 [==============================] - ETA: 0s - loss: 0.01631/1 [==============================] - 0s 85ms/step - loss: 0.0163 - val_loss: 0.0095
+Epoch 65/100
+1/1 [==============================] - ETA: 0s - loss: 0.01681/1 [==============================] - 0s 84ms/step - loss: 0.0168 - val_loss: 0.0093
+Epoch 66/100
+1/1 [==============================] - ETA: 0s - loss: 0.01671/1 [==============================] - 0s 88ms/step - loss: 0.0167 - val_loss: 0.0089
+Epoch 67/100
+1/1 [==============================] - ETA: 0s - loss: 0.01621/1 [==============================] - 0s 85ms/step - loss: 0.0162 - val_loss: 0.0086
+Epoch 68/100
+1/1 [==============================] - ETA: 0s - loss: 0.01761/1 [==============================] - 0s 84ms/step - loss: 0.0176 - val_loss: 0.0088
+Epoch 69/100
+1/1 [==============================] - ETA: 0s - loss: 0.01501/1 [==============================] - 0s 84ms/step - loss: 0.0150 - val_loss: 0.0092
+Epoch 70/100
+1/1 [==============================] - ETA: 0s - loss: 0.01711/1 [==============================] - 0s 88ms/step - loss: 0.0171 - val_loss: 0.0095
+Epoch 71/100
+1/1 [==============================] - ETA: 0s - loss: 0.01901/1 [==============================] - 0s 85ms/step - loss: 0.0190 - val_loss: 0.0098
+Epoch 72/100
+1/1 [==============================] - ETA: 0s - loss: 0.01521/1 [==============================] - 0s 90ms/step - loss: 0.0152 - val_loss: 0.0093
+Epoch 73/100
+1/1 [==============================] - ETA: 0s - loss: 0.01631/1 [==============================] - 0s 97ms/step - loss: 0.0163 - val_loss: 0.0089
+Epoch 74/100
+1/1 [==============================] - ETA: 0s - loss: 0.01501/1 [==============================] - 0s 85ms/step - loss: 0.0150 - val_loss: 0.0089
+Epoch 75/100
+1/1 [==============================] - ETA: 0s - loss: 0.01491/1 [==============================] - 0s 83ms/step - loss: 0.0149 - val_loss: 0.0089
+Epoch 76/100
+1/1 [==============================] - ETA: 0s - loss: 0.01531/1 [==============================] - 0s 84ms/step - loss: 0.0153 - val_loss: 0.0091
+Epoch 77/100
+1/1 [==============================] - ETA: 0s - loss: 0.01501/1 [==============================] - 0s 84ms/step - loss: 0.0150 - val_loss: 0.0092
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+Epoch 1/100
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/ADBufr.py", line 57, in <module>
+    history=model.fit(x_train, x_train, epochs=100, batch_size=127, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')]) #Train the model
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py", line 1183, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 889, in __call__
+    result = self._call(*args, **kwds)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 933, in _call
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 763, in _initialize
+    self._stateful_fn._get_concrete_function_internal_garbage_collected(  # pylint: disable=protected-access
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3050, in _get_concrete_function_internal_garbage_collected
+    graph_function, _ = self._maybe_define_function(args, kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3444, in _maybe_define_function
+    graph_function = self._create_graph_function(args, kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3279, in _create_graph_function
+    func_graph_module.func_graph_from_py_func(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 999, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 672, in wrapped_fn
+    out = weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 986, in wrapper
+    raise e.ag_error_metadata.to_exception(e)
+ValueError: in user code:
+
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:855 train_function  *
+        return step_function(self, iterator)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:845 step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:1285 run
+        return self._extended.call_for_each_replica(fn, args=args, kwargs=kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:2833 call_for_each_replica
+        return self._call_for_each_replica(fn, args, kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:3608 _call_for_each_replica
+        return fn(*args, **kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:838 run_step  **
+        outputs = model.train_step(data)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:796 train_step
+        loss = self.compiled_loss(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/compile_utils.py:204 __call__
+        loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:155 __call__
+        losses = call_fn(y_true, y_pred)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:259 call  **
+        return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/util/dispatch.py:206 wrapper
+        return target(*args, **kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:1215 mean_squared_error
+        return backend.mean(math_ops.squared_difference(y_pred, y_true), axis=-1)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/ops/gen_math_ops.py:10422 squared_difference
+        _, _, _op, _outputs = _op_def_library._apply_op_helper(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/op_def_library.py:748 _apply_op_helper
+        op = g._create_op_internal(op_type_name, inputs, dtypes=None,
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py:599 _create_op_internal
+        return super(FuncGraph, self)._create_op_internal(  # pylint: disable=protected-access
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:3557 _create_op_internal
+        ret = Operation(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:2041 __init__
+        self._c_op = _create_c_op(self._graph, node_def, inputs,
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:1883 _create_c_op
+        raise ValueError(str(e))
+
+    ValueError: Dimensions must be equal, but are 3263 and 3262 for '{{node mean_squared_error/SquaredDifference}} = SquaredDifference[T=DT_FLOAT](sequential_1/cropping1d_1/strided_slice, IteratorGetNext:1)' with input shapes: [?,3263,1], [?,3262,1].
+
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+Epoch 1/100
+Traceback (most recent call last):
+  File "/work/noaa/da/svarga/anomDetec/AnomDetecBufr/ADBufr.py", line 57, in <module>
+    history=model.fit(x_train, x_train, epochs=100, batch_size=127, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')]) #Train the model
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py", line 1183, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 889, in __call__
+    result = self._call(*args, **kwds)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 933, in _call
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 763, in _initialize
+    self._stateful_fn._get_concrete_function_internal_garbage_collected(  # pylint: disable=protected-access
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3050, in _get_concrete_function_internal_garbage_collected
+    graph_function, _ = self._maybe_define_function(args, kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3444, in _maybe_define_function
+    graph_function = self._create_graph_function(args, kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/function.py", line 3279, in _create_graph_function
+    func_graph_module.func_graph_from_py_func(
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 999, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py", line 672, in wrapped_fn
+    out = weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "/work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 986, in wrapper
+    raise e.ag_error_metadata.to_exception(e)
+ValueError: in user code:
+
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:855 train_function  *
+        return step_function(self, iterator)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:845 step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:1285 run
+        return self._extended.call_for_each_replica(fn, args=args, kwargs=kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:2833 call_for_each_replica
+        return self._call_for_each_replica(fn, args, kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py:3608 _call_for_each_replica
+        return fn(*args, **kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:838 run_step  **
+        outputs = model.train_step(data)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:796 train_step
+        loss = self.compiled_loss(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/engine/compile_utils.py:204 __call__
+        loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:155 __call__
+        losses = call_fn(y_true, y_pred)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:259 call  **
+        return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/util/dispatch.py:206 wrapper
+        return target(*args, **kwargs)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/keras/losses.py:1215 mean_squared_error
+        return backend.mean(math_ops.squared_difference(y_pred, y_true), axis=-1)
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/ops/gen_math_ops.py:10422 squared_difference
+        _, _, _op, _outputs = _op_def_library._apply_op_helper(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/op_def_library.py:748 _apply_op_helper
+        op = g._create_op_internal(op_type_name, inputs, dtypes=None,
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py:599 _create_op_internal
+        return super(FuncGraph, self)._create_op_internal(  # pylint: disable=protected-access
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:3557 _create_op_internal
+        ret = Operation(
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:2041 __init__
+        self._c_op = _create_c_op(self._graph, node_def, inputs,
+    /work/noaa/da/svarga/pyvenv/firstEnv/lib/python3.9/site-packages/tensorflow/python/framework/ops.py:1883 _create_c_op
+        raise ValueError(str(e))
+
+    ValueError: Dimensions must be equal, but are 3263 and 3262 for '{{node mean_squared_error/SquaredDifference}} = SquaredDifference[T=DT_FLOAT](sequential_1/cropping1d_1/strided_slice, IteratorGetNext:1)' with input shapes: [?,3263,1], [?,3262,1].
+
+srun: error: Orion-05-29: tasks 0-1: Exited with exit code 1
+srun: Terminating job step 2579025.0

@@ -23,7 +23,7 @@ testtemp=testf.variables['temp'][:,:,:]
 
 
 #Read in Data
-for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').glob('*.nc'): #Use the interpolated as training, high res as test
+for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').glob('*1.nc'): #Use the interpolated as training, high res as test
 	it=str(filepath)[-4]
 	fid=Dataset(filepath, 'r')
 	pres=fid.variables['pres'][:,:,:]
@@ -50,7 +50,7 @@ for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').g
     layers.Conv1DTranspose( 
      filters=64, kernel_size=7, padding='same', strides=2, activation ='relu'), 
     layers.Conv1DTranspose(filters=1,kernel_size=7,padding='same'), 
-layers.Cropping1D(cropping=(0,1))
+layers.Cropping1D(cropping=(0,2))
 
   ]
 )
@@ -74,7 +74,7 @@ layers.Cropping1D(cropping=(0,1))
 	plt.hist(train_mae_loss)
 	plt.xlabel('Train MAE Loss')
 	plt.ylabel('Number of Samples')
-	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/maeHist{}{}'.format(suff, it))
+	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/ma3Hist{}{}'.format(suff, it))
 	plt.close()
 	#Loss threshold
 	threshold=np.max(train_mae_loss)
@@ -113,7 +113,7 @@ layers.Cropping1D(cropping=(0,1))
 	ax[0].set_ylabel('Pressure (hPa)')
 	ax[0].invert_yaxis()
 	ax[0].set_yscale('log')
-	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/outlierID{}{}'.format(suff,it))
+	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/outlier1D{}{}'.format(suff,it))
 	plt.close()
 
 

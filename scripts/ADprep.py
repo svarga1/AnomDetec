@@ -1,6 +1,6 @@
 #Script that creates histogram of bufr file
 
-import VargaBufr as VB
+#import VargaBufr as VB
 import ncepbufr
 import numpy as np
 import matplotlib.pyplot as plt
@@ -17,7 +17,7 @@ matplotlib.use('agg')
 
 fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc' , 'r')
 pres=fid.variables['pres'][:]
-temp=fid.variables['wdir'][:]
+temp=fid.variables['temp'][:]
 
 
 strides=[100,110,120,130,140,150,160,170,180,190,200]

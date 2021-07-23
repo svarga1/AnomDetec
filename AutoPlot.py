@@ -34,7 +34,7 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 
 	fig,ax =plt.subplots()
 	plt.title('{0} points, {1} available'.format(len(temp),len(temp.compressed())))
-	plt.xlabel('Dry Bulb Temperature (Celsius)')
+	plt.xlabel('Dry Bulb Temperature ()')
 	plt.ylabel('Pressure (hPa)')
 	ax.invert_yaxis()
 	ax.set_yscale('log')
@@ -104,7 +104,7 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 				out=stationId+'.'+receiptTime
 				fig,ax =plt.subplots()
 				plt.title('{0} points, {1} available'.format(len(temp),len(temp.compressed())))
-				plt.xlabel('Dry Bulb Temperature (Celsius)')
+				plt.xlabel('Dry Bulb Temperature ()')
 				plt.ylabel('Pressure (hPa)')
 				ax.invert_yaxis()
 				ax.set_yscale('log')

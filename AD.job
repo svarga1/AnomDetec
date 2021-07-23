@@ -3,11 +3,12 @@
 #SBATCH --account=da-cpu
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
-#SBATCH -q batch
-#SBATCH -p orion
+#SBATCH -q debug 
+#SBATCH -p debug
 #SBATCH -t 10 
 
 module load python
-source ../../pyvenv/firstEnv/bin/activate
+source /work/noaa/da/svarga/pyvenv/firstEnv/bin/activate
+cd /work/noaa/da/svarga/anomDetec/AnomDetecCustom
 
 srun python AnomDetec.py

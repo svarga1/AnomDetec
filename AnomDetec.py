@@ -100,9 +100,12 @@ history=model.fit(
   x_train, x_train, epochs=100, batch_size=128, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')],)
 
 #Plot training and validation loss
-fig=plt.figure()
+fig, ax =plt.subplots()
 plt.plot(history.history['loss'], label='Training loss')
 plt.plot(history.history['val_loss'], label='Validation Loss')
+ax.set_ylabel('Loss')
+ax.set_xlabel('Epoch')
+ax.set_title('Reconstruction Loss')
 plt.legend()
 plt.savefig('loss{}'.format(suff))
 plt.close()
@@ -166,10 +169,13 @@ x_test_pred=model.predict(x_test)
 #Plot predictions
 i=0
 while i<6:
-	fig=plt.figure()
-	plt.plot(x_test[i,:,0])
-	plt.plot(x_test_pred[i,:,0], color='r')
-	plt.title(paths[i])
+	fig, ax =plt.subplots()
+	plt.plot(test[i,:,0],x_test[i,:,0], label='Test Data')
+	plt.plot(test[i,:,0], x_test_pred[i,:,0], color='r', label='Reconstruction')
+	ax.set_title('Reconstruction')
+	ax.set_xlabel('x')
+	ax.set_ylabel('f(x)')
+	plt.legend()
 	plt.savefig('test{}'.format(i))
 	plt.close()
 	i+=1

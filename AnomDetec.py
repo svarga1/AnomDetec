@@ -57,9 +57,8 @@ print('Normalizing training data')
 #Prepare training data
 #Normalize and save the mean and std for normalizing test data
 training_mean=training[:,:,0].mean()
-exit()
-
 training_std=training[:,:,0].std()
+exit()
 training=(training-training_mean)/(training_std)
 x_train=training
 
@@ -117,6 +116,9 @@ print(time.time()-start_time)
 fig=plt.figure()
 plt.plot(history.history['loss'], label='Training loss')
 plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.ylabel('Loss')
+plt.xlabel('Epochs')
+plt.title('Reconstruction Loss')
 plt.legend()
 plt.savefig('loss{}'.format(suff))
 plt.close()

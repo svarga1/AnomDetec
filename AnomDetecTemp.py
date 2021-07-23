@@ -11,6 +11,7 @@ from pathlib import Path
 import matplotlib
 import netCDF4
 from netCDF4 import Dataset
+i
 
 
 
@@ -99,6 +100,9 @@ fig=plt.figure()
 plt.plot(history.history['loss'], label='Training loss')
 plt.plot(history.history['val_loss'], label='Validation Loss')
 plt.legend()
+plt.title('Reconstruction Loss')
+plt.ylabel('Loss')
+plt.xlabel('Epoch')
 plt.savefig('loss{}'.format(suff))
 plt.close()
 
@@ -202,49 +206,51 @@ print(anomalies.shape)
 #subset=
 #Model Reconstruction vs Test data
 #plt.figure()
-fig, ax=plt.subplots(1,2,sharex='row',sharey='row')
-ax[0].plot(x_test_pred[0,:,0],pres, color='r')
-ax[0].plot(x_test[0,:,0], pres, color= 'blue')
+fig, ax=plt.subplots()
+#ax[0].plot(x_test_pred[0,:,0],pres, color='r')
+#ax[0].plot(x_test[0,:,0], pres, color= 'blue')
 #axi=plt.gca()
 #axi.set_ylim(ax.get_ylim()[::-1])
-ax[0].invert_yaxis()
-ax[0].set_xlabel('Normalized Temperature ')
-ax[0].set_ylabel('Pressure (mb)')
+#ax[0].invert_yaxis()
+#ax[0].set_xlabel('Normalized Temperature ')
+#ax[0].set_ylabel('Pressure (mb)')
 #plt.savefig('modelvtest')
 #plt.close()
 
 
 #Outlier Id plot
 #fig=plt.figure()
-ax[1].scatter(x_test[0,:,0],pres, color='b')
-ax[1].scatter(x_test[anomalies],pres[np.reshape(anomalies,[127])], color='r')
+ax.scatter(x_test[0,:,0],pres, color='b')
+ax.scatter(x_test[anomalies],pres[np.reshape(anomalies,[127])], color='r')
+ax.set_yscale('log')
+ax.invert_yaxis()
 #ax=plt.gca()
 #ax.set_ylim(ax.get_ylim()[::-1])
 
-#ax.set_xlabel('Normalized Temperature ')
-#ax.set_ylabel('Pressure (mb)')
+ax.set_xlabel('Temperature (C) ')
+ax.set_ylabel('Pressure (hPa)')
 plt.savefig('overlay')
 plt.close()
 
-#Test data 
-fig=plt.figure()
-plt.plot(x_test[0,:,0],pres)
-plt.title('Test Data') 
-ax=plt.gca()
-ax.set_ylim(ax.get_ylim()[::-1])
-plt.xlabel('Normalized Temperature ')
-plt.ylabel('Pressure (mb)')
-plt.savefig('testdata')
+#Reconsutrction
+fig, ax = plt.subplots()
+ax.plot(x_test_pred[0,:,0], pres, color='r', label='Reconstruction')
+ax.plot(x_test[0,:,0], pres, color= 'blue', label='Test Data')
+ax.set_xlabel('Temperature (C)')
+ax.set_ylabel('Pressure (hPa)')
+ax.set_yscale('log')
+ax.invert_yaxis()
+plt.legend()
+plt.savefig('reconstruction')
 plt.close()
 
-#Anomaly data
-fig=plt.figure()
-plt.plot(x_test[anomalies], pres[np.reshape(anomalies,[127])])
-plt.title('Profile of Anomalous Data')
-ax=plt.gca()
-ax.set_ylim(ax.get_ylim()[::-1])
-plt.xlabel('Normalized Temperature ')
-plt.ylabel('Pressure (mb)')
-plt.savefig('anomaly')
+#Model res scatter
+fig, ax =plt.subplots()
+ax.scatter(x_test[0,:,0], pres, 4)
+ax.set_yscale('log')
+ax.invert_yaxis()
+ax.set_xlabel('Dry Bulb Temperature (C)')
+ax.set_ylabel('Pressure (hPa)')
+ax.set_title('{} points, {} available'.format(len(x_test[0,:,0]), len(x_test[0,:,0])))
+plt.savefig('modelscatter')
 plt.close()
-

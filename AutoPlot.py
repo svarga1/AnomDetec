@@ -95,17 +95,17 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 				ax.set_yscale('log')
 				plt.scatter(temp, pres,3, color='blue')
 				if len(temp)>500:
-					plt.title('High Definition Radiosonde: {} points'.format(len(temp.compressed)))
+					plt.title('High Definition Radiosonde: {} points'.format(len(temp.compressed())))
 					plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/HD/'+out+'.png')
 					plt.close()
 				else:
-					plt.title('Standard Definition Radiosonde: {} points'.format(len(temp.compressed)))
+					plt.title('Standard Definition Radiosonde: {} points'.format(len(temp.compressed())))
 					plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/SD/'+out+'.png')
 					plt.close()
-
+				print('Done')
 
 			except:
 				pass
-
+	
 	bufr.close()
 

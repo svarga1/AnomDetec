@@ -11,7 +11,7 @@ from pathlib import Path
 import matplotlib
 import netCDF4
 from netCDF4 import Dataset
-i
+
 
 
 
@@ -47,9 +47,9 @@ for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('*/*003.nc'):
 print(training.shape)
 	
 print('Normalizing training data')
-test=np.reshape(training[-1,:,:], [1,127,1])
+test=np.reshape(training[-1,:,:]-273.15, [1,127,1])
 
-training=training[0:-1,:,:]
+training=training[0:-1,:,:]-273.15
 
 
 #Prepare training data
@@ -220,8 +220,8 @@ fig, ax=plt.subplots()
 
 #Outlier Id plot
 #fig=plt.figure()
-ax.scatter(x_test[0,:,0],pres, color='b')
-ax.scatter(x_test[anomalies],pres[np.reshape(anomalies,[127])], color='r')
+ax.scatter(x_test[0,:,0]*training_std+training_mean,pres, color='b')
+ax.scatter(x_test[anomalies]*training_std+training_mean,pres[np.reshape(anomalies,[127])], color='r')
 ax.set_yscale('log')
 ax.invert_yaxis()
 #ax=plt.gca()
@@ -234,8 +234,8 @@ plt.close()
 
 #Reconsutrction
 fig, ax = plt.subplots()
-ax.plot(x_test_pred[0,:,0], pres, color='r', label='Reconstruction')
-ax.plot(x_test[0,:,0], pres, color= 'blue', label='Test Data')
+ax.plot(x_test_pred[0,:,0]*training_std+training_mean, pres, color='r', label='Reconstruction')
+ax.plot(x_test[0,:,0]*training_std+training_mean, pres, color= 'blue', label='Test Data')
 ax.set_xlabel('Temperature (C)')
 ax.set_ylabel('Pressure (hPa)')
 ax.set_yscale('log')
@@ -246,11 +246,22 @@ plt.close()
 
 #Model res scatter
 fig, ax =plt.subplots()
-ax.scatter(x_test[0,:,0], pres, 4)
+ax.scatter(x_test[0,:,0]*training_std+training_mean, pres, 4)
 ax.set_yscale('log')
 ax.invert_yaxis()
 ax.set_xlabel('Dry Bulb Temperature (C)')
 ax.set_ylabel('Pressure (hPa)')
-ax.set_title('{} points, {} available'.format(len(x_test[0,:,0]), len(x_test[0,:,0])))
+ax.set_title('Model Output')
 plt.savefig('modelscatter')
 plt.close()
+
+#Model Res Scatter - limited pressure
+fig, ax =plt.subplots()
+ax.scatter(x_test[0,:,0][pres>=10]*training_std+training_mean, pres[pres>=10], 4)
+ax.set_yscale('log')
+ax.invert_yaxis()
+ax.set_xlabel('Temperature (C)')
+ax.set_ylabel('Pressure (hPa)')
+ax.set_title('Model Resolution: {} points'.format(len(pres)))
+plt.savefig('modelpresscatter')
+plt.close() 

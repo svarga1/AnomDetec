@@ -57,29 +57,29 @@ layers.Cropping1D(cropping=(0,2))
 	model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.01), loss='mse')
 
 
-#	history=model.fit(x_train, x_train, epochs=100, batch_size=127, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')]) #Train the model
+	history=model.fit(x_train, x_train, epochs=100, batch_size=127, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')]) #Train the model
 #
 #	
 #	#Plot training and validation loss
-#	fig, ax =plt.subplots()
-#	ax.plot(history.history['loss'], label='Training Loss')
-#	ax.plot(history.history['val_loss'], label='Validation Loss')
-#	plt.legend()
-#	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/loss{}{}'.format(suff, it))
-#	plt.close()
+	fig, ax =plt.subplots()
+	ax.plot(history.history['loss'], label='Training Loss')
+	ax.plot(history.history['val_loss'], label='Validation Loss')
+	plt.legend()
+	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/loss{}{}'.format(suff, it))
+	plt.close()
 
 	#Get training MAE loss
-#	fig=plt.figure()
-#	train_mae_loss=np.mean(np.abs(model.predict(x_train)-x_train), axis=1)
-#	plt.hist(train_mae_loss)
-#	plt.xlabel('Train MAE Loss')
-#	plt.ylabel('Number of Samples')
-#	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/ma3Hist{}{}'.format(suff, it))
-#	plt.close()
+	fig=plt.figure()
+	train_mae_loss=np.mean(np.abs(model.predict(x_train)-x_train), axis=1)
+	plt.hist(train_mae_loss)
+	plt.xlabel('Train MAE Loss')
+	plt.ylabel('Number of Samples')
+	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/ma3Hist{}{}'.format(suff, it))
+	plt.close()
 	#Loss threshold
-#	threshold=np.max(train_mae_loss)
-#	print(threshold)
-#	print(train_mae_loss.shape)
+	threshold=np.max(train_mae_loss)
+	print(threshold)
+	print(train_mae_loss.shape)
 
 	#test data preprocessing
 	x_test=testtemp[int(it),:,:]
@@ -92,9 +92,9 @@ layers.Cropping1D(cropping=(0,2))
 	x_test_norm=np.reshape((x_test-training_mean)/training_std, [1,len(x_test),1])
 
 ######
-	history=model.fit(x_test_norm, x_test_norm, epochs=100, batch_size=127, validation_split=0, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')])	
-	train_mae_loss=np.mean(np.abs(model.predict(x_train)-x_train), axis=1)
-	threshold=np.max(train_mae_loss)
+#	history=model.fit(x_test_norm, x_test_norm, epochs=100, batch_size=127, validation_split=0, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')])	
+#	train_mae_loss=np.mean(np.abs(model.predict(x_train)-x_train), axis=1)
+#	threshold=np.max(train_mae_loss)
 ###
 
 
@@ -134,7 +134,7 @@ layers.Cropping1D(cropping=(0,2))
 	#Model reconstruction
 	fig, ax = plt.subplots(1,2, sharex='row', sharey='row', figsize=(10,10))
 	ax[0].scatter(x_test, x_test_pres, 4, color='blue')
-	ax[1].scatter(x_test_pred[0,:,0],x_test_pres, 4, color='r')
+	ax[1].scatter(x_test_pred[0,:,0]*training_std+training_mean,x_test_pres, 4, color='r')
 	ax[0].set_title('Original Data')
 	ax[1].set_title('Model Reconstruction')
 	ax[0].set_ylabel('Pressure (hPa)')

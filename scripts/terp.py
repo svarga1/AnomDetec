@@ -110,10 +110,10 @@ matplotlib.use('agg')
 
 #exit()
 
-suff='wdterp'
+suff='terp'
 fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
 pres=fid.variables['pres'][:]
-temp=fid.variables['wdir'][:]
+temp=fid.variables['temp'][:]
 
 
 
@@ -183,7 +183,7 @@ while i<5:
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel('Cosine of Wind Heading')
+		ax[0].set_xlabel('Temperature (C)')
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}subset{1}.png'.format(npoints,i,suff))
 		plt.close()
 
@@ -198,7 +198,7 @@ while i<5:
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel('Cosine of Wind Heading')
+		ax[0].set_xlabel('Temperature (C)')
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}profile{1}.png'.format(npoints,i,suff))
 		plt.close()
 	
@@ -219,11 +219,11 @@ while i<5:
 		ax[0].scatter(shortIMO, longPres,4)
 		ax[1].scatter(normIMO, longPres,4)
 		ax[0].set_title('Stride OMI: {} Points'.format(len(shortIMO)))
-		ax[1].set_title('SAmpled OMI: {} Points'.format(len(shortIMO)))
+		ax[1].set_title('Ssmpled OMI: {} Points'.format(len(shortIMO)))
 		ax[0].invert_yaxis()
 		ax[0].set_yscale('log')
 		ax[0].set_ylabel('Pressure (hPa)')
-		ax[0].set_xlabel(' OMI')
+		ax[0].set_xlabel('OMI (C)')
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}OMIprofile{1}.png'.format(npoints,i,suff))
 		plt.close()
 
@@ -233,10 +233,10 @@ while i<5:
 		ax[0].scatter(longtemp, longtemp, 4, color='r')
 		ax[1].scatter(longtemp, normnew, 4)
 		ax[1].scatter(longtemp, longtemp, 4, color='r')
-		ax[0].set_xlabel('Cosine of Wind Heading')
-		ax[0].set_ylabel('Interpolated Cosine of Wind Heading')		
-		ax[0].set_title('Stride sample: m={0:.4f}, b={1:.4f}, R^2={2:.4f}'.format(shortLR[0], shortLR[1], shortLR[2]**2))
-		ax[1].set_title('Normal sample: m={0:.4f}, b={1:.4f}, R^2={2:.4f}'.format(normLR[0], normLR[1], normLR[2]**2))
+		ax[0].set_xlabel('Temperature (C)')
+		ax[0].set_ylabel('Interpolated Temperature (C)')		
+		ax[0].set_title('Stride: m={0:.4f}, b={1:.4f}, R^2={2:.3f}'.format(shortLR[0], shortLR[1], shortLR[2]**2))
+		ax[1].set_title('Sampled: m={0:.4f}, b={1:.4f}, R^2={2:.3f}'.format(normLR[0], normLR[1], normLR[2]**2))
 		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/{2}/{0}reg{1}.png'.format(npoints,i,suff))
 		plt.close()
 

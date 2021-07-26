@@ -33,22 +33,13 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 	out=stationId+'.'+receiptTime
 
 	fig,ax =plt.subplots()
-#	plt.title('{0} points, {1} available'.format(len(temp),len(temp.compressed())))
-	plt.xlabel('Dry Bulb Temperature ()')
+	plt.xlabel('Dry Bulb Temperature ')
 	plt.ylabel('Pressure (hPa)')
 	ax.invert_yaxis()
 	ax.set_yscale('log')
 
 
-	if any(x>0 for x in dpdt):
-#		x=np.count_nonzero(dpdt>0)
-#		plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x],3, color='blue')
-#		plt.scatter(temp[len(temp)-x:], pres[len(temp)-x:], 3,color='red')				
-		plt.scatter(temp[np.insert(dpdt, 0, -1)<0],pres[np.insert(dpdt,0,-1)<0], 3, color='blue')
-		plt.scatter(temp[np.insert(dpdt, 0, -1)>0],pres[np.insert(dpdt,0,-1)>0], 3, color='red')
-
-	else:
-		plt.scatter(temp, pres, 3,color='blue')
+	plt.scatter(temp, pres, 3,color='blue')
 
 	if len(temp)>500:
 		plt.title('High Definition Radiosonde: {} points'.format(len(temp.compressed())))
@@ -70,20 +61,11 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 			receiptTime=str(bufr.read_subset('YEAR').squeeze() ) + str(bufr.read_subset('MNTH').squeeze()) + str(bufr.read_subset('DAYS').squeeze()) + str(bufr.read_subset('HOUR').squeeze())
 			out=stationId+'.'+receiptTime
 			fig,ax =plt.subplots()
-#			plt.title('{0} points, {1} available'.format(len(temp),len(temp.compressed())))
-			plt.xlabel('Dry Bulb Temperature (Celsius)')
+			plt.xlabel('Dry Bulb Temperature (C)')
 			plt.ylabel('Pressure (hPa)')
 			ax.invert_yaxis()
 			ax.set_yscale('log')
-			if any(x>0 for x in dpdt):
-				#x=np.count_nonzero(dpdt>0)
-				#plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x], 3,color='blue')
-				#plt.scatter(temp[len(temp)-x:], pres[len(temp)-x:],3, color='red')
-				plt.scatter(temp[np.insert(dpdt, 0, -1)<0],pres[np.insert(dpdt,0,-1)<0], 3, color='blue')
-				plt.scatter(temp[np.insert(dpdt, 0, -1)>0],pres[np.insert(dpdt,0,-1)>0], 3, color='red')
-
-			else:
-				plt.scatter(temp, pres, 3, color='blue')
+			plt.scatter(temp, pres, 3, color='blue')
 			if len(temp)>500:
 				plt.title('High Definition Radiosonde: {} points'.format(len(temp.compressed())))
 				plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/HD/'+out+'.png')
@@ -107,32 +89,23 @@ for filepath in Path('/work/noaa/stmp/Cory.R.Martin/svarga/hd_sondes/').glob('gd
 				receiptTime=str(bufr.read_subset('YEAR').squeeze() ) + str(bufr.read_subset('MNTH').squeeze()) + str(bufr.read_subset('DAYS').squeeze()) + str(bufr.read_subset('HOUR').squeeze())
 				out=stationId+'.'+receiptTime
 				fig,ax =plt.subplots()
-#				plt.title('{0} points, {1} available'.format(len(temp),len(temp.compressed())))
-				plt.xlabel('Dry Bulb Temperature ()')
+				plt.xlabel('Dry Bulb Temperature (C)')
 				plt.ylabel('Pressure (hPa)')
 				ax.invert_yaxis()
 				ax.set_yscale('log')
-				if any(x>0 for x in dpdt):
-#					x=np.count_nonzero(dpdt>0)
-#					plt.scatter(temp[:len(temp)-x],pres[:len(temp)-x],3, color='blue')
-#					plt.scatter(temp[len(temp)-x:], pres[len(temp)-x:],3, color='red')
-					plt.scatter(temp[np.insert(dpdt, 0, -1)<0],pres[np.insert(dpdt,0,-1)<0], 3, color='blue')
-					plt.scatter(temp[np.insert(dpdt, 0, -1)>0],pres[np.insert(dpdt,0,-1)>0], 3, color='red')
-
-				else:
-					plt.scatter(temp, pres,3, color='blue')
+				plt.scatter(temp, pres,3, color='blue')
 				if len(temp)>500:
-					plt.title('High Definition Radiosonde: {} points'.format(len(temp.compressed)))
+					plt.title('High Definition Radiosonde: {} points'.format(len(temp.compressed())))
 					plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/HD/'+out+'.png')
 					plt.close()
 				else:
-					plt.title('Standard Definition Radiosonde: {} points'.format(len(temp.compressed)))
+					plt.title('Standard Definition Radiosonde: {} points'.format(len(temp.compressed())))
 					plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/SD/'+out+'.png')
 					plt.close()
-
+				print('Done')
 
 			except:
 				pass
-
+	
 	bufr.close()
 

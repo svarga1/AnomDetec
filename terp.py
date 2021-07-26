@@ -121,8 +121,8 @@ strides=[10,50,100,150,200]
 i=1
 while i<5:
 	longPres=pres[i,:,:].flatten()			#Need to change how missing data is handled- generate y for all x points, then mask y based on original array? Would require no missing pressure data?
-	longtemp=np.cos(temp[i,:,:].flatten()*np.pi/180)
-	#longtemp=temp[i,:,:].flatten()
+	#longtemp=np.cos(temp[i,:,:].flatten()*np.pi/180)
+	longtemp=temp[i,:,:].flatten()
 #Data masking
 	mas=np.ma.mask_or(np.ma.getmask(longPres),np.ma.getmask(longtemp)) #This returns a mask the same length as longPres and longtemp, evaluated to True where there is missing data in either.
 	longPres.mask=mas

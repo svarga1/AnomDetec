@@ -1,0 +1,98 @@
+2021-07-24 23:47:53.172213: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-07-24 23:47:53.172249: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-07-24 23:47:53.172234: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-07-24 23:47:53.172296: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-07-24 23:48:38.433212: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-07-24 23:48:38.433290: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /apps/python-3.9.2/lib:/lib64:/usr/lib64:/lib:/usr/lib:/usr/lib64/qt-3.3/lib:/opt/slurm/lib:/opt/slurm/lib/slurm
+2021-07-24 23:48:38.448186: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-07-24 23:48:38.448191: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-07-24 23:48:38.457515: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-02-21.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-07-24 23:48:38.457524: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Orion-02-21.HPC.MsState.Edu): /proc/driver/nvidia/version does not exist
+2021-07-24 23:48:38.457993: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-07-24 23:48:38.458040: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+WARNING:tensorflow:Please add `keras.layers.InputLayer` instead of `keras.Input` to Sequential model. `keras.Input` is intended to be used by Functional model.
+2021-07-24 23:48:39.451134: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-07-24 23:48:39.451178: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-07-24 23:48:39.501516: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+2021-07-24 23:48:39.501709: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2400000000 Hz
+Epoch 1/100
+Epoch 1/100
+1/1 [==============================] - ETA: 0s - loss: 0.99431/1 [==============================] - 3s 3s/step - loss: 0.9943 - val_loss: 0.6082
+1/1 [==============================] - ETA: 0s - loss: 0.99181/1 [==============================] - 3s 3s/step - loss: 0.9918 - val_loss: 0.5163
+Epoch 2/100
+Epoch 2/100
+1/1 [==============================] - ETA: 0s - loss: 0.53511/1 [==============================] - 0s 91ms/step - loss: 0.5351 - val_loss: 2.9278
+1/1 [==============================] - ETA: 0s - loss: 0.62851/1 [==============================] - 0s 92ms/step - loss: 0.6285 - val_loss: 3.4374
+Epoch 3/100
+Epoch 3/100
+1/1 [==============================] - ETA: 0s - loss: 2.80531/1 [==============================] - 0s 89ms/step - loss: 2.8053 - val_loss: 0.3048
+1/1 [==============================] - ETA: 0s - loss: 3.42491/1 [==============================] - 0s 89ms/step - loss: 3.4249 - val_loss: 0.4817
+Epoch 4/100
+Epoch 4/100
+1/1 [==============================] - ETA: 0s - loss: 0.54731/1 [==============================] - 0s 85ms/step - loss: 0.5473 - val_loss: 0.6799
+1/1 [==============================] - ETA: 0s - loss: 0.33271/1 [==============================] - 0s 88ms/step - loss: 0.3327 - val_loss: 0.7374
+Epoch 5/100
+Epoch 5/100
+1/1 [==============================] - ETA: 0s - loss: 0.68821/1 [==============================] - 0s 88ms/step - loss: 0.6882 - val_loss: 0.8534
+1/1 [==============================] - ETA: 0s - loss: 0.75161/1 [==============================] - 0s 90ms/step - loss: 0.7516 - val_loss: 0.6701
+Epoch 6/100
+Epoch 6/100
+1/1 [==============================] - ETA: 0s - loss: 0.85471/1 [==============================] - 0s 86ms/step - loss: 0.8547 - val_loss: 0.8757
+1/1 [==============================] - ETA: 0s - loss: 0.67671/1 [==============================] - 0s 99ms/step - loss: 0.6767 - val_loss: 0.5626
+Epoch 7/100
+Epoch 7/100
+1/1 [==============================] - ETA: 0s - loss: 0.87561/1 [==============================] - 0s 86ms/step - loss: 0.8756 - val_loss: 0.8604
+1/1 [==============================] - ETA: 0s - loss: 0.56811/1 [==============================] - 0s 86ms/step - loss: 0.5681 - val_loss: 0.5579
+Epoch 8/100
+1/1 [==============================] - ETA: 0s - loss: 0.85971/1 [==============================] - 0s 85ms/step - loss: 0.8597 - val_loss: 0.8232
+Epoch 8/100
+1/1 [==============================] - ETA: 0s - loss: 0.57181/1 [==============================] - 0s 89ms/step - loss: 0.5718 - val_loss: 0.4812
+Epoch 9/100
+1/1 [==============================] - ETA: 0s - loss: 0.82261/1 [==============================] - 0s 88ms/step - loss: 0.8226 - val_loss: 0.7467
+Epoch 9/100
+1/1 [==============================] - ETA: 0s - loss: 0.49331/1 [==============================] - 0s 94ms/step - loss: 0.4933 - val_loss: 0.4713
+Epoch 10/100
+1/1 [==============================] - ETA: 0s - loss: 0.74681/1 [==============================] - 0s 86ms/step - loss: 0.7468 - val_loss: 0.6310
+Epoch 10/100
+1/1 [==============================] - ETA: 0s - loss: 0.47491/1 [==============================] - 0s 98ms/step - loss: 0.4749 - val_loss: 0.4921
+Epoch 11/100
+1/1 [==============================] - ETA: 0s - loss: 0.63801/1 [==============================] - 0s 86ms/step - loss: 0.6380 - val_loss: 0.5647
+Epoch 11/100
+1/1 [==============================] - ETA: 0s - loss: 0.49261/1 [==============================] - 0s 91ms/step - loss: 0.4926 - val_loss: 0.4605
+Epoch 12/100
+1/1 [==============================] - ETA: 0s - loss: 0.58501/1 [==============================] - 0s 86ms/step - loss: 0.5850 - val_loss: 0.6624
+Epoch 12/100
+1/1 [==============================] - ETA: 0s - loss: 0.46371/1 [==============================] - 0s 91ms/step - loss: 0.4637 - val_loss: 0.4394
+Epoch 13/100
+1/1 [==============================] - ETA: 0s - loss: 0.70141/1 [==============================] - 0s 87ms/step - loss: 0.7014 - val_loss: 0.5699
+Epoch 13/100
+1/1 [==============================] - ETA: 0s - loss: 0.44861/1 [==============================] - 0s 87ms/step - loss: 0.4486 - val_loss: 0.4025
+0.5506723522043608
+(11, 1)
+(1, 1)
+(1, 3262, 1)
+(1, 3262, 1)
+[[[ True]
+  [ True]
+  [ True]
+  ...
+  [False]
+  [False]
+  [False]]]
+(1, 3262, 1)
+0.4865682240573268
+(11, 1)
+(1, 1)
+(1, 3262, 1)
+(1, 3262, 1)
+[[[ True]
+  [ True]
+  [ True]
+  ...
+  [ True]
+  [ True]
+  [ True]]]
+(1, 3262, 1)

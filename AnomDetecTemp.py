@@ -221,9 +221,10 @@ fig, ax=plt.subplots()
 #Outlier Id plot
 #fig=plt.figure()
 ax.scatter(x_test[0,:,0]*training_std+training_mean,pres, color='b')
-ax.scatter(x_test[anomalies]*training_std+training_mean,pres[np.reshape(anomalies,[127])], color='r')
+ax.scatter(x_test[anomalies]*training_std+training_mean,pres[np.reshape(anomalies,[127])], color='r', label='Anomalous')
 ax.set_yscale('log')
 ax.invert_yaxis()
+plt.legend()
 #ax=plt.gca()
 #ax.set_ylim(ax.get_ylim()[::-1])
 

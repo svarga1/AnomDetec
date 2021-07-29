@@ -16,14 +16,14 @@ from pathlib import Path
 matplotlib.use('agg')
 
 #Post
-suff='init'
+suff=''
 testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
 testpres=testf.variables['pres'][:,:,:]
 testtemp=testf.variables['temp'][:,:,:]
 
 
 #Read in Data
-for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').glob('*1.nc'): #Use the interpolated as training, high res as test
+for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').glob('*4.nc'): #Use the interpolated as training, high res as test
 	it=str(filepath)[-4]
 	fid=Dataset(filepath, 'r')
 	pres=fid.variables['pres'][:,:,:]
@@ -57,8 +57,10 @@ layers.Cropping1D(cropping=(0,2))
 	model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.01), loss='mse')
 
 
-	history=model.fit(x_train, x_train, epochs=100, batch_size=127, validation_split=0.1, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')]) #Train the model
-#
+	history=model.fit(x_train, x_train, epochs=100, batch_size=127, validation_split=0.1) #Train the model
+	
+	#Save the model
+	model.save('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/models/model{}'.format(it))
 #	
 #	#Plot training and validation loss
 	fig, ax =plt.subplots()
@@ -90,14 +92,6 @@ layers.Cropping1D(cropping=(0,2))
 	x_test=x_test.compressed()
 	x_test_pres=x_test_pres.compressed()
 	x_test_norm=np.reshape((x_test-training_mean)/training_std, [1,len(x_test),1])
-
-######
-#	history=model.fit(x_test_norm, x_test_norm, epochs=100, batch_size=127, validation_split=0, callbacks=[keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, mode='min')])	
-#	train_mae_loss=np.mean(np.abs(model.predict(x_train)-x_train), axis=1)
-#	threshold=np.max(train_mae_loss)
-###
-
-
 
 	#Test predictions
 	x_test_pred=model.predict(x_test_norm)
@@ -144,16 +138,34 @@ layers.Cropping1D(cropping=(0,2))
 	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/recon{}{}.png'.format(suff, it))
 	plt.close()
 
-	#Plot training Data
-	fig, ax =plt.subplots()
-	ax.scatter(temp[0,:,:], pres[0,:,:], 4)
-	ax.set_title('Training Data')
+	#Plot OMI profile
+	predUN=x_test_pred[0,:,0]*training_std+training_mean
+	OMR=x_test-predUN
+	fig, ax = plt.subplots()	
+	ax.scatter(OMR, x_test_pres, 4, color= 'blue')
+	ax.scatter(OMR[anomalies[0,:,0].flatten()], x_test_pres[anomalies[0,:,0].flatten()], 4, color='red')
+	ax.set_title('OMR Profile')
 	ax.set_ylabel('Pressure (hPa)')
-	ax.set_xlabel('Temperature (C)')
-	ax.invert_yaxis()
+	ax.set_xlabel('OMR (C)')
 	ax.set_yscale('log')
-	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/train{}{}.png'.format(suff, it))
+	ax.invert_yaxis()
+	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/OMIprofile{}{}.png'.format(suff, it))
 	plt.close()
+
+	#OMI Hist
+	fig, ax = plt.subplots(1,2, sharex='row', sharey='row')
+	ax[0].hist(OMR)
+	ax[1].hist(OMR[anomalies[0,:,0].flatten()])
+	ax[0].set_title('Full OMR')
+	ax[1].set_title('Anomaly OMR')
+	ax[0].set_xlabel('OMR (C)')
+	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/OMIhist{}{}.png'.format(suff, it))
+	plt.close()
+
+	
+
+	#Plot OMI hist
+
 
 testf.close()
 fid.close()

@@ -10,4 +10,4 @@
 module load python
 source ../../pyvenv/firstEnv/bin/activate
 
-srun python /work/noaa/da/svarga/anomDetec/AnomDetecBufr/terp.py
+srun python /work/noaa/da/svarga/anomDetec/AnomDetecBufr/ADBufr.py

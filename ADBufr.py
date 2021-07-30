@@ -96,15 +96,6 @@ layers.Cropping1D(cropping=(0,2))
 	#Test predictions
 	x_test_pred=model.predict(x_test_norm)
 
-	#Test MAE loss
-	test_mae_loss=np.mean(np.abs(x_test_pred-x_test_norm), axis=1)
-	fig=plt.figure()
-	plt.hist(test_mae_loss)
-	plt.xlabel('Test MAE Loss')
-	plt.ylabel('Number of Samples')
-	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/testMAE{}{}'.format(suff, it))
-	plt.close()
-	print(test_mae_loss.shape)
 
 	#Detect anomalies
 	anomalies=np.abs(x_test_pred-x_test_norm)>threshold
@@ -164,7 +155,14 @@ layers.Cropping1D(cropping=(0,2))
 
 	
 
-	#Plot OMI hist
+	#Plot 1D temp
+	fig, ax =plt.subplots()
+	ax.plot(x_test_pred[0,:,0]*training_std+training_mean)
+	ax.set_title('Temperature Series')
+	ax.set_xlabel('Index')
+	ax.set_ylabel('Temperature (C)')
+	plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/pics/AD/tempseries{}{}.png'.format(suff, it))
+	plt.close()
 
 
 testf.close()

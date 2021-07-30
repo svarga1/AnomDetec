@@ -1,6 +1,6 @@
 #Script that creates histogram of bufr file
 
-import VargaBufr as VB
+#import VargaBufr as VB
 import ncepbufr
 import numpy as np
 import matplotlib.pyplot as plt
@@ -15,10 +15,25 @@ from scipy import stats
 from netCDF4 import Dataset
 matplotlib.use('agg')
 
-#Make new file
-makF=True
-if makF:
-	fnew=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput.nc', 'w', format='NETCDF4')
+fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc' , 'r')
+pres=fid.variables['pres'][:]
+temp=fid.variables['temp'][:]
+
+
+#strides=[100,110,120,130,140,150,160,170,180,190,200]
+strides=[50,60,70,80,90,100,110,120,130,140,150]
+i=1
+while i<5: #Loop through the profiles I want
+	longPres=pres[i,:,:]
+	longtemp=temp[i,:,:] #Grab the correct pressure and temperature
+	mas=np.ma.mask_or(np.ma.getmask(longPres), np.ma.getmask(longtemp)) #Create a mask that shows where either data is missing
+	longPres.mask=mas
+	longtemp.mask=mas
+	longPres=longPres.compressed()
+	longtemp=longtemp.compressed() #apply mask and compress pressure/temperature to 1dim
+
+	#Create file
+	fnew=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput{}.nc'.format(i), 'w', format='NETCDF4')
 	#Create dimensions
 	data_dim=fnew.createDimension('data', None)
 	prof_dim=fnew.createDimension('profile', None)
@@ -37,44 +52,44 @@ if makF:
 	dpt.units='C'
 	wspd=fnew.createVariable('wspd', np.float32, ('profile', 'data', 'wind'))
 	wspd.units='m/s'
+	z=0
+	for npoints in strides: #Upscale different resolutions to same size
+		#Subset points by striding
+		stride=int(np.floor(len(longPres)/npoints))	
+		shortPres=longPres[::stride]
+		shorttemp=longtemp[::stride]
 
 
+		#Add last point
+		lastPres=longPres[-1]
+		lasttemp=longtemp[-1]
+		
+		if lastPres in shortPres:
+			pass
+		else:
+			shorttemp=np.append(shorttemp, lasttemp)
+			shortPres=np.append(shortPres, lastPres)
 
-#open file- find length
-fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
-pres=fid.variables['pres'][:,:,:]
-temp=fid.variables['temp'][:,:,:]
-maxLen=temp.shape[1]
-print( maxLen)
+	#Create interpolation function from shortened dataset
+		f=interpolate.interp1d(shortPres, shorttemp, fill_value='extrapolate')
 
-
-
-#Find pressure values for that length
-h=0
-while h<pres.shape[0]:
-	if len(pres[h,:,:].compressed())==maxLen:
-		print(h)
-		break
-	else:
-		h+=1
-highPresRes=pres[h,:,:].compressed()
-
-#Loop through- interpolate to highest resolution
-i=0
-while i<pres.shape[0]:
-		longPres=pres[i,:,:].flatten()
-		longtemp=temp[i,:,:].flatten()
-		mas = np.ma.mask_or(np.ma.getmask(longPres), np.ma.getmask(longtemp))
-		longPres.mask=mas
-		longtemp.mask=mas
-		longPres=longPres.compressed()
-		longtemp=longtemp.compressed()
-		f=interpolate.interp1d(longPres, longtemp, fill_value='extrapolate') #Feed all points in the profile into interpolation to create function
-		tmp[i,:,:]=np.reshape(f(highPresRes), [len(highPresRes),1]) #Create the new points for the old index value
-		pre[i,:,:]=np.reshape(highPresRes, [len(highPresRes),1]) #Assign variables	
-		i+=1 #Move to the next profile
-	
-#Save out
-if makF:
+	#Interpolate back to original dimensions
+		shortnew=f(longPres)
+	#Save to file each iteration
+		tmp[z,:,:]=np.reshape(shortnew, [len(shortnew), 1])
+		pre[z,:,:]=np.reshape(longPres, [len(longPres), 1])
+		z+=1
+	#Plot THe training profiles
+		fig, ax =plt.subplots()
+		ax.scatter(shortnew, longPres, 4)
+		ax.set_yscale('log')
+		ax.invert_yaxis()
+		ax.set_title('Training Profile')
+		ax.set_ylabel('Pressure (hPa)')
+		ax.set_xlabel('Temperature (C)')
+		plt.savefig('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/training/{}-{}.png'.format(i, z-1))
+		plt.close()
+	#Close file
 	fnew.close()
+	i+=1
 fid.close()

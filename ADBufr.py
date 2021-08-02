@@ -17,13 +17,14 @@ matplotlib.use('agg')
 
 #Post
 suff=''
-testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
+#testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
+testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput/ens/test.nc')
 testpres=testf.variables['pres'][:,:,:]
 testtemp=testf.variables['temp'][:,:,:]
 
 
 #Read in Data
-for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').glob('*4.nc'): #Use the interpolated as training, high res as test
+for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput/ens').glob('*0.nc'): #Use the interpolated as training, high res as test
 	it=str(filepath)[-4]
 	fid=Dataset(filepath, 'r')
 	pres=fid.variables['pres'][:,:,:]
@@ -50,7 +51,7 @@ for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').g
     layers.Conv1DTranspose( 
      filters=64, kernel_size=7, padding='same', strides=2, activation ='relu'), 
     layers.Conv1DTranspose(filters=1,kernel_size=7,padding='same'), 
-layers.Cropping1D(cropping=(0,2))
+layers.Cropping1D(cropping=(1,0))
 
   ]
 )

@@ -15,15 +15,23 @@ from scipy import stats
 from netCDF4 import Dataset
 matplotlib.use('agg')
 
-fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc' , 'r')
-pres=fid.variables['pres'][:]
-temp=fid.variables['temp'][:]
+#fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc' , 'r')
+for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('002/*003.nc'):
+	fid=Dataset(filepath, 'r')
+	pres=np.reshape(fid.variables['pfull'][:], [1,127,1])
+	temp=fid.variables['tmp'][0,:,107,605]-273.15
+	temp=np.reshape(temp, [1,127,1])
+	
+
+#pres=fid.variables['pres'][:]
+#temp=fid.variables['temp'][:]
 
 
 #strides=[100,110,120,130,140,150,160,170,180,190,200]
-strides=[50,60,70,80,90,100,110,120,130,140,150]
-i=1
-while i<5: #Loop through the profiles I want
+#strides=[50,60,70,80,90,100,110,120,130,140,150]
+strides=[10,15,20,25,30,35,40,45,50]
+i=0 #1
+while i<1: #5: #Loop through the profiles I want
 	longPres=pres[i,:,:]
 	longtemp=temp[i,:,:] #Grab the correct pressure and temperature
 	mas=np.ma.mask_or(np.ma.getmask(longPres), np.ma.getmask(longtemp)) #Create a mask that shows where either data is missing

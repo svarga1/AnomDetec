@@ -16,25 +16,37 @@ from pathlib import Path
 matplotlib.use('agg')
 
 #Post
-suff=''
-#testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
-testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput/ens/test.nc')
+suff='chunk'
+testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
+#testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput/ens/test.nc')
+
+
+#Fix this
 testpres=testf.variables['pres'][:,:,:]
+testpres=testpres[:,100:int(testpres.shape[1]-100),:]
 testtemp=testf.variables['temp'][:,:,:]
+testtemp=testtemp[:,100:int(testtemp.shape[1]-100),:]
 
 
 #Read in Data
-for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput/ens').glob('*0.nc'): #Use the interpolated as training, high res as test
+for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').glob('*2.nc'): #Use the interpolated as training, high res as test
 	it=str(filepath)[-4]
 	fid=Dataset(filepath, 'r')
 	pres=fid.variables['pres'][:,:,:]
 	temp=fid.variables['temp'][:,:,:]
 
+	#Chunk- Drop the first and last 100-- fix this
+	temp=temp[:,100:int(temp.shape[1]-100),:]
+	pres=pres[:,100:int(pres.shape[1]-100),:]
+
 	#ML Preprocessing
 	training_mean=temp.mean()
 	training_std=temp.std()
-	x_train=(temp-training_mean)/training_std
-	
+	x_train=temp
+	z=0
+	while z<pres.shape[0]:
+		x_train[z,:,:]=(x_train[z,:,:]-training_mean)/training_std
+		z+=1
 #Build Model
 
 
@@ -92,7 +104,7 @@ layers.Cropping1D(cropping=(1,0))
 	x_test_pres.mask=mas
 	x_test=x_test.compressed()
 	x_test_pres=x_test_pres.compressed()
-	x_test_norm=np.reshape((x_test-training_mean)/training_std, [1,len(x_test),1])
+	x_test_norm=np.reshape((x_test-training_mean)/training_std,  testpres.shape)  #Fix this
 
 	#Test predictions
 	x_test_pred=model.predict(x_test_norm)

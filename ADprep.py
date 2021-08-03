@@ -15,23 +15,24 @@ from scipy import stats
 from netCDF4 import Dataset
 matplotlib.use('agg')
 
-#fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc' , 'r')
-for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('002/*003.nc'):
-	fid=Dataset(filepath, 'r')
-	pres=np.reshape(fid.variables['pfull'][:], [1,127,1])
-	temp=fid.variables['tmp'][0,:,107,605]-273.15
-	temp=np.reshape(temp, [1,127,1])
+fid=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc' , 'r')
+#for filepath in Path('/work/noaa/da/cthomas/ens/2020090500').glob('002/*003.nc'):
+#	fid=Dataset(filepath, 'r')
+#	pres=np.reshape(fid.variables['pfull'][:], [1,127,1])
+#	temp=fid.variables['tmp'][0,:,107,605]-273.15
+#	temp=np.reshape(temp, [1,127,1])
 	
 
-#pres=fid.variables['pres'][:]
-#temp=fid.variables['temp'][:]
+pres=fid.variables['pres'][:]
+temp=fid.variables['temp'][:]
 
 
 #strides=[100,110,120,130,140,150,160,170,180,190,200]
 #strides=[50,60,70,80,90,100,110,120,130,140,150]
-strides=[10,15,20,25,30,35,40,45,50]
-i=0 #1
-while i<1: #5: #Loop through the profiles I want
+#strides=[10,15,20,25,30,35,40,45,50]
+strides=np.arange(0.1, 0.51, 0.05)
+i=1
+while i<5: #Loop through the profiles I want
 	longPres=pres[i,:,:]
 	longtemp=temp[i,:,:] #Grab the correct pressure and temperature
 	mas=np.ma.mask_or(np.ma.getmask(longPres), np.ma.getmask(longtemp)) #Create a mask that shows where either data is missing
@@ -63,21 +64,30 @@ while i<1: #5: #Loop through the profiles I want
 	z=0
 	for npoints in strides: #Upscale different resolutions to same size
 		#Subset points by striding
-		stride=int(np.floor(len(longPres)/npoints))	
-		shortPres=longPres[::stride]
-		shorttemp=longtemp[::stride]
-
-
+		#stride=int(np.floor(len(longPres)/npoints))	
+		#shortPres=longPres[::stride]
+		#shorttemp=longtemp[::stride]
+		
+		#Subset by sampling
+		n=np.floor(npoints*len(longPres))
+		sam=np.random.randint(0, len(longPres),int( n))
+		shortPres=longPres[sam]
+		shorttemp=longtemp[sam]
 		#Add last point
 		lastPres=longPres[-1]
 		lasttemp=longtemp[-1]
-		
+		firstPres=longPres[0]
+		firsttemp=longtemp[0]
 		if lastPres in shortPres:
 			pass
 		else:
 			shorttemp=np.append(shorttemp, lasttemp)
 			shortPres=np.append(shortPres, lastPres)
-
+		if firstPres in shortPres:
+			pass
+		else:
+			shorttemp=np.insert(shorttemp, 0, firsttemp)
+			shortPres=np.insert(shortPres, 0, firstPres)
 	#Create interpolation function from shortened dataset
 		f=interpolate.interp1d(shortPres, shorttemp, fill_value='extrapolate')
 

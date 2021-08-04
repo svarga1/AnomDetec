@@ -23,9 +23,7 @@ testf=Dataset('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/big.nc', 'r')
 
 #Fix this
 testpres=testf.variables['pres'][:,:,:]
-testpres=testpres[:,100:int(testpres.shape[1]-100),:]
 testtemp=testf.variables['temp'][:,:,:]
-testtemp=testtemp[:,100:int(testtemp.shape[1]-100),:]
 
 
 #Read in Data
@@ -104,7 +102,13 @@ layers.Cropping1D(cropping=(1,0))
 	x_test_pres.mask=mas
 	x_test=x_test.compressed()
 	x_test_pres=x_test_pres.compressed()
-	x_test_norm=np.reshape((x_test-training_mean)/training_std,  testpres.shape)  #Fix this
+
+	x_test_pres=np.reshape(x_test_pres, [1, len(x_test_pres), 1])
+	x_test=np.reshape(x_test, [1,len(x_test), 1])
+	x_test=x_test[:, 100:int(x_test.shape[1])-100,:]
+	x_test_pres=x_test_pres[:,100:int(x_test_pres.shape[1])-100,:]
+	
+	x_test_norm=(x_test-training_mean)/training_std
 
 	#Test predictions
 	x_test_pred=model.predict(x_test_norm)
@@ -115,13 +119,13 @@ layers.Cropping1D(cropping=(1,0))
 	print(x_test_pred.shape)
 	print(x_test_norm.shape)
 	print(anomalies)
-	print(anomalies.shape)
+	print(anomalies[0,:,0].shape)
 
 
 	#Outlier ID plot
 	fig, ax = plt.subplots(1,2, sharex='row', sharey='row', figsize=(10,10))
 	ax[0].scatter(x_test, x_test_pres, 4, color='blue')
-	ax[1].scatter(x_test[anomalies[0,:,0].flatten()], x_test_pres[anomalies[0,:,0].flatten()], 4, color='red')
+	ax[1].scatter(x_test[0,anomalies[0,:,0],0], x_test_pres[0,anomalies[0,:,0],0], 4, color='red')
 	ax[0].set_xlabel('Temperature (C)')
 	ax[0].set_ylabel('Pressure (hPa)')
 	ax[0].invert_yaxis()
@@ -146,8 +150,8 @@ layers.Cropping1D(cropping=(1,0))
 	predUN=x_test_pred[0,:,0]*training_std+training_mean
 	OMR=x_test-predUN
 	fig, ax = plt.subplots()	
-	ax.scatter(OMR, x_test_pres, 4, color= 'blue')
-	ax.scatter(OMR[anomalies[0,:,0].flatten()], x_test_pres[anomalies[0,:,0].flatten()], 4, color='red')
+	ax.scatter(OMR[0,:,0], x_test_pres[0,:,0], 4, color= 'blue')
+	ax.scatter(OMR[0,anomalies[0,:,0],0], x_test_pres[0,anomalies[0,:,0],0], 4, color='red')
 	ax.set_title('OMR Profile')
 	ax.set_ylabel('Pressure (hPa)')
 	ax.set_xlabel('OMR (C)')
@@ -158,8 +162,8 @@ layers.Cropping1D(cropping=(1,0))
 
 	#OMI Hist
 	fig, ax = plt.subplots(1,2, sharex='row', sharey='row')
-	ax[0].hist(OMR)
-	ax[1].hist(OMR[anomalies[0,:,0].flatten()])
+	ax[0].hist(OMR[0,:,0])
+	ax[1].hist(OMR[0,anomalies[0,:,0],0])
 	ax[0].set_title('Full OMR')
 	ax[1].set_title('Anomaly OMR')
 	ax[0].set_xlabel('OMR (C)')

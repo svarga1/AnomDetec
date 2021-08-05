@@ -34,8 +34,8 @@ for filepath in Path('/work/noaa/da/svarga/anomDetec/AnomDetecBufr/terpinput').g
 	temp=fid.variables['temp'][:,:,:]
 
 	#Chunk- Drop the first and last 100-- fix this
-	temp=temp[:,100:int(temp.shape[1]-100),:]
-	pres=pres[:,100:int(pres.shape[1]-100),:]
+	temp=temp[:,1500:int(temp.shape[1]-1500),:]
+	pres=pres[:,1500:int(pres.shape[1]-1500),:]
 
 	#ML Preprocessing
 	training_mean=temp.mean()
@@ -105,8 +105,8 @@ layers.Cropping1D(cropping=(1,0))
 
 	x_test_pres=np.reshape(x_test_pres, [1, len(x_test_pres), 1])
 	x_test=np.reshape(x_test, [1,len(x_test), 1])
-	x_test=x_test[:, 100:int(x_test.shape[1])-100,:]
-	x_test_pres=x_test_pres[:,100:int(x_test_pres.shape[1])-100,:]
+	x_test=x_test[:, 1500:int(x_test.shape[1])-1500,:]
+	x_test_pres=x_test_pres[:,1500:int(x_test_pres.shape[1])-1500,:]
 	
 	x_test_norm=(x_test-training_mean)/training_std
 
